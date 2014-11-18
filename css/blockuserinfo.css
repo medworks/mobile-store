@@ -1,0 +1,57 @@
+.header_user_info {
+  float: right;
+}
+@media (max-width: 767px) {
+  .header_user_info {
+    width: 100%;
+    text-align: center;
+  }
+}
+.header_user_info a {
+  color: #7E7E7E;
+  font-weight: normal;
+  display: block;
+  padding: 8px 9px 11px 8px;
+  cursor: pointer;
+}
+@media (max-width: 479px) {
+  .header_user_info a {
+    font-size: 13px;
+  }
+}
+.header_user_info a:hover, .header_user_info a.active {
+  color: #E76453;
+}
+.header_user_info li {
+  float: left;
+}
+@media (max-width: 767px) {
+  .header_user_info li {
+    float: none;
+    display: inline-block;
+  }
+}
+.header_user_info .login {
+  background: url("../../../img/login.png") no-repeat scroll left 10px transparent;
+  padding-left: 20px;
+}
+.header_user_info .login:hover {
+  background-position: left -27px;
+  transition: none;
+}
+.header_user_info .logout {
+  background: url("../../../img/login.png") no-repeat scroll left -64px transparent;
+  padding-left: 20px;
+}
+.header_user_info .logout:hover {
+  background-position: left -101px;
+  transition: none;
+}
+.header_user_info .account {
+  background: url("../../../img/login.png") no-repeat scroll left -139px transparent;
+  padding-left: 20px;
+}
+.header_user_info .account:hover {
+  background-position: left -176px;
+  transition: none;
+}

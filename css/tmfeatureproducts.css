@@ -1,0 +1,6 @@
+#featured-products_block_center	{ 
+    border-radius: 5px;
+    margin-top: 18px;
+    padding:0;
+    position: relative;}
+#featured-products_block_center li.last_item_of_line  {margin-right:0;}
