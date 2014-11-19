@@ -4834,6 +4834,7 @@ h1,h2,h3,h4,h5,h6,p,span,a,strong,input{
   font-weight: normal !important;
   font-style: normal !important;
   direction: rtl;
+  text-align: right;
 }
 h1{
   font-size: 50px !important;
@@ -10661,9 +10662,9 @@ div.star.star_hover:after {
 }
 
 .menu_inner {
-  float: left;
+  float: right;
   list-style-type: none;
-  padding: 1px 0 1px 4px;
+  padding: 1px 0px 1px 4px;
 }
 @media (min-width: 980px) and (max-width: 1019px) {
   .menu_inner {
@@ -10696,6 +10697,7 @@ div.star.star_hover:after {
 
 .active .cate_inner {
   border-radius: 5px 5px 0 0;
+  margin-right: 4px;
 }
 
 #left_categorytitle {
@@ -10724,7 +10726,7 @@ div.star.star_hover:after {
 
 .cat_title {
   display: inline-block;
-  float: left;
+  float: right;
   height: 18px;
   overflow: hidden;
   position: relative;
@@ -10734,7 +10736,7 @@ div.star.star_hover:after {
   background: url("../img/Catarrowdown.png") no-repeat scroll right center transparent;
   cursor: pointer;
   display: inline;
-  float: right;
+  float: left;
   height: 18px;
   position: relative;
   width: 25px;
@@ -10791,7 +10793,7 @@ div.star.star_hover:after {
 
 
 #tm_links_block4_header {
-  left: 20%;
+  right: 20%;
   position: absolute;
   top: 111px;
   padding: 0;
@@ -10817,8 +10819,8 @@ div.star.star_hover:after {
   }
 }
 #tm_links_block4_header ul li {
-  float: left;
-  background: url("../img/menu_saprator.png") no-repeat scroll right center transparent;
+  float: right;
+  background: url("../img/menu_saprator.png") no-repeat scroll left center transparent;
 }
 @media (max-width: 767px) {
   #tm_links_block4_header ul li {
@@ -11193,7 +11195,7 @@ div.star.star_hover:after {
 #left_column,
 #center_column,
 #right_column {
-  float: left;
+  float: right;
 }
 
 .column.col-xs-12.accordion,
@@ -11360,7 +11362,7 @@ div.selector select {
 .cur-label {display:none;}
 
 #center_column {
-  padding-right: 0;
+  padding-left: 0;
 }
 @media (max-width: 767px) {
   #center_column {

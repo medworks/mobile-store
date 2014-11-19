@@ -15,7 +15,7 @@
   border-radius: 5px 5px 5px 5px;
   -webkit-border-radius: 5px 5px 5px 5px;
   -moz-border-radius: 5px 5px 5px 5px;
-  border-right: 1px solid #CBCACA;
+  border-left: 1px solid #CBCACA;
   border-top: 1px solid #CBCACA;
   box-shadow: 0 -2px 2px rgba(105, 105, 105, 0.12) inset;
   -webkit-box-shadow: 0 -2px 2px rgba(105, 105, 105, 0.12) inset;
@@ -47,7 +47,7 @@
   padding: 0 4px 4px;
   width: 196px;
   z-index: 1;
-  float: left;
+  float: right;
   /* fallback/image non-cover color */
   background-color: #d8d7d3;
   /* Firefox 3.6+ */
@@ -179,7 +179,7 @@
 
 .sf-menu li ul {
   display: none;
-  left: 97%;
+  right: 97%;
   top: 0px;
   /* match top ul list item height */
   z-index: 9;
