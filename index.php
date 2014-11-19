@@ -71,93 +71,6 @@
 						<div class="row"></div>
 					</div>
 				</div>
-				<div class="nav">
-					<div class="container">
-						<div class="row">
-							<nav><!-- Block user information module NAV  -->
-								<div class="header_user_info">
-									<ul>
-										<li class="li_login last">
-											<a class="login" href="http://prestashop-demos.org/PRS06/PRS060144/en/my-account" rel="nofollow" title="Login to your customer account"></a>
-										</li>
-									</ul>
-								</div>
-								<!-- /Block usmodule NAV --><!-- Block currencies module -->
-								<div id="currencies-block-top">
-									<form id="setCurrency" action="/PRS06/PRS060144/en/" method="post">
-										<div class="current">
-											<input name="id_currency" id="id_currency" value="" type="hidden">
-											<input name="SubmitCurrency" value="" type="hidden">
-											<span class="cur-label">Currency :</span>
-											<strong>USD</strong>					
-										</div>
-										<ul id="first-currencies" class="currencies_ul toogle_content">
-											<li class="selected">
-												<a href="javascript:setCurrency(1);" rel="nofollow" title="Dollar">
-													Dollar
-												</a>
-											</li>
-											<li>
-												<a href="javascript:setCurrency(2);" rel="nofollow" title="Euro">
-													Euro
-												</a>
-											</li>
-											<li>
-												<a href="javascript:setCurrency(3);" rel="nofollow" title="Pound">
-													Pound
-												</a>
-											</li>
-										</ul>
-									</form>
-								</div>
-								<!-- /Block currencies module -->
-								<!-- Block languages module -->
-								<div id="languages-block-top" class="languages-block">
-									<div class="current">
-										<span>English</span>
-									</div>												
-									<ul id="first-languages" class="languages-block_ul toogle_content">
-										<li class="selected">
-											<img src="http://prestashop-demos.org/PRS06/PRS060144/img/l/1.jpg" alt="en" height="11" width="16">
-											<span>English</span>
-										</li>
-										<li>
-											<a href="http://prestashop-demos.org/PRS06/PRS060144/de/" title="Deutsch (German)">
-												<img src="http://prestashop-demos.org/PRS06/PRS060144/img/l/2.jpg" alt="de" height="11" width="16">
-												<span>Deutsch</span>
-											</a>
-										</li>
-										<li>
-											<a href="http://prestashop-demos.org/PRS06/PRS060144/cs/" title="Czech">
-												<img src="http://prestashop-demos.org/PRS06/PRS060144/img/l/3.jpg" alt="cs" height="11" width="16">
-												<span>Czech</span>
-											</a>
-										</li>
-										<li>
-											<a href="http://prestashop-demos.org/PRS06/PRS060144/he/" title="Hebrew">
-												<img src="http://prestashop-demos.org/PRS06/PRS060144/img/l/4.jpg" alt="he" height="11" width="16">
-												<span>Hebrew</span>
-											</a>
-										</li>
-										<li>
-											<a href="http://prestashop-demos.org/PRS06/PRS060144/ar/" title="Arabic">
-												<img src="http://prestashop-demos.org/PRS06/PRS060144/img/l/5.jpg" alt="ar" height="11" width="16">
-												<span>Arabic</span>
-											</a>
-										</li>
-									</ul>
-								</div>
-								<!-- /Block languages module -->
-								<div id="contact-link">
-									<a href="http://prestashop-demos.org/PRS06/PRS060144/en/contact-us" title="Contact Us">Contact us</a>
-								</div>
-								<span class="shop-phone">
-									<i class="icon-phone"></i>: <strong>00-000-00-0000</strong>
-								</span>
-							</nav>
-						</div>
-					</div>
-				</div>
 				<div>
 					<div class="container">
 						<div class="row">
@@ -167,18 +80,19 @@
 								</a>
 							</div>
 							<!-- Block search module TOP -->
-							<div id="search_block_top" class="col-sm-4 clearfix">
-								<form id="searchbox" method="get" action="http://prestashop-demos.org/PRS06/PRS060144/en/search">
+							<!-- <div id="search_block_top" class="col-sm-4 clearfix">
+								<form id="searchbox" method="get" action="">
 									<input name="controller" value="search" type="hidden">
 									<input name="orderby" value="position" type="hidden">
 									<input name="orderway" value="desc" type="hidden">
-									<input kl_virtual_keyboard_secure_input="on" class="search_query form-control" id="search_query_top" name="search_query" placeholder="Search" value="" type="text">
+									<input kl_virtual_keyboard_secure_input="on" class="search_query form-control" id="search_query_top" name="search_query" value="" type="text">
 									<button type="submit" name="submit_search" class="btn btn-default button-search">
-										<span>Search</span>
+										<span>جستجو</span>
 									</button>
 								</form>
-							</div>
-							<!-- /Block search module TOP --><!-- MODULE Block cart -->
+							</div> -->
+							<!-- /Block search module TOP -->
+							<!-- MODULE Block cart -->
 							<div class="col-sm-4 block_cart clearfix">
 								<div class="shopping_cart">
 									<a href="http://prestashop-demos.org/PRS06/PRS060144/en/order" title="View my shopping cart" rel="nofollow">
