@@ -75,10 +75,10 @@
   color: #ddd;
 }
 .customNavigation a.prev {
-  right: 35px;
+  left: 11px;
 }
 .customNavigation a.next {
-  right: 13px;
+  left: 37px;
 }
 
 #views_block .customNavigation a.thumbs_list_prev {

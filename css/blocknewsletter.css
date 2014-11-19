@@ -40,8 +40,8 @@
 }
 #footer #newsletter_block_left h4 {
   background: none;
-  float: left;
-  padding: 7px 16px 5px 0;
+  float: right;
+  padding: 9px 371px 5px 0;
   text-transform: none;
   line-height: 25px;
   border: none;
@@ -84,10 +84,10 @@
   border-radius: 3px;
   box-shadow: 0 0 3px #DDDDDD;
   height: 31px;
-  margin-right: 5px;
+  margin-right: 54px;
   width: 276px;
   display: inline-block;
-  float: left;
+  float: right;
 }
 #footer #newsletter_block_left .form-group .form-control:focus {
   -webkit-box-shadow: black 0px 0px 0px;

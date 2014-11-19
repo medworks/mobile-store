@@ -147,17 +147,17 @@
   color: #E76453;
 }
 .sf-menu > li > a.sf-with-ul {
-  background: url("../../../../img/left_arrow.png") no-repeat scroll 157px center transparent;
+  background: url("../img/left_arrow.png") no-repeat scroll 5px center transparent;
   z-index: 11;
   position: relative;
 }
 @media (min-width: 768px) and (max-width: 979px) {
   .sf-menu > li > a.sf-with-ul {
-    background: url("../../../../img/left_arrow.png") no-repeat scroll 110px center transparent;
+    background: url("../img/left_arrow.png") no-repeat scroll 110px center transparent;
   }
 }
 .sf-menu > li.sfHover > a {
-  background: url("../../../../img/cate_arrow.png") no-repeat scroll right center transparent;
+  background: url("../img/cate_arrow.png") no-repeat scroll left center transparent;
   z-index: 11;
 }
 
@@ -168,18 +168,18 @@
   font-size: 13px;
   line-height: 25px;
   padding-bottom: 0px;
-  background: url("../../../../img/menudot.png") no-repeat scroll left center transparent;
-  padding-left: 13px;
+  background: url("../img/menudot.png") no-repeat scroll right center transparent;
+  padding-right: 13px;
   text-transform:capitalize;
 }
 .sf-menu li li li a:hover {
   color: #e76453;
-  background: url("../../../../img/menudot_hr.png") no-repeat scroll left center transparent;
+  background: url("../img/menudot_hr.png") no-repeat scroll right center transparent;
 }
 
 .sf-menu li ul {
   display: none;
-  right: 97%;
+  right: 94%;
   top: 0px;
   /* match top ul list item height */
   z-index: 9;
@@ -224,6 +224,7 @@
 ul.sf-menu li:hover li ul,
 ul.sf-menu li.sfHover li ul {
   top: -999em;
+  text-align: right;
 }
 
 ul.sf-menu li li:hover ul,
@@ -249,6 +250,7 @@ ul.sf-menu li li li.sfHover ul {
   padding: 15px;
   width: 100%;
   min-width: 400px;
+  text-align: right;
 }
 .sf-menu > li > ul > li > a {
   text-transform: uppercase;
