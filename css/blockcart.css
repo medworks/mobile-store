@@ -73,7 +73,7 @@
 @media (max-width: 767px) {
   .shopping_cart > a:first-child b {
     float: none;
-    background: url("../../../img/cart.png") no-repeat scroll left 3px transparent;
+    background: url("../img/cart.png") no-repeat scroll left 3px transparent;
     padding-left: 20px;
   }
 }
@@ -259,7 +259,7 @@
 #header .cart_block {
   position: absolute;
   top: 55px;
-  left: 0;
+  right: 0;
   z-index: 100;
   display: none;
   height: auto;

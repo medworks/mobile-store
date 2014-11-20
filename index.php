@@ -76,7 +76,7 @@
 						<div class="row">
 							<div id="header_logo">
 								<a href="./" title="Demo Store">
-									<img class="logo img-responsive" src="./img/logo.jpg" alt="فروشگاه موبایل" height="42" width="170">
+									<img class="logo img-responsive" src="./img/logo.jpg" alt="فروشگاه موبایل" height="100" width="100">
 								</a>
 							</div>
 							<!-- Block search module TOP -->
@@ -93,10 +93,10 @@
 							</div> -->
 							<!-- /Block search module TOP -->
 							<!-- MODULE Block cart -->
-							<div class="col-sm-4 block_cart clearfix">
+							<div class="col-sm-4 block_cart clearfix" style="float:left">
 								<div class="shopping_cart">
 									<a href="http://prestashop-demos.org/PRS06/PRS060144/en/order" title="View my shopping cart" rel="nofollow">
-										<b>سبد</b>
+										<b>سبد خرید</b>
 										<span class="ajax_cart_quantity unvisible">0</span>
 										<span class="ajax_cart_product_txt unvisible">محصول</span>
 										<span class="ajax_cart_product_txt_s unvisible">محصولات</span>
@@ -211,6 +211,7 @@
 							</div> <!-- #layer_cart -->
 							<div class="layer_cart_overlay"></div>
 							<!-- /MODULE Block cart -->
+							<div class="clearfix"></div>
 							<!-- Menu -->
 							<div id="block_top_menu" class="sf-contener clearfix col-lg-12">
 								<div class="menu_inner">
@@ -223,7 +224,7 @@
 								
 									<ul class="sf-menu clearfix menu-content">
 										<li>
-											<a href="#" title="">اکترونیکی</a>
+											<a href="#" title="">الکترونیکی</a>
 											<ul>
 												<li>
 													<a href="#" title="">موبایل</a>
@@ -518,6 +519,7 @@
 					</div>
 				</div>
 			</header>
+		</div>			
 		</div>
 		<div class="columns-container">
 			<div id="columns" class="container">
@@ -529,40 +531,27 @@
 						<!-- Block CMS module -->
 						<section id="informations_block_left_1" class="block informations_block_left">
 							<p class="title_block">
-								<a href="http://prestashop-demos.org/PRS06/PRS060144/en/content/category/1-home">
-									Information</a>
+								<a href="#">پر فروشترین ها</a>
 							</p>
 							<div class="block_content list-block">
 								<ul>
 									<li>
-										<a href="http://prestashop-demos.org/PRS06/PRS060144/en/content/1-delivery" title="Delivery">
-											Delivery
-										</a>
+										<a href="#" title="">سخت افزار</a>
 									</li>
 									<li>
-										<a href="http://prestashop-demos.org/PRS06/PRS060144/en/content/2-legal-notice" title="Legal Notice">
-											Legal Notice
-										</a>
+										<a href="#" title="">کامپیوتر</a>
 									</li>
 									<li>
-										<a href="http://prestashop-demos.org/PRS06/PRS060144/en/content/3-terms-and-conditions-of-use" title="Terms and conditions of use">
-											Terms and conditions of use
-										</a>
+										<a href="#">موبایل</a>
 									</li>
 									<li>
-										<a href="http://prestashop-demos.org/PRS06/PRS060144/en/content/4-about-us" title="About us">
-											About us
-										</a>
+										<a href="#" title="">نرم افزار</a>
 									</li>
 									<li>					
-										<a href="http://prestashop-demos.org/PRS06/PRS060144/en/content/5-secure-payment" title="Secure payment">
-											Secure payment
-										</a>
+										<a href="" title="">لوازم جانبی</a>
 									</li>
 									<li>
-										<a href="http://prestashop-demos.org/PRS06/PRS060144/en/stores" title="Our stores">
-											Our stores
-										</a>
+										<a href="" title="">هندز فری</a>
 									</li>
 								</ul>
 							</div>
@@ -571,76 +560,58 @@
 						<!-- Block manufacturers module -->
 						<div id="manufacturers_block_left" class="block blockmanufacturer">
 							<p class="title_block">
-								<a href="http://prestashop-demos.org/PRS06/PRS060144/en/manufacturers" title="Manufacturers">
-									Manufacturers
+								<a href="#" title="">
+									اطلاعات
 								</a>
 							</p>
 							<div class="block_content list-block">
 								<ul>
 									<li class="first_item">
-										<a href="http://prestashop-demos.org/PRS06/PRS060144/en/2_cum-sociis" title="More about Cum sociis">
-											Cum sociis
+										<a href="#">
+											حمل و نقل
 										</a>
 									</li>
 									<li class="item">
-										<a href="http://prestashop-demos.org/PRS06/PRS060144/en/1_duis-eu-dui" title="More about Duis eu dui">
-											Duis eu dui
+										<a href="#">
+											پرداخت امن
 										</a>
 									</li>
 									<li class="item">
-										<a href="http://prestashop-demos.org/PRS06/PRS060144/en/3_etiam-tristique" title="More about Etiam tristique">
-											Etiam tristique
+										<a href="#">
+											هزینه پستی
 										</a>
 									</li>
 									<li class="item">
-										<a href="http://prestashop-demos.org/PRS06/PRS060144/en/4_faucibus-orci" title="More about faucibus orci">
-											faucibus orci
+										<a href="#">
+											درگاه های ما
 										</a>
 									</li>
 									<li class="item">
-										<a href="http://prestashop-demos.org/PRS06/PRS060144/en/6_hewlett-packard" title="More about Hewlett-Packard">
-											Hewlett-Packard
+										<a href="">
+											راهنای پرداخت
 										</a>
-									</li>															
+									</li>		
 								</ul>
 							</div>
 						</div>
 						<!-- /Block manufacturers module -->
-						<!-- Block suppliers module -->
-						<div id="suppliers_block_left" class="block blocksupplier">
-							<p class="title_block">
-								<a href="http://prestashop-demos.org/PRS06/PRS060144/en/supplier" title="Suppliers">
-								Suppliers
-								</a>
-							</p>
-							<div class="block_content list-block">
-								<ul>
-									<li class="last_item">
-		            					<a href="http://prestashop-demos.org/PRS06/PRS060144/en/1__fashion-supplier" title="More about Fashion Supplier">
-					                Fashion Supplier
-		            					</a>
-		            				</li>
-								</ul>
-							</div>
-						</div>
-						<!-- /Block suppliers module -->
 						<!-- Block links module -->
 						<div id="tm_links_block2" class="block tm_links_block2">
-							<h4 class="title_block">
-									<a href="#" title="Our Offers">Our Offers</a>
-								</h4>
+							<p class="title_block">
+								<a href="#" title="">پشتیبانی</a>
+							</p>
 							<ul class="block_content list-block">
 								<li>
-									<a href="#" title="Best Sellers">Best Sellers</a>
+									<a href="#" title="">ضمانت تعویض</a>
 								</li> 
 								<li>
-									<a href="#" title="Specials">Specials</a>
+									<a href="#" title="">ضمانت مرجوعی</a>
 								</li> 
 								<li>
-									<a href="#" title="About us">About us</a>
+									<a href="#" title="">دلویری فوری</a>
 								</li>	 
 								<li>
-									<a href="#" title="Rules">Rules</a>
+									<a href="#" title="">پرداخت امن</a>
 								</li>
 							</ul>
 						</div>
@@ -649,7 +620,7 @@
 						   <ul>
            	                    <li class="tmleftbanner-container">
 				                   	<a href="#" title="LeftBanner 1">
-				                    	<img src="http://prestashop-demos.org/PRS06/PRS060144/modules/tmleftbanner/img/left-banner-1.jpg" alt="LeftBanner 1">
+				                    	<img src="./img/product/3-1.jpg" alt="">
 				                    </a> 
                     			</li>
 						    </ul>
@@ -787,7 +758,7 @@
 															<img class="replace-2x img-responsive" src="./img/product/1.jpg" alt="" title="" itemprop="image" height="173" width="173">
 														</a>
 														<a class="quick-view" href="#">
-															<span>نمایش سریع</span>
+															<span>نمایش</span>
 														</a>
 														<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
 															<span itemprop="price" class="price product-price">152000 ریال</span>
@@ -868,7 +839,7 @@
 														<a class="product_img_link" href="#" title="" itemprop="url">
 															<img class="replace-2x img-responsive" src="./img/product/1.jpg" alt="" title="" itemprop="image" height="173" width="173">
 														</a>
-														<a class="quick-view" href="">
+														<a class="quick-view" href="#">
 															<span>نمایش</span>
 														</a>
 														<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
@@ -890,7 +861,7 @@
 														</a>
 													</h5>
 													<div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer" class="content_price">
-														<span itemprop="price" class="price product-price">15000 vdhg</span>
+														<span itemprop="price" class="price product-price">15000 ریال</span>
 														<meta itemprop="priceCurrency" content="1">
 													</div>
 													<div class="button-container">			<a class="button ajax_add_to_cart_button btn btn-default" href="#" rel="nofollow" title="Add to cart" data-id-product="17">
@@ -1124,7 +1095,7 @@
 														<meta itemprop="priceCurrency" content="1">
 													</div>
 													<div class="button-container">
-														<a class="button ajax_add_to_cart_button btn btn-default" href="" rel="nofollow" title="Add to cart" data-id-product="2">
+														<a class="button ajax_add_to_cart_button btn btn-default" href="#" rel="nofollow" title="Add to cart" data-id-product="2">
 															<span>اضافه به سبد</span>
 														</a>
 													</div>
@@ -1206,7 +1177,7 @@
 														<meta itemprop="priceCurrency" content="1">
 													</div>
 													<div class="button-container">
-														<a class="button ajax_add_to_cart_button btn btn-default" href="" rel="nofollow" title="Add to cart" data-id-product="2">
+														<a class="button ajax_add_to_cart_button btn btn-default" href="#" rel="nofollow" title="Add to cart" data-id-product="2">
 															<span>اضافه به سبد</span>
 														</a>
 													</div>
@@ -1244,7 +1215,7 @@
 														<meta itemprop="priceCurrency" content="1">
 													</div>
 													<div class="button-container">
-														<a class="button ajax_add_to_cart_button btn btn-default" href="" rel="nofollow" title="Add to cart" data-id-product="2">
+														<a class="button ajax_add_to_cart_button btn btn-default" href="#" rel="nofollow" title="Add to cart" data-id-product="2">
 															<span>اضافه به سبد</span>
 														</a>
 													</div>
@@ -1282,7 +1253,7 @@
 														<meta itemprop="priceCurrency" content="1">
 													</div>
 													<div class="button-container">
-														<a class="button ajax_add_to_cart_button btn btn-default" href="" rel="nofollow" title="Add to cart" data-id-product="2">
+														<a class="button ajax_add_to_cart_button btn btn-default" href="#" rel="nofollow" title="Add to cart" data-id-product="2">
 															<span>اضافه به سبد</span>
 														</a>
 													</div>
@@ -1320,7 +1291,7 @@
 														<meta itemprop="priceCurrency" content="1">
 													</div>
 													<div class="button-container">
-														<a class="button ajax_add_to_cart_button btn btn-default" href="" rel="nofollow" title="Add to cart" data-id-product="2">
+														<a class="button ajax_add_to_cart_button btn btn-default" href="#" rel="nofollow" title="Add to cart" data-id-product="2">
 															<span>اضافه به سبد</span>
 														</a>
 													</div>
@@ -1358,7 +1329,7 @@
 														<meta itemprop="priceCurrency" content="1">
 													</div>
 													<div class="button-container">
-														<a class="button ajax_add_to_cart_button btn btn-default" href="" rel="nofollow" title="Add to cart" data-id-product="2">
+														<a class="button ajax_add_to_cart_button btn btn-default" href="#" rel="nofollow" title="Add to cart" data-id-product="2">
 															<span>اضافه به سبد</span>
 														</a>
 													</div>
@@ -1383,9 +1354,9 @@
 						<div class="block_content">
 							<form action="http://prestashop-demos.org/PRS06/PRS060144/en/" method="post">
 								<div class="form-group">
-									<input kl_virtual_keyboard_secure_input="on" class="inputNew form-control grey newsletter-input" id="newsletter-input" name="email" size="18" value="Enter your e-mail" type="text">
+									<input kl_virtual_keyboard_secure_input="on" class="inputNew form-control grey newsletter-input" id="newsletter-input" name="email" size="18" value="ایمیل" type="text">
 					                <button type="submit" name="submitNewsletter" class="btn btn-default button button-small">
-					                    <span>Ok</span>
+					                    <span>ثبت</span>
 					                </button>
 									<input name="action" value="0" type="hidden">
 								</div>
@@ -1417,87 +1388,87 @@
 					<!-- Block links module -->
 					<section class="footer-block col-xs-12 col-sm-3" id="tm_links_block1_footer">
 						<h4 class="title_block">
-								<a href="#" title="Information">Information</a>
-							</h4>
+							<a href="#" title="Information">اطلاعات</a>
+						</h4>
 						<div class="block_content toggle-footer">
 							<ul class="bullet">
 									 
 								<li>
-								<a href="#" title="New Products">New Products</a></li>
+								<a href="#" title="New Products">محصولات جدید</a></li>
 										 
 								<li>
-								<a href="#" title="Specials">Specials</a></li>
+								<a href="#" title="Specials">محصولات ویژه</a></li>
 										 
 								<li>
-								<a href="#" title="About us">About us</a></li>
+								<a href="#" title="About us">درباره ما</a></li>
 										 
 								<li>
-								<a href="#" title="Secure payment">Secure payment</a></li>
-									</ul>
+								<a href="#" title="Secure payment">سیستم امن پرداخت</a></li>
+							</ul>
 						</div>
 					</section>
 					<!-- /Block links module -->
 					<!-- Block links module -->
 					<section class="footer-block col-xs-12 col-sm-3" id="tm_links_block2_footer">
 						<h4 class="title_block">
-								<a href="#" title="Our Offers">Our Offers</a>
-							</h4>
+							<a href="#" title="Our Offers">پیشنهادهای خاص</a>
+						</h4>
 						<div class="block_content toggle-footer">
 							<ul class="bullet">
-									 
 								<li>
-								<a href="#" title="Best Sellers">Best Sellers</a></li>
-										 
+									<a href="#" title="Best Sellers">بیشترین فروش</a></li>	 
 								<li>
-								<a href="#" title="Specials">Specials</a></li>
-										 
+									<a href="#" title="Specials">محصولات خاص</a></li>	 
 								<li>
-								<a href="#" title="About us">About us</a></li>
-										 
+									<a href="#" title="About us">درباره ما</a></li>
 								<li>
-								<a href="#" title="Rules">Rules</a></li>
-									</ul>
+									<a href="#" title="Rules">فروشگاه ما</a>
+								</li>
+							</ul>
 						</div>
 					</section>
 					<!-- /Block links module -->
 					<!-- Block links module -->
 					<section class="footer-block col-xs-12 col-sm-3" id="tm_links_block3_footer">
 						<h4 class="title_block">
-								<a href="#" title="Extra Links">Extra Links</a>
-							</h4>
+							<a href="#" title="Extra Links">لینک های مفید</a>
+						</h4>
 						<div class="block_content toggle-footer">
-							<ul class="bullet">
-									 
+							<ul class="bullet">	 
 								<li>
-								<a href="#" title="Best Sellers">Best Sellers</a></li>
-										 
+									<a href="#" title="Best Sellers">لینک بانک ملت</a>
+								</li>	 
 								<li>
-								<a href="#" title="New Products">New Products</a></li>
-										 
+									<a href="#" title="New Products">لینک بانک کشاورزی</a>
+								</li>	 
 								<li>
-								<a href="#" title="Specials">Specials</a></li>
-										 
+									<a href="#" title="Specials">لینک به پرداخت</a>
+								</li> 
 								<li>
-								<a href="#" title="Our stores">Our stores</a></li>
-									</ul>
+									<a href="#" title="Our stores">لینک وزارت صنایع</a>
+								</li>
+							</ul>
 						</div>
 					</section>
 					<!-- /Block links module -->
 					<!-- MODULE Block contact infos -->
 					<section id="block_contact_infos" class="footer-block col-xs-12 col-sm-3">
 						<div>
-					        <h4>Store Information</h4>
+					        <h4 class="title_block">
+								<a href="#" title="Extra Links">اطلاعات فروشگاه</a>
+							</h4>
 					        <ul class="toggle-footer">
 					            <li>
-					        		<i class="icon-map-marker"></i>My Company, 42 avenue des Champs Elysées 75000 Paris France
+					        		<i class="icon-map-marker"></i>
+					        		آدرس: قاسم آباد، میدان مادرريال..
 					        	</li>
 					            <li>
-					        		<i class="icon-phone"></i>Call us now: 
-					        		<span>0123-456-789</span>
+					        		<i class="icon-phone"></i>تلفن تماس: 
+					        		<span style="display:inline-block;" class="ltr">98-51-3766 6436</span>
 					        	</li>
 					            <li>
-					        		<i class="icon-envelope-alt"></i>Email: 
-					        		<span><a href="mailto:%73%61%6c%65%73@%79%6f%75%72%63%6f%6d%70%61%6e%79.%63%6f%6d">sales@yourcompany.com</a></span>
+					        		<i class="icon-envelope-alt"></i>ایمیل: 
+					        		<span><a href="#">my@email.com</a></span>
 					        	</li>
 					       </ul>
 					    </div>
@@ -1505,51 +1476,41 @@
 					<!-- /MODULE Block contact infos -->
 					<!-- MODULE Block footer -->
 					<section class="footer-block col-xs-12 col-sm-2" id="block_various_links_footer">
-						<h4>Information</h4>
+						<h4 class="title_block">
+							<a href="#" title="Extra Links">منوی سایت</a>
+						</h4>
 						<ul class="toggle-footer">
-											<li class="first_item">
-									<a href="http://prestashop-demos.org/PRS06/PRS060144/en/prices-drop" title="Specials">
-										Specials
-									</a>
-								</li>
-													<li class="item">
-								<a href="http://prestashop-demos.org/PRS06/PRS060144/en/new-products" title="New products">
-									New products
-								</a>
+							<li class="first_item">
+								<a href="#" title="">صفحه اصلی</a>
 							</li>
-														<li class="item">
-									<a href="http://prestashop-demos.org/PRS06/PRS060144/en/best-sales" title="Best sellers">
-										Best sellers
-									</a>
-								</li>
-														<li class="item">
-									<a href="http://prestashop-demos.org/PRS06/PRS060144/en/stores" title="Our stores">
-										Our stores
-									</a>
-								</li>
-													<li class="item">
-								<a href="http://prestashop-demos.org/PRS06/PRS060144/en/contact-us" title="Contact us">
-									Contact us
-								</a>
+							<li class="item">
+								<a href="#" title="">درباره ما</a>
 							</li>
-																<li>
-								<a href="http://prestashop-demos.org/PRS06/PRS060144/en/sitemap" title="Sitemap">
-									Sitemap
-								</a>
+							<li class="item">
+								<a href="#" title="">محصولات</a>
+							</li>
+							<li class="item">
+								<a href="#" title="">راهنمای خرید</a>
+							</li>
+							<li class="item">
+								<a href="#" title="">تماس با ما</a>
+							</li>
+							<li>
+								<a href="#" title="">نقشه سایت</a>
 							</li>
 						</ul>
 					</section>
 					<section class="bottom-footer col-xs-12">
-						<div>© 2014 <a class="_blank" href="http://www.prestashop.com">Ecommerce software by PrestaShop™</a></div>
+						<div>© 2014 <a class="_blank" href="http://www.mediateq.ir" target="_blank">Ecommerce software by Mediateq™</a></div>
 					</section>
 					<!-- /MODULE Block footer -->
 
 					<!-- Block payment logo module -->
 					<div id="paiement_logo_block_left" class="paiement_logo_block">
-						<a href="http://prestashop-demos.org/PRS06/PRS060144/en/content/1-delivery">
-							<img src="http://prestashop-demos.org/PRS06/PRS060144/themes/PRS060144/img/pay-pal.png" alt="visa" height="30" width="45">
-							<img src="http://prestashop-demos.org/PRS06/PRS060144/themes/PRS060144/img/visa.png" alt="mastercard" height="30" width="45">
-							<img src="http://prestashop-demos.org/PRS06/PRS060144/themes/PRS060144/img/visa-electron.png" alt="paypal" height="30" width="45">
+						<a href="javascript:void();">
+							<img src="./img/bank-mellat.png" alt="" height="30" width="45">
+							<img src="./img/bank-melli.png" alt="" height="30" width="45">
+							<img src="./img/bank-pasargad.png" alt="" height="30" width="45">
 						</a>
 					</div>
 					<!-- /Block payment logo module -->

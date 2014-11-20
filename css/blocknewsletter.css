@@ -52,6 +52,10 @@
 @media (max-width: 767px) {
   #footer #newsletter_block_left h4 {
     font-size: 16px;
+    padding-right: 0;
+  }
+  #footer #newsletter_block_left .form-group .form-control{
+    margin-right: 14px!important;
   }
 }
 @media (max-width: 479px) {

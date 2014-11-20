@@ -308,6 +308,7 @@ textarea {
 a {
   color: #666666;
   text-decoration: none;
+  font-size: 17px;
 }
 a:hover, a:focus {
   color: #e76453;
@@ -749,7 +750,7 @@ header .row #header_logo,
 .col-lg-12 {
   position: relative;
   min-height: 1px;
-  padding-left: 10px;
+  padding-right: 10px;
   padding-right: 10px;
 }
 
@@ -832,7 +833,7 @@ header .row #header_logo,
   .col-sm-9,
   .col-sm-10,
   .col-sm-11 {
-    float: left;
+    float: right;
   }
 
   .col-sm-1 {
@@ -6803,9 +6804,9 @@ header .row > .container {
   position: relative;
 }
 header .row #header_logo {
-  padding-top: 36px;
+  /*padding-top: 36px;*/
   padding-right: 0;
-  margin-bottom: 34px;
+  /*margin-bottom: 34px;*/
    float: right;
   width: auto;
 }
@@ -7550,7 +7551,7 @@ table.table_block td {
 }
 
 .product-name {
-  font-size: 14px;
+  font-size: 18px;
   line-height: 23px;
   color: #E76453;
   margin-bottom: 0;
@@ -7964,8 +7965,8 @@ table.table_block td {
     font-family: "FontAwesome";
     content: "";
     position: absolute;
-    right: -20px;
-    top: 10px;
+    right: -5px;
+    top: 7px;
     height: 36px;
     width: 36px;
     font-size: 16px;
@@ -7980,13 +7981,14 @@ table.table_block td {
 .block .title_block a,
 .block h4 a {
   color: #E76453;
+  font-size: 18px;
 }
 .block .title_block a:hover,
 .block h4 a:hover {
   color: #777777;
 }
 .block .centertitle_block {
-  font: 15px/22px "Open Sans", sans-serif;
+  font: 25px "bmitra" !important;
   color: #E76453;
   text-transform: capitalize;
   padding: 7px;
@@ -7999,6 +8001,7 @@ table.table_block td {
 }
 .block .centertitle_block a {
   color: #E76453;
+  font-size: 25px;
 }
 .block .centertitle_block a:hover {
   color: #777777;
@@ -8010,6 +8013,7 @@ table.table_block td {
 }
 .block .list-block li {
   padding: 5px 0 6px 0;
+  text-align: right;
 }
 .block .list-block li a i {
   display: none;
@@ -8900,6 +8904,10 @@ div.star a:hover {
   .footer-container #footer h4.active:after {
     content: "\f056";
   }
+
+  .footer-container h4{
+    padding-right: 35px;
+  }
 }
 .footer-container #footer h4 a {
   color: #E76453;
@@ -8907,11 +8915,11 @@ div.star a:hover {
 }
 .footer-container #footer .block_content ul li {
   line-height: 24px;
-  background: url("../img/footerdot.png") no-repeat scroll left center transparent;
-  padding-left: 13px;
+  background: url("../img/footerdot.png") no-repeat scroll right center transparent;
+  padding-right: 13px;
 }
 .footer-container #footer .block_content ul li:hover {
-  background: url("../img/footerdot_hover.png") no-repeat scroll left center transparent;
+  background: url("../img/footerdot_hover.png") no-repeat scroll right center transparent;
 }
 .footer-container #footer .block_content ul li a {
   font-weight: normal;
@@ -10623,8 +10631,8 @@ div.star.star_hover:after {
 .footer-container #footer #block_various_links_footer ul li {
   display: inline-block;
   margin-right: 5px;
-  background: url("../img/pipe.png") no-repeat scroll left center transparent;
-  padding-left: 10px;
+  background: url("../img/pipe.png") no-repeat scroll right center transparent;
+  padding-right: 10px;
 }
 .footer-container #footer #block_various_links_footer ul li.first_item {
   background: none;
@@ -10704,9 +10712,9 @@ div.star.star_hover:after {
   background-image: none;
   border-radius: 5px;
   color: #FFFFFF;
-  float: left;
+  float: right;
   font-family: open sans;
-  font-size: 14px;
+  font-size: 22px;
   padding: 8px 5px;
   text-align: left;
   width: 182px;
@@ -10794,7 +10802,7 @@ div.star.star_hover:after {
 #tm_links_block4_header {
   right: 20%;
   position: absolute;
-  top: 111px;
+  top: 99px;
   padding: 0;
 }
 @media (max-width: 979px) {
@@ -10830,8 +10838,8 @@ div.star.star_hover:after {
 #tm_links_block4_header ul li a {
   color: #211F20;
   cursor: pointer;
-  float: left;
-  font-size: 14px;
+  float: right;
+  font-size: 17px;
   font-weight: normal;
   padding: 14px 17px;
   text-transform: capitalize;
@@ -10985,6 +10993,7 @@ div.star.star_hover:after {
   height: 60px;
   padding-top: 16px;
   padding-right: 7px;
+  font-size: 20px;
 }
 @media (max-width: 767px) {
   .subbanner .data {
@@ -11051,7 +11060,7 @@ div.star.star_hover:after {
 }
 
 #block_top_menu {
-  margin-top: 35px;
+  /*margin-top: 35px;*/
   padding: 0;
 }
 @media (min-width: 768px) and (max-width: 979px) {
@@ -11140,7 +11149,7 @@ width: 27%;
 }
 #tmcmsinfo_block a {
   color: #8C8C8C;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 15px;
   display: block;
 }
