@@ -1,0 +1,184 @@
+.jqueryslidemenu ul{
+padding: 0;
+margin: 5px 0px 0px 30px;
+list-style-type: none;
+float:left;
+z-index:9;
+}
+
+/*Top level list items*/
+.jqueryslidemenu ul li{
+position: relative;
+display: inline;
+float: left;
+text-align:center;
+}
+.jqueryslidemenu ul li.bg{
+	color:#454545;
+	text-decoration:none;
+}
+.jqueryslidemenu ul li.bg:hover{
+	background-image:url(../images/navi_rol.gif);
+	 background-repeat:repeat-x;
+	 color:#fff;
+}
+.jqueryslidemenu ul li.bg:hover a{
+	 color:#fff;
+}
+.jqueryslidemenu ul li a.home {
+	 background-image:url(../images/home.png);
+	 background-repeat:no-repeat;
+	 background-position:top center;
+	 height:23px;
+	 display: inline-block;
+	 padding:33px 13px 0px 13px;
+	 color:#454545;
+	 min-width:56px;
+	}
+	.jqueryslidemenu ul li a.home:hover {
+	 color:#fff;
+	}
+	.jqueryslidemenu ul li a.about:hover {
+	 color:#fff;
+	}
+	.jqueryslidemenu ul li a.how:hover {
+	 color:#fff;
+	}
+	.jqueryslidemenu ul li a.browse:hover {
+	 color:#fff;
+	}
+	.jqueryslidemenu ul li a.about {
+	 background-image:url(../images/about.png);
+	 background-repeat:no-repeat;
+	 background-position:top center;
+	 height:23px;
+	 display: inline-block;
+	 padding:33px 13px 0px 13px;
+	 color:#454545;
+	 min-width:56px;
+	}
+	.jqueryslidemenu ul li a.how {
+	 background-image:url(../images/how.png);
+	 background-repeat:no-repeat;
+	 background-position:top center;
+	 height:23px;
+	 display: inline-block;
+	 padding:33px 13px 0px 13px;
+	 color:#454545;
+	 min-width:56px;
+	}
+	.jqueryslidemenu ul li a.browse {
+	 background-image:url(../images/browse.png);
+	 background-repeat:no-repeat;
+	 background-position:top center;
+	 height:23px;
+	 display: inline-block;
+	 padding:33px 13px 0px 13px;
+	 color:#454545;
+	 min-width:56px;
+	}
+/*Top level menu link items style*/
+.jqueryslidemenu ul li a{
+display: block;
+color:#454545;
+padding: 8px 10px;
+color: #2d2b2b;
+text-decoration: none;
+}
+
+* html .jqueryslidemenu ul li a{ /*IE6 hack to get sub menu links to behave correctly*/
+display: inline-block;
+}
+
+.jqueryslidemenu ul li a:link, .jqueryslidemenu ul li a:visited{
+
+}
+
+.jqueryslidemenu ul li a:hover{
+
+}
+	
+/*1st sub level menu*/
+.jqueryslidemenu ul li ul{
+position: absolute;
+left: 0;
+display: block;
+visibility: hidden;
+margin-top:0px !important;
+margin-left:-4px !important;
+position:absolute;
+z-index:9 !important;	
+}
+
+/*Sub level menu list items (undo style from Top level List Items)*/
+.jqueryslidemenu ul li ul li.links{
+float: none;
+background-color:#e3e3e3;
+width:125px;
+margin-left:9px;
+padding: 3px 0px 3px 1px;
+float:left;
+}
+.jqueryslidemenu ul li ul li.first{
+	background-image:url(../images/box1-top.png);
+	background-repeat:no-repeat;
+	background-position:top left;
+	padding: 18px 0px 0px 9px !important;
+	background-color:transparent  !important;
+	width:126px !important;
+	margin-left:0px !important;
+	float:left;
+}
+.jqueryslidemenu ul li ul li.first a{
+	width:106px !important;
+}
+.jqueryslidemenu ul li ul li a{
+	padding-top:5px !important;
+	padding-bottom:5px !important;
+	color: #2d2b2b !important;
+}
+.jqueryslidemenu ul li ul li a:hover{
+	background-image:url(../images/navi_bg.gif);
+			background-repeat:repeat-x;
+}
+.jqueryslidemenu ul li ul li.last{
+	background:url(../images/box1-bottom.png) no-repeat bottom left;
+	padding: 0px 0px 5px 0px !important;
+	background-color:transparent !important;
+	width:126px !important;
+	margin-left:9px !important;
+}
+.jqueryslidemenu ul li ul li.last a{
+	padding-left:12px !important;
+}
+/*All subsequent sub menu levels vertical offset after 1st level sub menu */
+.jqueryslidemenu ul li ul li ul{
+top: 0;
+}
+
+/* Sub level menu links style */
+.jqueryslidemenu ul li ul li a{
+
+margin: 0;
+border-top-width: 0;
+text-align:left;
+}
+
+.jqueryslidemenuz ul li ul li a:hover{ /*sub menus hover style*/
+background: #eff9ff;
+color: black;
+}
+
+/* ######### CSS classes applied to down and right arrow images  ######### */
+
+.downarrowclass{
+position: absolute;
+top: 12px;
+right: 7px;
+}
+
+.rightarrowclass{
+position: absolute;
+top: 6px;
+right: 5px;
+}

@@ -6804,9 +6804,9 @@ header .row > .container {
   position: relative;
 }
 header .row #header_logo {
-  /*padding-top: 36px;*/
+  padding-top: 8px;
   padding-right: 0;
-  /*margin-bottom: 34px;*/
+  margin-bottom: 34px;
    float: right;
   width: auto;
 }
