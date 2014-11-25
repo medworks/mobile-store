@@ -119,6 +119,69 @@ html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
     </div>
     <div class="clear"></div>
     <div class="cont_botm">&nbsp;</div>
+
+    <div class="clear"></div>
+    <style>
+        .footer .right_sec ul{
+            float: right;
+            margin-right:50px;
+            margin-left: 60px;
+            direction: rtl;
+        }
+        .footer .right_sec ul h4{
+            font-size: 25px;
+            font-family: 'bmitra';
+        }
+        .footer .right_sec ul li{
+            list-style-type: none;
+        }
+        .footer .right_sec ul li a{
+            font-size: 18px;
+            color: #000;
+            text-align: right;
+            font-family: 'bmitra';
+        }       
+        .footer .right_sec ul li a:hover{
+            color: #555;
+        }
+    </style>
+    <div class="cont_top" style="margin-top:10px;">&nbsp;</div>
+    <!-- Content Section -->
+    <div id="content" class="footer" style="min-height:150px;">
+        <!-- Right Column -->
+        <div class="right_sec">
+            <ul>
+                <h4>پیگیری ما در:</h4>
+                <li><a href="#" title="">Facebook</a></li>
+                <li><a href="#" title="">Twitter</a></li>
+                <li><a href="#" title="">Instagram</a></li>
+                <li><a href="#" title="">Linkdin</a></li>
+            </ul>
+            <ul>
+                <h4>اطلاعات تماس</h4>
+                <li><a href="#" title="">تلفن: 37666436</a></li>
+                <li><a href="#" title="">فاکس: 37613679</a></li>
+                <li><a href="#" title="">آدرس: مشهد، سهراه فلسطین</a></li>
+                <li><a href="#" title="">ساختنان 202، واحد3</a></li>
+            </ul>
+            <ul>
+                <h4>خدمات مشتریان</h4>
+                <li><a href="#" title="">پرداخت امن</a></li>
+                <li><a href="#" title="">ضمانت خرید</a></li>
+                <li><a href="#" title="">حمل نقل رایگان</a></li>
+                <li><a href="#" title="">هزیته پستی</a></li>
+            </ul>
+            <ul>
+                <h4>لیست اقلام</h4>
+                <li><a href="#" title="">تجهیزات گوشی</a></li>
+                <li><a href="#" title="">لوازم جانبی</a></li>
+                <li><a href="#" title="">باتری</a></li>
+                <li><a href="#" title="">هندز فری</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="cont_botm">&nbsp;</div>
     <!-- Footer -->
 	<div id="footer">
     	<p class="left">Copyright 2014 Mobile </p>
