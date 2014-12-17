@@ -78,7 +78,7 @@ html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
          <p id="slide-nav"></p>
     </div>
     <div class="clear"></div>
-    <div class="cont_top">&nbsp;</div>
+    <!-- <div class="cont_top">&nbsp;</div> -->
     <!-- Content Section -->
 	<div id="content">
         <!-- Right Column -->
@@ -118,76 +118,38 @@ html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
         </div>
     </div>
     <div class="clear"></div>
-    <div class="cont_botm">&nbsp;</div>
-
+    <!-- <div class="cont_botm">&nbsp;</div> -->
     <div class="clear"></div>
-    <style>
-        .footer .right_sec ul{
-            float: right;
-            margin-right:50px;
-            margin-left: 60px;
-            direction: rtl;
-        }
-        .footer .right_sec ul h4{
-            font-size: 25px;
-            font-family: 'bmitra';
-        }
-        .footer .right_sec ul li{
-            list-style-type: none;
-        }
-        .footer .right_sec ul li a{
-            font-size: 18px;
-            color: #000;
-            text-align: right;
-            font-family: 'bmitra';
-        }       
-        .footer .right_sec ul li a:hover{
-            color: #555;
-        }
-    </style>
-    <div class="cont_top" style="margin-top:10px;">&nbsp;</div>
-    <!-- Content Section -->
-    <div id="content" class="footer" style="min-height:150px;">
-        <!-- Right Column -->
-        <div class="right_sec">
-            <ul>
-                <h4>پیگیری ما در:</h4>
-                <li><a href="#" title="">Facebook</a></li>
-                <li><a href="#" title="">Twitter</a></li>
-                <li><a href="#" title="">Instagram</a></li>
-                <li><a href="#" title="">Linkdin</a></li>
-            </ul>
-            <ul>
-                <h4>اطلاعات تماس</h4>
-                <li><a href="#" title="">تلفن: 37666436</a></li>
-                <li><a href="#" title="">فاکس: 37613679</a></li>
-                <li><a href="#" title="">آدرس: مشهد، سهراه فلسطین</a></li>
-                <li><a href="#" title="">ساختنان 202، واحد3</a></li>
-            </ul>
-            <ul>
-                <h4>خدمات مشتریان</h4>
-                <li><a href="#" title="">پرداخت امن</a></li>
-                <li><a href="#" title="">ضمانت خرید</a></li>
-                <li><a href="#" title="">حمل نقل رایگان</a></li>
-                <li><a href="#" title="">هزیته پستی</a></li>
-            </ul>
-            <ul>
-                <h4>لیست اقلام</h4>
-                <li><a href="#" title="">تجهیزات گوشی</a></li>
-                <li><a href="#" title="">لوازم جانبی</a></li>
-                <li><a href="#" title="">باتری</a></li>
-                <li><a href="#" title="">هندز فری</a></li>
-            </ul>
+</div>
+    <!-- Footer -->
+    <div class="footer">
+        <div class="containfoot ">
+            <div class="social">
+                <ul>
+                    <li><a href="javascript:void(0);" title="Facebook" class="facebook"></a></li>
+                    <li><a href="javascript:void(0);" title="Twitter" class="twitter"></a></li>
+                    <li><a href="javascript:void(0);" title="Google plus" class="gplus"></a></li>
+                    <li><a href="javascript:void(0);" title="RSS" class="rss"></a></li>
+                </ul>
+            </div>
+            <div class="option">
+                <ul>
+                    <li><span class="deliver"></span><p>حمل به تمام کشور با سریع ترین زمان</p></li>
+                    <li><span class="garanty"></span><p>گارانتی برگشت محصول</p></li>
+                    <li><span class="gift"></span><p>هدایای ویژه در ایام خاص</p></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <div class="contactus">
+                <a href="javascript:void(0);" title="تماس با ما"></a>
+            </div>
         </div>
     </div>
-    <div class="clear"></div>
-    <div class="cont_botm">&nbsp;</div>
-    <!-- Footer -->
-	<div id="footer">
-    	<p class="left">Copyright 2014 Mobile </p>
-        <p class="right">Design by Mediateq.ir</p>
+    <!-- BOT Footer -->
+    <div class="botfooter">
+        <p class="left">Copyright 2014 Mobile </p>
+        <p class="right">Design by <a href="http://www.mediateq.ir" style="color:#000">Mediateq.ir</a></p>
     </div>
-</div>
 
 </body>
 </html>

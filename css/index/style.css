@@ -17,7 +17,7 @@ body {
 	font-family:Arial, Helvetica, sans-serif;
 	color:#454545;
 	font-size:12px;
-	background-image:url(../../img/bg-index.jpg);
+	/*background-image:url(../../img/bg-index.jpg);*/
 	background-repeat:repeat;
 }
 /*
@@ -28,6 +28,9 @@ body {
 * {
 	padding:0px;
 	margin:0px;
+}
+ul{
+	list-style-type: none;
 }
 .left {
 	float:left;
@@ -92,7 +95,7 @@ span.dis_none {
 */
 #wrapper {
 	padding:0px;
-	margin:20px auto;
+	margin:20px auto 0;
 	width:1001px;
 }
 /*
@@ -958,23 +961,6 @@ ul.listing ul li.total{
 }
 /*
 -----------------------------------------------------------------------------
-		Footer
------------------------------------------------------------------------------
-*/
-#footer {
-	padding:0px;
-	margin:5px 0px 20px 0px;
-	width:1001px;
-	float:left;
-}
-#footer p{
-	color:#FFFFFF;
-	font-size:10px;
-	line-height:15px;
-}
-
-/*
------------------------------------------------------------------------------
 		Buttons
 -----------------------------------------------------------------------------
 */
@@ -1036,4 +1022,117 @@ background: transparent url(../images/detail_button.gif) no-repeat top left;
 	float:left;
 	height:42px;
 	width:42px;
+}
+/*
+-----------------------------------------------------------------------------
+		Footer
+-----------------------------------------------------------------------------
+*/
+.footer{
+	background: url('../../img/footpat.jpg') ;
+	height: 300px;
+	border-top:2px solid #000;
+}
+.footer .containfoot{
+	padding: 30px 125px;
+	width: 1001px;
+	direction: rtl;
+	margin: 0 auto;
+}
+.footer .social li{
+	float: right;
+}
+.footer .social li a{
+	background: url('../../img/social-sprite.png') no-repeat;
+	display: block;
+	width: 42px;
+	height: 42px;
+	margin-left: 9px;
+}
+.footer .social li a.facebook{
+	background-position: 0px 0px;
+}
+.footer .social li a.facebook:hover{
+	background-position: 0px -42px;
+}
+.footer .social li a.twitter{
+	background-position: -49px 0px;
+}
+.footer .social li a.twitter:hover{
+	background-position: -49px -42px;
+}
+.footer .social li a.gplus{
+	background-position: -99px 0px;
+}
+.footer .social li a.gplus:hover{
+	background-position: -99px -42px;
+}
+.footer .social li a.rss{
+	background-position: -149px 0px;
+}
+.footer .social li a.rss:hover{
+	background-position: -149px -42px;
+}
+.footer .option{
+	float: right;
+}
+.footer .option li{
+	float: right;
+	margin-right: 100px;
+	
+}
+.footer .option li p{
+	text-align: center;
+	font-family: 'bmitra';
+	font-size: 18px;
+	width: 165px;
+}
+.footer .option span{
+	background: url('../../img/subanner-sprite.png') no-repeat;
+	width: 45px;
+	height: 45px;
+	display: inline-block;
+	float: right;
+	margin-left: 5px;
+}
+.footer .option span.deliver{
+	background-position: 0 0;
+}
+.footer .option span.deliver:hover{
+	background-position: 0 -41px;
+}
+.footer .option span.garanty{
+	background-position: 0 -85px;
+}
+.footer .option span.garanty:hover{
+	background-position: 0 -122px;
+}
+.footer .option span.gift{
+	background-position: 0 -168px;
+}
+.footer .option span.gift:hover{
+	background-position: 0 -212px;
+}
+.footer .contactus{
+	float: right;
+	margin-top: 15px;
+}
+.footer .contactus a{
+	background: url('../../img/social-sprite.png') no-repeat 100% 0;
+	width: 192px;
+	height: 36px;
+	display: block;
+}
+.footer .contactus a:hover{
+	background-position: 100% -36px;
+}
+
+.botfooter {
+	background: url('../../img/footpat.jpg') ;
+	height: 25px;
+}
+.botfooter p{
+	color:#000;
+	font-size:14px;
+	padding: 0 15px;
 }
