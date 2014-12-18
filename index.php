@@ -180,7 +180,7 @@ html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
     <!-- BOT Footer -->
     <div class="botfooter">
         <p class="left latin">Copyright 2014 Mobile </p>
-        <p class="right latin">Design by <a href="http://www.mediateq.ir" style="color:#000">Mediateq.ir</a></p>
+        <p class="right latin">Design by <a href="http://www.mediateq.ir">Mediateq.ir</a></p>
     </div>
 
 </body>

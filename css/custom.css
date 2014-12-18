@@ -1293,7 +1293,11 @@ background: transparent url(../images/detail_button.gif) no-repeat top left;
   height: 25px;
 }
 .botfooter p{
-  color:#000;
+  color:#555;
   font-size:14px;
   padding: 0 15px;
+}
+.botfooter p a{
+  color: #222;
+  font-size: 16px;
 }
