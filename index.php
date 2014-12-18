@@ -3,20 +3,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>فروشگاه تجهیزات موبایل</title>
-<link href="./css/index/style.css" rel="stylesheet" type="text/css" />
+<link href="./css/custom.css" rel="stylesheet" type="text/css" />
 <!-- Accordin Menu Script files Start -->
-<script type="text/javascript" src="./js/index/jquery.min.js"></script>
-<script type="text/javascript" src="./js/index/ddaccordion.js"></script>
-<script type="text/javascript" src="./js/index/acordin.js"></script>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/ddaccordion.js"></script>
+<script type="text/javascript" src="./js/acordin.js"></script>
 <!-- Accordin Menu Script files End -->
 <!-- Banner Start -->
 <!-- <script type="text/javascript">var _siteRoot='index.html',_root='index.html';</script> -->
-<script type="text/javascript" src="./js/index/jquery.js"></script>
-<script type="text/javascript" src="./js/index/scripts.js"></script>
-<link rel="stylesheet" href="./css/index/banner.css" type="text/css" media="screen" />  
+<script type="text/javascript" src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/scripts.js"></script>
+<link rel="stylesheet" href="./css/banner.css" type="text/css" media="screen" />  
 <!-- Banner End -->
 <!-- Drop Down Start -->
-<link rel="stylesheet" type="text/css" href="./css/index/jqueryslidemenu.css" />
+<link rel="stylesheet" type="text/css" href="./css/jqueryslidemenu.css" />
 
 <!--[if lte IE 7]>
 <style type="text/css">
@@ -24,8 +24,8 @@ html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
 </style>
 <![endif]-->
 
-<script type="text/javascript" src="./js/index/jquery.min.js"></script>
-<script type="text/javascript" src="./js/index/jqueryslidemenu.js"></script>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/jqueryslidemenu.js"></script>
 <!-- Drop Down End -->
 
 </head>
@@ -36,7 +36,6 @@ html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
 <div id="wrapper">
 	<!-- Top header including top navigation -->
 	<div id="header_navi">
-    	<div class="left left_curve">&nbsp;</div>
         <div class="center_header">
         	<!-- Logo -->
     		<div class="logo">
@@ -52,7 +51,6 @@ html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
                 </ul>
             </div>
         </div>
-        <div class="right right_curve">&nbsp;</div>
     </div>
     <div class="clear"></div>
     <!-- Banner -->
@@ -96,8 +94,8 @@ html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
                     <li>
                         <a href="main.php"><img src="img/product/housing.jpg" alt=""></a>
                     </li>
-                    <li class="last">
-                    	<a href="main.php"><img src="img/product/parts.jpg" alt=""></a>
+                    <li>
+                        <a href="main.php"><img src="img/product/battery.jpg" alt=""></a>
                     </li>
                 </ul>
                 <ul class="grid">
@@ -110,8 +108,8 @@ html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
                     <li>
                         <a href="main.php"><img src="img/product/housing.jpg" alt=""></a>
                     </li>
-                    <li class="last">
-                        <a href="main.php"><img src="img/product/parts.jpg" alt=""></a>
+                    <li>
+                        <a href="main.php"><img src="img/product/battery.jpg" alt=""></a>
                     </li>
                 </ul>
             </div>
@@ -139,16 +137,50 @@ html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
                     <li><span class="gift"></span><p>هدایای ویژه در ایام خاص</p></li>
                 </ul>
             </div>
-            <div class="clear"></div>
             <div class="contactus">
                 <a href="javascript:void(0);" title="تماس با ما"></a>
+            </div>
+            <div class="clear"></div>
+            <div class="fourcolumn">
+                <div class="one">
+                    <h4>اطلاعات تماس</h4>
+                    <ul>
+                        <li>ایمیل: <a href="gavascript:void(0);" title="">info@mediateq.ir</a></li>
+                        <li>تلفن: <a href="gavascript:void(0);" title="">+98-513-7666436</a></li>
+                        <li>آدرس: <a href="gavascript:void(0);" title="">سه راه فلسطین-ساختمان 202-طبقه اول-واحد3</a></li>
+                    </ul>
+                </div>
+                <div class="two">
+                    <h4>پرفروش ترین ها</h4>
+                    <ul>
+                        <li><a href="gavascript:void(0);" title="">اکور اپل</a></li>
+                        <li><a href="gavascript:void(0);" title="">بورد موبایل</a></li>
+                        <li><a href="gavascript:void(0);" title="">باطری</a></li>
+                    </ul>
+                </div>
+                <div class="three">
+                    <h4>اخبار و تازه ها</h4>
+                    <ul>
+                        <li><a href="gavascript:void(0);" title="">خبر اول</a></li>
+                        <li><a href="gavascript:void(0);" title="">خبر دوم</a></li>
+                        <li><a href="gavascript:void(0);" title="">خبر سوم</a></li>
+                    </ul>
+                </div>
+                <div class="four">
+                    <h4>اطلاعات مفید</h4>
+                    <ul>
+                        <li><a href="gavascript:void(0);" title="">نحوه پرداخت</a></li>
+                        <li><a href="gavascript:void(0);" title="">نحوه گارانتی کالا</a></li>
+                        <li><a href="gavascript:void(0);" title="">نحوه خرید از ما</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
     <!-- BOT Footer -->
     <div class="botfooter">
-        <p class="left">Copyright 2014 Mobile </p>
-        <p class="right">Design by <a href="http://www.mediateq.ir" style="color:#000">Mediateq.ir</a></p>
+        <p class="left latin">Copyright 2014 Mobile </p>
+        <p class="right latin">Design by <a href="http://www.mediateq.ir" style="color:#000">Mediateq.ir</a></p>
     </div>
 
 </body>
