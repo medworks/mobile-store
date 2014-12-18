@@ -1168,7 +1168,7 @@ background: transparent url(../images/detail_button.gif) no-repeat top left;
 */
 .footer{
   background: url('../img/footpat.jpg') ;
-  height: 300px;
+  height: 355px;
   border-top:2px solid #000;
   margin-top: -2px;
 }
@@ -1265,32 +1265,26 @@ background: transparent url(../images/detail_button.gif) no-repeat top left;
 .footer .contactus a:hover{
   background-position: 100% -36px;
 }
-.footer .fourcolumn{
+.footer .column{
   margin-top: 25px;
 }
-.footer .fourcolumn h4{
+.footer .column h4{
   font-size: 22px;
   color: #888;
   margin-bottom: 15px;
 }
-.footer .fourcolumn .one,
-.footer .fourcolumn .two,
-.footer .fourcolumn .three,
-.footer .fourcolumn .four{
+.footer .column .one,
+.footer .column .two,
+.footer .column .three,
+.footer .column .four,
+.footer .column .five{
   float: right;
-  margin-left: 40px;
-}
-.footer .fourcolumn .two,
-.footer .fourcolumn .three{
-  margin-left: 145px;
-}
-.footer .fourcolumn .four{
-  margin-right: 19px;
-  margin-left: 0;
+  margin-left: 70px;
 }
 .botfooter {
   background: url('../img/footpat.jpg') ;
-  height: 25px;
+  height: 20px;
+  padding: 10px 0;
 }
 .botfooter p{
   color:#555;

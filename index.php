@@ -141,7 +141,7 @@ html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
                 <a href="javascript:void(0);" title="تماس با ما"></a>
             </div>
             <div class="clear"></div>
-            <div class="fourcolumn">
+            <div class="column">
                 <div class="one">
                     <h4>اطلاعات تماس</h4>
                     <ul>
@@ -156,6 +156,7 @@ html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
                         <li><a href="gavascript:void(0);" title="">اکور اپل</a></li>
                         <li><a href="gavascript:void(0);" title="">بورد موبایل</a></li>
                         <li><a href="gavascript:void(0);" title="">باطری</a></li>
+                        <li><a href="gavascript:void(0);" title="">باطری</a></li>
                     </ul>
                 </div>
                 <div class="three">
@@ -163,6 +164,7 @@ html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
                     <ul>
                         <li><a href="gavascript:void(0);" title="">خبر اول</a></li>
                         <li><a href="gavascript:void(0);" title="">خبر دوم</a></li>
+                        <li><a href="gavascript:void(0);" title="">خبر سوم</a></li>
                         <li><a href="gavascript:void(0);" title="">خبر سوم</a></li>
                     </ul>
                 </div>
@@ -172,10 +174,22 @@ html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
                         <li><a href="gavascript:void(0);" title="">نحوه پرداخت</a></li>
                         <li><a href="gavascript:void(0);" title="">نحوه گارانتی کالا</a></li>
                         <li><a href="gavascript:void(0);" title="">نحوه خرید از ما</a></li>
+                        <li><a href="gavascript:void(0);" title="">نحوه خرید از ما</a></li>
+                    </ul>
+                </div>
+                <div class="five">
+                    <h4>بانک ها</h4>
+                    <ul>
+                        <li><a href="gavascript:void(0);" title=""><img src="./img/bank-mellat.png" alt="bank mellat" height="40" width="40" /></a></li>
+                        <li><a href="gavascript:void(0);" title=""><img src="./img/bank-melli.png" alt="bank melli" height="40" width="40" /></a></li>
+                        <li><a href="gavascript:void(0);" title=""><img src="./img/bank-pasargad.png" alt="bank pasargad" height="40" width="40" /></a></li>
                     </ul>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="clear">
+        
     </div>
     <!-- BOT Footer -->
     <div class="botfooter">
