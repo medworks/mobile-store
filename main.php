@@ -61,6 +61,13 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 <![endif]-->
+<style>
+	#page,
+	.columns-container{
+		width: 1001px;
+		margin: 0 auto;
+	}
+</style>
 </head>
 <body id="index" class="index hide-right-column lang_en">
 	<div id="page">
@@ -1345,252 +1352,15 @@
 				</div><!-- .row -->
 			</div><!-- #columns -->
 		</div><!-- .columns-container -->
-		<!-- Footer -->
-		<div class="footer-container">
-			<footer id="footer" class="container">
-				<div class="row"><!-- Block Newsletter module-->
-					<div id="newsletter_block_left" class="block">
-						<h4>ثبت نام در خبرنامه:</h4>
-						<div class="block_content">
-							<form action="http://prestashop-demos.org/PRS06/PRS060144/en/" method="post">
-								<div class="form-group">
-									<input kl_virtual_keyboard_secure_input="on" class="inputNew form-control grey newsletter-input" id="newsletter-input" name="email" size="18" value="ایمیل" type="text">
-					                <button type="submit" name="submitNewsletter" class="btn btn-default button button-small">
-					                    <span>ثبت</span>
-					                </button>
-									<input name="action" value="0" type="hidden">
-								</div>
-							</form>
-						</div>
-					</div>
-					<!-- /Block Newsletter module-->
-					<section id="social_block">
-					    <h4>پیگیری ما در:</h4>
-						<ul>
-							<li class="facebook">
-								<a target="_blank" href="#">
-									<span>Facebook</span>
-								</a>
-							</li>
-							<li class="twitter">
-								<a target="_blank" href="#">
-									<span>Twitter</span>
-								</a>
-							</li>
-							<li class="rss">
-								<a target="_blank" href="#">
-									<span>RSS</span>
-								</a>
-							</li>
-						</ul>
-					</section>
-					<div class="clearfix"></div>
-					<!-- Block links module -->
-					<section class="footer-block col-xs-12 col-sm-3" id="tm_links_block1_footer">
-						<h4 class="title_block">
-							<a href="#" title="Information">اطلاعات</a>
-						</h4>
-						<div class="block_content toggle-footer">
-							<ul class="bullet">
-									 
-								<li>
-								<a href="#" title="New Products">محصولات جدید</a></li>
-										 
-								<li>
-								<a href="#" title="Specials">محصولات ویژه</a></li>
-										 
-								<li>
-								<a href="#" title="About us">درباره ما</a></li>
-										 
-								<li>
-								<a href="#" title="Secure payment">سیستم امن پرداخت</a></li>
-							</ul>
-						</div>
-					</section>
-					<!-- /Block links module -->
-					<!-- Block links module -->
-					<section class="footer-block col-xs-12 col-sm-3" id="tm_links_block2_footer">
-						<h4 class="title_block">
-							<a href="#" title="Our Offers">پیشنهادهای خاص</a>
-						</h4>
-						<div class="block_content toggle-footer">
-							<ul class="bullet">
-								<li>
-									<a href="#" title="Best Sellers">بیشترین فروش</a></li>	 
-								<li>
-									<a href="#" title="Specials">محصولات خاص</a></li>	 
-								<li>
-									<a href="#" title="About us">درباره ما</a></li>
-								<li>
-									<a href="#" title="Rules">فروشگاه ما</a>
-								</li>
-							</ul>
-						</div>
-					</section>
-					<!-- /Block links module -->
-					<!-- Block links module -->
-					<section class="footer-block col-xs-12 col-sm-3" id="tm_links_block3_footer">
-						<h4 class="title_block">
-							<a href="#" title="Extra Links">لینک های مفید</a>
-						</h4>
-						<div class="block_content toggle-footer">
-							<ul class="bullet">	 
-								<li>
-									<a href="#" title="Best Sellers">لینک بانک ملت</a>
-								</li>	 
-								<li>
-									<a href="#" title="New Products">لینک بانک کشاورزی</a>
-								</li>	 
-								<li>
-									<a href="#" title="Specials">لینک به پرداخت</a>
-								</li> 
-								<li>
-									<a href="#" title="Our stores">لینک وزارت صنایع</a>
-								</li>
-							</ul>
-						</div>
-					</section>
-					<!-- /Block links module -->
-					<!-- MODULE Block contact infos -->
-					<section id="block_contact_infos" class="footer-block col-xs-12 col-sm-3">
-						<div>
-					        <h4 class="title_block">
-								<a href="#" title="Extra Links">اطلاعات فروشگاه</a>
-							</h4>
-					        <ul class="toggle-footer">
-					            <li>
-					        		<i class="icon-map-marker"></i>
-					        		آدرس: قاسم آباد، میدان مادرريال..
-					        	</li>
-					            <li>
-					        		<i class="icon-phone"></i>تلفن تماس: 
-					        		<span style="display:inline-block;" class="ltr">98-51-3766 6436</span>
-					        	</li>
-					            <li>
-					        		<i class="icon-envelope-alt"></i>ایمیل: 
-					        		<span><a href="#">my@email.com</a></span>
-					        	</li>
-					       </ul>
-					    </div>
-					</section>
-					<!-- /MODULE Block contact infos -->
-					<!-- MODULE Block footer -->
-					<section class="footer-block col-xs-12 col-sm-2" id="block_various_links_footer">
-						<h4 class="title_block">
-							<a href="#" title="Extra Links">منوی سایت</a>
-						</h4>
-						<ul class="toggle-footer">
-							<li class="first_item">
-								<a href="#" title="">صفحه اصلی</a>
-							</li>
-							<li class="item">
-								<a href="#" title="">درباره ما</a>
-							</li>
-							<li class="item">
-								<a href="#" title="">محصولات</a>
-							</li>
-							<li class="item">
-								<a href="#" title="">راهنمای خرید</a>
-							</li>
-							<li class="item">
-								<a href="#" title="">تماس با ما</a>
-							</li>
-							<li>
-								<a href="#" title="">نقشه سایت</a>
-							</li>
-						</ul>
-					</section>
-					<section class="bottom-footer col-xs-12">
-						<div>© 2014 <a class="_blank" href="http://www.mediateq.ir" target="_blank">Ecommerce software by Mediateq™</a></div>
-					</section>
-					<!-- /MODULE Block footer -->
-
-					<!-- Block payment logo module -->
-					<div id="paiement_logo_block_left" class="paiement_logo_block">
-						<a href="javascript:void();">
-							<img src="./img/bank-mellat.png" alt="" height="30" width="45">
-							<img src="./img/bank-melli.png" alt="" height="30" width="45">
-							<img src="./img/bank-pasargad.png" alt="" height="30" width="45">
-						</a>
-					</div>
-					<!-- /Block payment logo module -->
-				</div>
-			</footer>
-		</div><!-- #footer -->
+		
 	</div><!-- #page -->
-	<a class="top_button" href="#" style="display:none;">&nbsp;</a>
+			
+<?php
+	include_once('./inc/index-footer.php');
+?>
+				
 
-	<script type="text/javascript">
-		var CUSTOMIZE_TEXTFIELD = 1;
-		var FancyboxI18nNext = 'Next';
-		var FancyboxI18nPrev = 'Previous';
-		var FancyboxboxI18nClose = 'Close';
-		var added_to_wishlist = 'Added to your wishlist.';
-		var ajax_allowed = true;
-		var ajaxsearch = true;
-		var baseDir = 'http://prestashop-demos.org/PRS06/PRS060144/';
-		var baseUri = 'http://prestashop-demos.org/PRS06/PRS060144/';
-		var blocksearch_type = 'top';
-		var contentOnly = false;
-		var customizationIdMessage = 'Customization #';
-		var delete_txt = 'Delete';
-		var favorite_products_url_add = 'http://prestashop-demos.org/PRS06/PRS060144/en/module/favoriteproducts/actions?process=add';
-		var favorite_products_url_remove = 'http://prestashop-demos.org/PRS06/PRS060144/en/module/favoriteproducts/actions?process=remove';
-		var freeProductTranslation = 'Free!';
-		var freeShippingTranslation = 'Free shipping!';
-		var id_lang = 1;
-		var img_dir = 'http://prestashop-demos.org/PRS06/PRS060144/themes/PRS060144/img/';
-		var instantsearch = false;
-		var isGuest = 0;
-		var isLogged = 0;
-		var loggin_required = 'You must be logged in to manage your wishlist.';
-		var mywishlist_url = 'http://prestashop-demos.org/PRS06/PRS060144/en/module/blockwishlist/mywishlist';
-		var page_name = 'index';
-		var placeholder_blocknewsletter = 'Enter your e-mail';
-		var priceDisplayMethod = 1;
-		var priceDisplayPrecision = 2;
-		var quickView = true;
-		var removingLinkText = 'remove this product from my cart';
-		var roundMode = 2;
-		var search_url = 'http://prestashop-demos.org/PRS06/PRS060144/en/search';
-		var static_token = '95b0ad58420de6f608d1631007e0bde2';
-		var token = 'fe6aaea9a580e36f76197eea52daf9cf';
-		var usingSecureMode = false;
-		var wishlistProductsIds = false;
-	</script>
-	<script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="./js/jquery-migrate-1.2.1.min.js"></script>
-	<script type="text/javascript" src="./js/jquery.easing.js"></script>
-	<script type="text/javascript" src="./js/tools.js"></script>
-	<script type="text/javascript" src="./js/global.js"></script>
-	<script type="text/javascript" src="./js/10-bootstrap.min.js"></script>
-	<script type="text/javascript" src="./js/15-jquery.total-storage.min.js"></script>
-	<script type="text/javascript" src="./js/15-jquery.uniform-modified.js"></script>
-	<script type="text/javascript" src="./js/jquery.fancybox.js"></script>
-	<script type="text/javascript" src="./js/products-comparison.js"></script>
-	<script type="text/javascript" src="./js/ajax-cart.js"></script>
-	<script type="text/javascript" src="./js/jquery.scrollTo.js"></script>
-	<script type="text/javascript" src="./js/jquery.serialScroll.js"></script>
-	<script type="text/javascript" src="./js/jquery.bxslider.js"></script>
-	<script type="text/javascript" src="./js/treeManagement.js"></script>
-	<!-- <script type="text/javascript" src="./js/blockfacebook.js"></script> -->
-	<script type="text/javascript" src="./js/blocknewsletter.js"></script>
-	<script type="text/javascript" src="./js/jquery.autocomplete.js"></script>
-	<script type="text/javascript" src="./js/blocksearch.js"></script>
-	<script type="text/javascript" src="./js/ajax-wishlist.js"></script>
-	<script type="text/javascript" src="./js/favoriteproducts.js"></script>
-	<script type="text/javascript" src="./js/tmhomeslider.js"></script>
-	<script type="text/javascript" src="./js/hoverIntent.js"></script>
-	<script type="text/javascript" src="./js/superfish-modified.js"></script>
-	<script type="text/javascript" src="./js/blocktopmenu.js"></script>
-	<script type="text/javascript" src="./js/owl.carousel.js"></script>
-	<script type="text/javascript" src="./js/custom.js"></script>
-	<script type="text/javascript">
-	var tmhomeslider_loop=1;
-	     var tmhomeslider_width=770;
-	     var tmhomeslider_speed=500;
-	     var tmhomeslider_pause=3000;
-	</script>
-	
-</body>
-</html>
+		
+<?php
+	include_once('./inc/main-footer.php');
+?>
