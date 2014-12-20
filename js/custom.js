@@ -1,6 +1,3 @@
-/*! Customized Jquery from Mahesh Vaghani.  mahesh@templatemela.com  : www.templatemela.com
-Authors & copyright (c) 2013: TemplateMela - Megnor Computer Private Limited. */
-// Megnor Start
 $(document).ready(function () {
 							
 	//=================== Show or hide Go Top button ========================//

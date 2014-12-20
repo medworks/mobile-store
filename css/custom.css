@@ -246,7 +246,7 @@ span.dis_none {
   margin:0px 0px 10px 0px;
   float:left;
   width:1001px;
-  height:64px;
+  /*height:64px;*/
 }
 .left_curve {
   padding:0px;
@@ -280,6 +280,10 @@ span.dis_none {
   float:left;
   border-left: 1px solid #bdc0b5;
   border-right: 1px solid #bdc0b5;
+}
+.center_header.news{
+  background-image:url(../img/top_bgnews.png)!important;
+  height:40px!important;
 }
 /*
 -----------------------------------------------------------------------------
@@ -352,6 +356,29 @@ span.dis_none {
   width:1001px;
   background-color:#e7e7e7;
   min-height:300px;
+}
+/*
+-----------------------------------------------------------------------------
+    br-news
+-----------------------------------------------------------------------------
+*/
+.br-news{
+  text-align: right;
+}
+.br-news h4{
+  float: right;
+  padding: 0 15px;
+  margin-left: 5px;
+  background-color: #FF0000;
+  height: 40px;
+  color: #000;
+}
+.br-news ul{
+  padding-top: 8px;
+}
+.br-news ul li a{
+  font-size:20px;
+  font-weight: normal;
 }
 /*
 -----------------------------------------------------------------------------
@@ -684,7 +711,7 @@ ul.cartitems {
 .wht_sec {
   /*padding:20px;*/
   margin:2px 0px;
-  width:1001px;
+  width:999px;
   background-color:#FFFFFF;
   border:#d5d5d5 solid 1px;
   float:left;

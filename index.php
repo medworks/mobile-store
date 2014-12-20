@@ -77,6 +77,24 @@ html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
     </div>
     <div class="clear"></div>
     <!-- <div class="cont_top">&nbsp;</div> -->
+    <div id="header_navi">
+        <div class="center_header news">
+            <div class="br-news">
+                <h4>تازه ها</h4>
+                <ul>
+                    <li><a href='javascript:void(0);' title='خبر اول'>خبر اول</a></li>
+                    <li><a href='javascript:void(0);' title='خبر دوم'>خبر دوم</a></li>
+                    <li><a href='javascript:void(0);' title='خبر سوم'>خبر سوم</a></li>
+                </ul>
+                <script type="text/javascript">
+                    jQuery(document).ready(function(){
+                                        createTicker(); 
+                                    });
+                </script>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
     <!-- Content Section -->
 	<div id="content">
         <!-- Right Column -->
