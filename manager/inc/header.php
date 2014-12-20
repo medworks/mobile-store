@@ -27,7 +27,7 @@
     <!-- TODO: Add a favicon -->
     <link rel="shortcut icon" href="./images/fab.ico" />
     
-    <title>Rahyab clinic||Mediateq.ir</title>
+    <title>Abnoos mobile||Mediateq.ir</title>
 	
 	<link href="./css/zebra_pagination.css" rel="stylesheet" />
     
@@ -81,7 +81,7 @@
         <!--Logo text start-->
         <div class="header-logo">
             <a href="javascript:void(0);" title="کلینیک رهیاب">
-                <h1>کلینیک رهیاب</h1>
+                <h1>موبایل آبنوس</h1>
             </a>
         </div>
         <!--Logo text End-->
