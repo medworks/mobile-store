@@ -164,16 +164,13 @@
                     <span>ایجاد برند</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-navicon"></i>
-                    <span>ایجاد گروه ها</span>
+	     <li>
+                <a href="groups.php?act=new">
+                    <i class="fa fa-users"></i>
+                    <span>تعریف گروه</span>
                 </a>
-                <ul>
-                    <li><a href="groups.php?act=new">تعریف  گروه</a></li>
-                    <li><a href="submenu.php?act=new">تعریف زیر منو</a></li>
-                </ul>
             </li>
+            
             <li>
                 <a href="#">
                     <i class="fa fa-pencil"></i>
