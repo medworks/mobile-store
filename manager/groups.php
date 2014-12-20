@@ -44,7 +44,7 @@
 	}
 	if ($_GET['act']=="edit")
 	{
-	    $row=$db->Select("brands","*","id='{$_GET["gid"]}'",NULL);		
+	    $row=$db->Select("groups","*","id='{$_GET["gid"]}'",NULL);		
 		$insertoredit = "
 			<button type='submit' class='btn btn-default'>ویرایش</button>
 			<input type='hidden' name='mark' value='editgroup' /> ";
@@ -52,7 +52,7 @@
 	if ($_GET['act']=="del")
 	{
 		$db->Delete("groups"," id",$_GET["gid"]);		
-		header('location:grousp.php?act=new');	
+		header('location:groups.php?act=new');	
 	}	
 $msgs = GetMessage($_GET['msg']);
 
