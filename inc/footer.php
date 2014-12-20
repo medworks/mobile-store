@@ -28,7 +28,7 @@
                     <h4>اطلاعات تماس</h4>
                     <ul>
                         <li>ایمیل: <a href="gavascript:void(0);" title="">info@mediateq.ir</a></li>
-                        <li>تلفن: <a href="gavascript:void(0);" title="">+98-513-7666436</a></li>
+                        <li>تلفن: <a href="gavascript:void(0);" title="" style="display:inline-block;direction:ltr">+98-513-7666436</a></li>
                         <li>آدرس: <a href="gavascript:void(0);" title="">سه راه فلسطین-ساختمان 202-طبقه اول-واحد3</a></li>
                     </ul>
                 </div>
