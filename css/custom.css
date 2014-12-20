@@ -272,7 +272,7 @@ span.dis_none {
 .center_header {
   padding:0px;
   margin:0px;
-  width:999px;
+  width:1001px;
   height:64px;
   background-image:url(../img/top_bg.png);
   background-repeat:repeat-x;
@@ -367,8 +367,9 @@ span.dis_none {
 }
 .br-news h4{
   float: right;
-  padding: 0 15px;
-  margin-left: 5px;
+  font-size: 25px!important;
+  padding: 5px 12px;
+  margin: 0 0 0 5px;
   background-color: #FF0000;
   height: 40px;
   color: #000;
@@ -377,7 +378,7 @@ span.dis_none {
   padding-top: 8px;
 }
 .br-news ul li a{
-  font-size:20px;
+  font-size:25px!important;
   font-weight: normal;
 }
 /*
@@ -734,7 +735,7 @@ ul.cartitems {
   background-image:url(../img/prod_bg.png);
   background-repeat:no-repeat;
   width:210px;
-  height:190px;
+  height:199px;
   text-align:center;
   float:right;
   margin-right:32px;
@@ -1195,7 +1196,7 @@ background: transparent url(../images/detail_button.gif) no-repeat top left;
 */
 .footer{
   background: url('../img/footpat.jpg') ;
-  height: 340px;
+  height: 360px;
   border-top:2px solid #000;
   margin-top: -2px;
 }
@@ -1310,6 +1311,9 @@ background: transparent url(../images/detail_button.gif) no-repeat top left;
 .footer .column .five{
   float: right;
   margin-left: 70px;
+}
+.footer .column li{
+  margin-bottom: 10px;
 }
 .botfooter {
   background: url('../img/footpat.jpg') ;

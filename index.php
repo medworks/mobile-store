@@ -1,36 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//FA" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>فروشگاه تجهیزات موبایل</title>
-<link href="./css/custom.css" rel="stylesheet" type="text/css" />
-<!-- Accordin Menu Script files Start -->
-<script type="text/javascript" src="./js/jquery.min.js"></script>
-<script type="text/javascript" src="./js/ddaccordion.js"></script>
-<script type="text/javascript" src="./js/acordin.js"></script>
-<!-- Accordin Menu Script files End -->
-<!-- Banner Start -->
-<!-- <script type="text/javascript">var _siteRoot='index.html',_root='index.html';</script> -->
-<script type="text/javascript" src="./js/jquery.js"></script>
-<script type="text/javascript" src="./js/scripts.js"></script>
-<link rel="stylesheet" href="./css/banner.css" type="text/css" media="screen" />  
-<!-- Banner End -->
-<!-- Drop Down Start -->
-<link rel="stylesheet" type="text/css" href="./css/jqueryslidemenu.css" />
-
-<!--[if lte IE 7]>
-<style type="text/css">
-html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
-</style>
-<![endif]-->
-
-<script type="text/javascript" src="./js/jquery.min.js"></script>
-<script type="text/javascript" src="./js/jqueryslidemenu.js"></script>
-<!-- Drop Down End -->
-
-</head>
-
-<body>
+<?php
+    include_once('./inc/header.php')
+?>
 
 <!-- Wrapper div -->
 <div id="wrapper">
@@ -82,9 +52,9 @@ html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
             <div class="br-news">
                 <h4>تازه ها</h4>
                 <ul>
-                    <li><a href='javascript:void(0);' title='خبر اول'>خبر اول</a></li>
-                    <li><a href='javascript:void(0);' title='خبر دوم'>خبر دوم</a></li>
-                    <li><a href='javascript:void(0);' title='خبر سوم'>خبر سوم</a></li>
+                    <li><a href='javascript:void(0);' title='خبر اول' style="font-size:22px;font-weight:normal">خبر اول</a></li>
+                    <li><a href='javascript:void(0);' title='خبر دوم' style="font-size:22px;font-weight:normal">خبر دوم</a></li>
+                    <li><a href='javascript:void(0);' title='خبر سوم' style="font-size:22px;font-weight:normal">خبر سوم</a></li>
                 </ul>
                 <script type="text/javascript">
                     jQuery(document).ready(function(){
@@ -132,11 +102,143 @@ html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
                 </ul>
             </div>
         </div>
+        <div class="clear"></div>
     </div>
     <div class="clear"></div>
-    <!-- <div class="cont_botm">&nbsp;</div> -->
-    <div class="clear"></div>
+    <div id="featured-products_block_center" class="block products_block clearfix" style="border-radius:inherit;width:999px">
+        <h2 class="centertitle_block">محصولات جدید</h2>
+        <div class="block_content">
+            <!-- Megnor start -->
+            <ul class="product_list grid row">  
+            <!-- Megnor End -->                 
+                <li class=" ajax_block_product col-xs-12 col-sm-4 col-md-3   first-in-line first-item-of-tablet-line first-item-of-mobile-line">
+                    <div class="product-container" itemscope="" itemtype="http://schema.org/Product">
+                        <div class="left-block">
+                            <div class="product-image-container">
+                                <a class="product_img_link" href="#" title="" itemprop="url">
+                                    <img class="replace-2x img-responsive" src="./img/product/2-1.jpg" alt="Nascetur ridiculus mus" title="Nascetur ridiculus mus" itemprop="image" height="173" width="173">
+                                </a>
+                                <div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+                                    <span itemprop="price" class="price product-price">125000 ریال</span>
+                                    <meta itemprop="priceCurrency" content="1">
+                                </div>
+                                <span class="new-box">
+                                    <span class="new-label">جدید</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="right-block">
+                            <h5 itemprop="name">
+                                <a class="product-name" href="#" title="Nascetur ridiculus mus" itemprop="url">آی پد نانو</a>
+                            </h5>
+                            <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer" class="content_price">
+                                <span itemprop="price" class="price product-price">125000 ریال</span>
+                                <meta itemprop="priceCurrency" content="1">
+                            </div>
+                            <div class="product-flags"></div>
+                        </div>
+                    </div><!-- .product-container> -->
+                </li>               
+                <li class="ajax_block_product col-xs-12 col-sm-4 col-md-3   last-item-of-mobile-line">
+                    <div class="product-container" itemscope="" itemtype="http://schema.org/Product">
+                        <div class="left-block">
+                            <div class="product-image-container">
+                                <a class="#" title="" itemprop="url">
+                                    <img class="replace-2x img-responsive" src="./img/product/2-1.jpg" alt="" title="" itemprop="image" height="173" width="173">
+                                </a>
+                                <div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+                                    <span itemprop="price" class="price product-price">125000 ریال</span>
+                                    <meta itemprop="priceCurrency" content="1">         
+                                </div>
+                                <span class="new-box">
+                                    <span class="new-label">جدید</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="right-block">
+                            <h5 itemprop="name">
+                                <a class="product-name" href="#" title="" itemprop="url">
+                                    آی پد نانو
+                                </a>
+                            </h5>
+                            <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer" class="content_price">
+                                <span itemprop="price" class="price product-price">125000 ریال</span>
+                                <meta itemprop="priceCurrency" content="1">
+                            </div>
+                            <div class="product-flags"></div>
+                        </div>
+                    </div><!-- .product-container> -->
+                </li>                           
+                <li class="ajax_block_product col-xs-12 col-sm-4 col-md-3   last-item-of-tablet-line first-item-of-mobile-line">
+                    <div class="product-container" itemscope="" itemtype="http://schema.org/Product">
+                        <div class="left-block">
+                            <div class="product-image-container">
+                                <a class="#" title="Habitasse platea dictumst" itemprop="url">
+                                    <img class="replace-2x img-responsive" src="./img/product/2-1.jpg" alt="" title="" itemprop="image" height="173" width="173">
+                                </a>
+                                <div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+                                    <span itemprop="price" class="price product-price">125000 ریال</span>
+                                    <meta itemprop="priceCurrency" content="1">         
+                                </div>
+                                <span class="new-box">
+                                    <span class="new-label">جدید</span>
+                                </span>
+                                <span class="sale-box">
+                                    <span class="sale-label">فروخته شد!</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="right-block">
+                            <h5 itemprop="name">
+                                <a class="product-name" href="#" title="" itemprop="url">
+                                    آی پاد نانو
+                                </a>
+                            </h5>
+                            <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer" class="content_price">
+                                <span itemprop="price" class="price product-price">125000 ریال</span>
+                                <meta itemprop="priceCurrency" content="1">
+                            </div>
+                            <div class="product-flags">
+                                <span class="online_only">خرید آنلاین</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .product-container> -->
+                </li>
+                <li class=" ajax_block_product col-xs-12 col-sm-4 col-md-3   last-item-of-mobile-line">
+                    <div class="product-container" itemscope="" itemtype="http://schema.org/Product">
+                        <div class="left-block">
+                            <div class="product-image-container">
+                                <a class="#" title="" itemprop="url">
+                                    <img class="replace-2x img-responsive" src="./img/product/2-1.jpg" alt="" title="" itemprop="image" height="173" width="173">
+                                </a>
+                                <div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+                                    <span itemprop="price" class="price product-price">125000 ریال</span>
+                                    <meta itemprop="priceCurrency" content="1">         
+                                </div>
+                                <span class="new-box">
+                                    <span class="new-label">جدید</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="right-block">
+                            <h5 itemprop="name">
+                                <a class="product-name" href="#" title="" itemprop="url">
+                                    آی پد نانو
+                                </a>
+                            </h5>
+                            <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer" class="content_price">
+                                <span itemprop="price" class="price product-price">125000 ریال</span>
+                                <meta itemprop="priceCurrency" content="1">
+                            </div>
+                            <div class="product-flags"></div>
+                        </div>
+                    </div><!-- .product-container> -->
+                </li> 
+            </ul>
+        </div>
+    </div>
 </div>
 <?php
-    include_once('./inc/index-footer.php');
+    include_once('./inc/footer.php');
 ?>
