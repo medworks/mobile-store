@@ -19,22 +19,22 @@
 	if ($_POST["mark"]=="savegroup")
 	{
 		$fields = array("`name`");		
-		$values = array("'{$_POST[edtgroup]}'");	
-		if (!$db->InsertQuery('gcategories',$fields,$values)) 
+		$values = array("'{$_POST[edtname]}'");	
+		if (!$db->InsertQuery('groups',$fields,$values)) 
 		{			
-			header('location:gallerygroup.php?act=new&msg=2');			
+			header('location:groups.php?act=new&msg=2');			
 		} 	
 		else 
 		{  										
-			header('location:gallerygroup.php?act=new&msg=1');
+			header('location:groups.php?act=new&msg=1');
 		}  		
 	}
 	else
 	if ($_POST["mark"]=="editgroup")
 	{			    
-		$values = array("`name`"=>"'{$_POST[edtgroup]}'");
-        $db->UpdateQuery("gcategories",$values,array("id='{$_GET[gid]}'"));		
-		header('location:gallerygroup.php?act=new&msg=1');
+		$values = array("`name`"=>"'{$_POST[edtname]}'");
+        $db->UpdateQuery("groups",$values,array("id='{$_GET[gid]}'"));		
+		header('location:groups.php?act=new&msg=1');
 	}	
 	if ($_GET['act']=="new")
 	{
@@ -44,15 +44,15 @@
 	}
 	if ($_GET['act']=="edit")
 	{
-	    $row=$db->Select("gcategories","*","id='{$_GET["gid"]}'",NULL);		
+	    $row=$db->Select("brands","*","id='{$_GET["gid"]}'",NULL);		
 		$insertoredit = "
 			<button type='submit' class='btn btn-default'>ویرایش</button>
 			<input type='hidden' name='mark' value='editgroup' /> ";
 	}
 	if ($_GET['act']=="del")
 	{
-		$db->Delete("gcategories"," id",$_GET["gid"]);		
-		header('location:gallerygroup.php?act=new');	
+		$db->Delete("groups"," id",$_GET["gid"]);		
+		header('location:grousp.php?act=new');	
 	}	
 $msgs = GetMessage($_GET['msg']);
 
@@ -64,12 +64,12 @@ $html=<<<cd
                 <div class="row">
                     <div class="col-md-12">
                         <!--Top header start-->
-                        <h3 class="ls-top-header">دسته بندی تصاویر</h3>
+                        <h3 class="ls-top-header">تعریف گروه ها</h3>
                         <!--Top header end -->
                         <!--Top breadcrumb start -->
                         <ol class="breadcrumb">
                             <li><a href="javascript:void(0);"><i class="fa fa-home"></i></a></li>
-                            <li class="active">دسته بندی تصاویر</li>
+                            <li class="active">ایجاد گروه</li>
                         </ol>
                         <!--Top breadcrumb start -->
                     </div>
@@ -79,12 +79,12 @@ $html=<<<cd
                     <div class="col-md-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 class="panel-title">دسته بندی تصاویر</h3>
+                                <h3 class="panel-title">ایجاد گروه</h3>
                             </div>
                             <div class="panel-body">
                                 <form name="frmcat" action="" method="post" class="form-inline ls_form" role="form">
                                     <div class="form-group">
-                                        <input id="edtgroup" name="edtgroup" type="text" class="form-control" placeholder="اسم دسته" value="{$row['name']}"/>
+                                        <input id="edtname" name="edtname" type="text" class="form-control" placeholder="اسم گروه" value="{$row['name']}"/>
                                     </div>
                                     {$insertoredit}
                                 </form>
@@ -96,7 +96,7 @@ $html=<<<cd
                     <div class="col-md-12">
                         <div class="panel panel-default">
 							<div class="panel-heading">
-                                <h3 class="panel-title">لیست دسته ها</h3>
+                                <h3 class="panel-title">لیست برند ها</h3>
                             </div>
 							 <div class="panel-body">
 							 <!--Table Wrapper Start-->
@@ -105,14 +105,14 @@ $html=<<<cd
 								<thead>
 									<tr>
 										<th>ردیف</th>
-										<th>نام دسته</th>
+										<th>نام گروه</th>
 										<th>عملیات</th>
 									</tr>
 								</thead>
 								<tbody>
 								<tr>
 cd;
-$rows = $db->SelectAll("gcategories","*",NULL,"id ASC");
+$rows = $db->SelectAll("groups","*",NULL,"id ASC");
 for($i = 0; $i < Count($rows); $i++)
 {
 $rownumber = $i+1;

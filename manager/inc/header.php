@@ -170,7 +170,7 @@
                     <span>ایجاد گروه ها</span>
                 </a>
                 <ul>
-                    <li><a href="menu.php?act=new">تعریف منو</a></li>
+                    <li><a href="groups.php?act=new">تعریف  گروه</a></li>
                     <li><a href="submenu.php?act=new">تعریف زیر منو</a></li>
                 </ul>
             </li>
