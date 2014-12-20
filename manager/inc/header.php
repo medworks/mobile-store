@@ -116,7 +116,7 @@
     <section id="left-navigation">
         <!--Left navigation user details start-->
         <div class="user-image">
-            <img src="./images/avatar2-80.png" alt="Rahyab clinic">
+            <!-- <img src="./images/avatar2-80.png" alt="Rahyab clinic"> -->
             <div class="user-online-status">
                 <span class="user-status is-online"></span>
             </div>
