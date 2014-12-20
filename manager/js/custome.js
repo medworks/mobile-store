@@ -5,14 +5,9 @@ $(document).ready(function(){
 	var first=href.lastIndexOf("/")+1;
 	var last=href.lastIndexOf(".php")+3;
 	var lenght=last-first;
-	  if(href.indexOf("regcldetail")>0){
-      jQuery('ul.mainNav li.class').addClass('active');
-    }
-    if(href.indexOf("regconfdetail")>0){
-      jQuery('ul.mainNav li.conf').addClass('active');
-    } 
-    if(href.indexOf("regfaqdetail")>0){
-      jQuery('ul.mainNav li.faq').addClass('active');
+	 
+    if(href.indexOf("ordersdetail")>0){
+      jQuery('ul.mainNav li.orders').addClass('active');
     } 
     href=href.substr(first,lenght+1);
     $("ul.mainNav li a").each(function(){

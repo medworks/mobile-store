@@ -181,14 +181,16 @@
                     <li><a href="editdata.php?act=edit">ویرایش اطلاعات</a></li>
                 </ul>
             </li>
-	     <li>
+	        <li class="orders">
                 <a href="#">
                     <i class="fa fa-pencil"></i>
-                    <span>‍پیگیری محصولات</span>
+                    <span>‍پیگیری سفارشات</span>
                 </a>
                 <ul>
-                    <li><a href="dataentry.php?act=new">ثبت اطلاعات</a></li>
-                    <li><a href="editdata.php?act=edit">ویرایش اطلاعات</a></li>
+                    <li><a href="trackorders.php">مشاهده سفارشات</a></li>
+                    <li><a href="postorders.php">سفارشات ارسال شده</a></li>
+                    <li><a href="deliverorders.php">سفارشات وصولی</a></li>
+                    <li><a href="returnorders.php">سفارشات برگشتی</a></li>
                 </ul>
             </li>
              <li>
