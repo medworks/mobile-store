@@ -130,8 +130,8 @@
         <!--Left navigation user details end-->
         <!--Phone Navigation Menu icon start-->
         <div class="phone-nav-box visible-xs">
-            <a class="phone-logo" href="./" title="کلینیک رهیاب">
-                <h1>کلینیک رهیاب</h1>
+            <a class="phone-logo" href="./" title="کلینیک رهیاشگاه قطعات موبایل آبنو">
+                <h1>فروشگاه قطعات موبایل آبنوس</h1>
             </a>
             <a class="phone-nav-control" href="javascript:void(0)">
                 <span class="fa fa-bars"></span>
@@ -159,15 +159,15 @@
                 </ul>
             </li> -->
             <li>
-                <a href="categories.php?act=new">
+                <a href="brands.php?act=new">
                     <i class="fa fa-users"></i>
-                    <span>دسته بندی گروه ها</span>
+                    <span>ایجاد برند</span>
                 </a>
             </li>
             <li>
                 <a href="#">
                     <i class="fa fa-navicon"></i>
-                    <span>دسته بندی منوها</span>
+                    <span>ایجاد گروه ها</span>
                 </a>
                 <ul>
                     <li><a href="menu.php?act=new">تعریف منو</a></li>
@@ -177,7 +177,17 @@
             <li>
                 <a href="#">
                     <i class="fa fa-pencil"></i>
-                    <span>ورود اطلاعات</span>
+                    <span>ایجاد محصول</span>
+                </a>
+                <ul>
+                    <li><a href="dataentry.php?act=new">ثبت اطلاعات</a></li>
+                    <li><a href="editdata.php?act=edit">ویرایش اطلاعات</a></li>
+                </ul>
+            </li>
+	     <li>
+                <a href="#">
+                    <i class="fa fa-pencil"></i>
+                    <span>‍پیگیری محصولات</span>
                 </a>
                 <ul>
                     <li><a href="dataentry.php?act=new">ثبت اطلاعات</a></li>
