@@ -10717,7 +10717,7 @@ div.star.star_hover:after {
   float: right;
   font-family: open sans;
   font-size: 22px;
-  padding: 8px 5px;
+  padding: 5px 5px;
   text-align: left;
   width: 182px;
   margin: 0;
@@ -10736,7 +10736,7 @@ div.star.star_hover:after {
 .cat_title {
   display: inline-block;
   float: right;
-  height: 18px;
+  height: 22px;
   overflow: hidden;
   position: relative;
 }
