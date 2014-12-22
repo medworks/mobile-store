@@ -7551,7 +7551,8 @@ table.table_block td {
 }
 
 .product-name {
-  font-size: 18px;
+  font-size: 21px;
+  font-weight: normal;
   line-height: 23px;
   color: #E76453;
   margin-bottom: 0;
@@ -7580,8 +7581,9 @@ table.table_block td {
 }
 
 .price.product-price {
-  font: 15px/20px "Open Sans", sans-serif;
+  font-size: 19px;
   color: #666;
+  font-weight: normal;
 }
 
 .old-price {

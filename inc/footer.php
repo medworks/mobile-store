@@ -1,4 +1,7 @@
-    <!-- Footer -->
+                </div><!-- .row -->
+            </div><!-- #columns -->
+        </div><!-- .columns-container -->
+    </div><!-- #page -->    <!-- Footer -->
     <div class="footer">
         <div class="containfoot ">
             <div class="social">

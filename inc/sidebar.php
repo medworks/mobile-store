@@ -454,3 +454,108 @@
 		</div>
 	</header>
 </div>	
+<div class="columns-container">
+			<div id="columns" class="container">
+				<div class="row">
+					<div id="top_column" class="center_column col-xs-12 col-sm-12"></div>
+				</div>
+				<div class="row" id="columns_inner">
+					<div id="left_column" class="column col-xs-12 accordion" style="width:20%;">
+						<!-- Block CMS module -->
+						<section id="informations_block_left_1" class="block informations_block_left">
+							<p class="title_block">
+								<a href="#">پر فروشترین ها</a>
+							</p>
+							<div class="block_content list-block">
+								<ul>
+									<li>
+										<a href="#" title="">سخت افزار</a>
+									</li>
+									<li>
+										<a href="#" title="">کامپیوتر</a>
+									</li>
+									<li>
+										<a href="#">موبایل</a>
+									</li>
+									<li>
+										<a href="#" title="">نرم افزار</a>
+									</li>
+									<li>					
+										<a href="" title="">لوازم جانبی</a>
+									</li>
+									<li>
+										<a href="" title="">هندز فری</a>
+									</li>
+								</ul>
+							</div>
+						</section>
+						<!-- /Block CMS module -->
+						<!-- Block manufacturers module -->
+						<div id="manufacturers_block_left" class="block blockmanufacturer">
+							<p class="title_block">
+								<a href="#" title="">
+									اطلاعات
+								</a>
+							</p>
+							<div class="block_content list-block">
+								<ul>
+									<li class="first_item">
+										<a href="#">
+											حمل و نقل
+										</a>
+									</li>
+									<li class="item">
+										<a href="#">
+											پرداخت امن
+										</a>
+									</li>
+									<li class="item">
+										<a href="#">
+											هزینه پستی
+										</a>
+									</li>
+									<li class="item">
+										<a href="#">
+											درگاه های ما
+										</a>
+									</li>
+									<li class="item">
+										<a href="">
+											راهنای پرداخت
+										</a>
+									</li>		
+								</ul>
+							</div>
+						</div>
+						<!-- /Block manufacturers module -->
+						<!-- Block links module -->
+						<div id="tm_links_block2" class="block tm_links_block2">
+							<p class="title_block">
+								<a href="#" title="">پشتیبانی</a>
+							</p>
+							<ul class="block_content list-block">
+								<li>
+									<a href="#" title="">ضمانت تعویض</a>
+								</li> 
+								<li>
+									<a href="#" title="">ضمانت مرجوعی</a>
+								</li> 
+								<li>
+									<a href="#" title="">دلویری فوری</a>
+								</li>	 
+								<li>
+									<a href="#" title="">پرداخت امن</a>
+								</li>
+							</ul>
+						</div>
+						<!-- /Block links module -->
+						<div id="tmleft-banner" class="block">
+						   <ul>
+           	                    <li class="tmleftbanner-container">
+				                   	<a href="#" title="LeftBanner 1">
+				                    	<img src="./img/product/3-1.jpg" alt="">
+				                    </a> 
+                    			</li>
+						    </ul>
+						</div>
+					</div>
