@@ -1198,7 +1198,7 @@ background: transparent url(../images/detail_button.gif) no-repeat top left;
   background: url('../img/footpat.jpg') ;
   height: 360px;
   border-top:2px solid #000;
-  margin-top: -2px;
+  margin-top: -15px;
 }
 .footer .containfoot{
   padding: 30px 0px;
