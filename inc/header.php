@@ -71,10 +71,7 @@
     }
 </style>
 
-<!-- index option -->
-<link href="./css/custom.css" rel="stylesheet" type="text/css" />
 <!-- Accordin Menu Script files Start -->
-<script type="text/javascript" src="./js/jquery.min.js"></script>
 <script type="text/javascript" src="./js/ddaccordion.js"></script>
 <script type="text/javascript" src="./js/acordin.js"></script>
 <!-- Accordin Menu Script files End -->
@@ -93,10 +90,7 @@ html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
 </style>
 <![endif]-->
 
-<script type="text/javascript" src="./js/jquery.min.js"></script>
 <script type="text/javascript" src="./js/jqueryslidemenu.js"></script>
 <!-- Drop Down End -->
 
 </head>
-
-<body>

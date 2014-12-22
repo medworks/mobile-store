@@ -1,6 +1,7 @@
 <?php
 	include_once('./inc/header.php')
 ?>
+
 <body id="index" class="index hide-right-column lang_en">
 	<div id="page">
 <?php

@@ -1,6 +1,7 @@
 <?php
     include_once('./inc/header.php')
 ?>
+<body>
 
 <!-- Wrapper div -->
 <div id="wrapper">
