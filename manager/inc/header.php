@@ -166,14 +166,14 @@
             </li>
 	     <li>
                 <a href="groups.php?act=new">
-                    <i class="fa fa-users"></i>
+                    <i class="fa fa-briefcase"></i>
                     <span>تعریف گروه</span>
                 </a>
             </li>
             
             <li>
                 <a href="#">
-                    <i class="fa fa-pencil"></i>
+                    <i class="fa fa-table"></i>
                     <span>ایجاد محصول</span>
                 </a>
                 <ul>
@@ -183,7 +183,7 @@
             </li>
 	        <li class="orders">
                 <a href="#">
-                    <i class="fa fa-pencil"></i>
+                    <i class="fa fa-pencil-square-o"></i>
                     <span>‍پیگیری سفارشات</span>
                 </a>
                 <ul>
@@ -214,7 +214,7 @@
                     <li><a href="editnews.php?act=edit">ویرایش خبر</a></li>
                 </ul>
             </li>
-            <li>
+            <!-- <li>
                 <a href="#">
                     <i class="fa fa-table"></i>
                     <span>مقالات</span>
@@ -223,7 +223,7 @@
                     <li><a href="addarticle.php?act=new">ثبت مقاله</a></li>
                     <li><a href="editarticle.php?act=edit">ویرایش مقالات</a></li>
                 </ul>
-            </li>
+            </li> 
             <li>
                 <a href="#">
                     <i class="fa fa-image"></i>
@@ -234,20 +234,20 @@
                     <li><a href="addgallery.php?act=new">تعریف گالری</a></li>
                     <li><a href="editgallery.php?act=new">ویرایش گالری</a></li>
                 </ul>
-            </li>
+            </li> 
             <li>
                 <a href="healthgroup.php?act=new">
                     <i class="fa fa-briefcase"></i>
                     <span>گروه درمانی</span>
                 </a>
-            </li>
+            </li> -->
             <li>
                 <a href="sendnews.php">
                     <i class="fa fa-send-o"></i>
                     <span>ارسال خبر به اعضاء</span>
                 </a>
             </li>
-            <li>
+            <!-- <li>
                 <a href="exammgr.php?act=new">
                     <i class="fa fa-file-o"></i>
                     <span>آزمون های روانشناختی</span>
@@ -257,7 +257,6 @@
                 <a href="#">
                     <i class="fa fa-file-picture-o"></i>
                     <span>کلاسها و دوره ها</span>
-                    <!-- <span class="badge badge-red">3</span> -->
                 </a>
                 <ul>
                     <li><a href="addclass.php?act=new">تعریف کلاس</a></li>
@@ -270,7 +269,6 @@
                 <a href="#">
                     <i class="fa fa-coffee"></i>
                     <span>همایش ها</span>
-                    <!-- <span class="badge badge-red">3</span> -->
                 </a>
                 <ul>
                     <li><a href="addconference.php?act=new">تعریف همایش</a></li>
@@ -283,9 +281,8 @@
                 <a href="regfaq.php">
                     <i class="fa fa-pencil-square-o"></i>
                     <span>پرسش و پاسخ</span>
-                    <!-- <span class="badge badge-red">3</span> -->
                 </a>
-            </li>
+            </li> -->
             <li>
                 <a href="#">
                     <i class="fa fa-gear"></i>
