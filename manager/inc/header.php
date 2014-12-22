@@ -177,8 +177,8 @@
                     <span>ایجاد محصول</span>
                 </a>
                 <ul>
-                    <li><a href="dataentry.php?act=new">ثبت اطلاعات</a></li>
-                    <li><a href="editdata.php?act=edit">ویرایش اطلاعات</a></li>
+                    <li><a href="addproduce.php">ثبت اطلاعات</a></li>
+                    <li><a href="editproduce.php">ویرایش اطلاعات</a></li>
                 </ul>
             </li>
 	        <li class="orders">
