@@ -42,12 +42,9 @@
         </div>
     </div>
     <div id="slide-controls">
-         <!-- <p id="slide-client" class="text"><span></span></p> -->
-         <!-- <p id="slide-desc" class="text"></p> -->
          <p id="slide-nav"></p>
     </div>
     <div class="clear"></div>
-    <!-- <div class="cont_top">&nbsp;</div> -->
     <div id="header_navi">
         <div class="center_header news">
             <div class="br-news">

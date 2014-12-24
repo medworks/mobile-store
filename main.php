@@ -16,64 +16,17 @@
                 <li class="tmhomeslider-container" id="slide_1">
                     <a href="#" title="">
                         <img src="./img/slides/1.jpg" alt="">
-                    </a><!-- 
-                    <div class="tmhomeslider-description">
-                    	<div id="sample1">
-							<div class="left_col">
-								<span class="text1">$200.00</span>
-								<span class="text2">Shop Now</span>
-							</div>
-							<div class="center_col">
-								<span class="text1">tablet phones</span>
-								<span class="text2">Large <br>Display</span>
-								<span class="text3">for the enlightened</span>\
-							</div>
-							<div class="right_col">
-								<span class="text1">Save <br>$100</span>
-							</div>
-						</div>
-					</div> -->
+                    </a>
                 </li>
                 <li class="tmhomeslider-container" id="slide_2">
                     <a href="#" title="">
                         <img src="./img/slides/1.jpg" alt="">
                     </a>
-            		<!-- <div class="tmhomeslider-description">
-            			<div id="sample2">
-							<div class="left_col">
-								<span class="text1">$189.00</span>
-								<span class="text2">Shop Now</span>
-							</div>
-							<div class="center_col">
-								<span class="text1">Photographic</span>
-								<span class="text2">Equipment</span>
-								<span class="text3">for the enlightened</span>
-							</div>
-							<div class="right_col">
-								<span class="text1">Save <br>$100</span>
-							</div>
-						</div>
-					</div> -->
                 </li>
                 <li class="tmhomeslider-container" id="slide_3">
                     <a href="#" title="">
                         <img src="./img/slides/3.jpg" alt="">
                     </a>
-                    <!-- <div class="tmhomeslider-description">
-                    	<div id="sample3">
-							<div class="left_col">
-								<span class="text1">$200.00</span>
-								<span class="text2">Shop Now</span>
-							</div>
-							<div class="center_col">
-								<span class="text1">trekking bag</span>
-								<span class="text2">Take on the <br>elements</span>
-							</div>
-							<div class="right_col">
-								<span class="text1">Save <br>$100</span>
-							</div>
-						</div>
-					</div> -->
                 </li>
 			</ul>
 		</div>
