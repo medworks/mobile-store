@@ -26,6 +26,7 @@
 <link rel="stylesheet" href="./css/responsive-tables.css" type="text/css" media="all" />
 <link rel="stylesheet" href="./css/uniform.default.css" type="text/css" media="all" />
 <link rel="stylesheet" href="./css/jquery.fancybox.css" type="text/css" media="all" />
+<link rel="stylesheet" href="./css/product.css" type="text/css" media="all" />
 <link rel="stylesheet" href="./css/blockcart.css" type="text/css" media="all" />
 <link rel="stylesheet" href="./css/blockcategories.css" type="text/css" media="all" />
 <link rel="stylesheet" href="./css/blockcurrencies.css" type="text/css" media="all" />
