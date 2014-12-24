@@ -133,7 +133,6 @@
     <script type="text/javascript" src="./js/jquery.serialScroll.js"></script>
     <script type="text/javascript" src="./js/jquery.bxslider.js"></script>
     <script type="text/javascript" src="./js/treeManagement.js"></script>
-    <!-- <script type="text/javascript" src="./js/blockfacebook.js"></script> -->
     <script type="text/javascript" src="./js/blocknewsletter.js"></script>
     <script type="text/javascript" src="./js/jquery.autocomplete.js"></script>
     <script type="text/javascript" src="./js/blocksearch.js"></script>
@@ -145,14 +144,12 @@
     <script type="text/javascript" src="./js/blocktopmenu.js"></script>
     <script type="text/javascript" src="./js/owl.carousel.js"></script>
     <script type="text/javascript" src="./js/custom.js"></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
     var tmhomeslider_loop=1;
          var tmhomeslider_width=770;
          var tmhomeslider_speed=500;
          var tmhomeslider_pause=3000;
-    </script>
+    </script> -->
     
-</body>
-</html>
 </body>
 </html>

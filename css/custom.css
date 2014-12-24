@@ -1196,7 +1196,7 @@ background: transparent url(../images/detail_button.gif) no-repeat top left;
 */
 .footer{
   background: url('../img/footpat.jpg') ;
-  height: 360px;
+  height: 380px;
   border-top:2px solid #000;
   margin-top: -15px;
 }

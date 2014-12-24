@@ -41,7 +41,7 @@
 			<!-- thumbnails -->
 			<div id="views_block" class="clearfix ">
 				<span class="view_scroll_spacer">
-					<a id="view_scroll_left" class="" title="Other views" href="javascript:{}" style="cursor: default; opacity: 0.4;">
+					<a id="view_scroll_left" class="" title="Other views" href="javascript:{}">
 						قبلی
 					</a>
 				</span>
@@ -52,7 +52,7 @@
 							</a>
 						</li>															
 						<li id="thumbnail_199">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/199-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox shown" title="">
+							<a href="http://prestashop-demos.org/PRS06/PRS060144/199-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
 								<img class="img-responsive" id="thumb_199" src="http://prestashop-demos.org/PRS06/PRS060144/199-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
 							</a>
 						</li>
@@ -118,19 +118,11 @@
 						</li>
 					</ul>
 					</div> <!-- end thumbs_list -->					
-						<a id="view_scroll_right" title="Other views" href="javascript:{}" style="cursor: pointer; opacity: 1;">
+						<a id="view_scroll_right" title="Other views" href="javascript:{}">
 							بعدی
 						</a>		
 			</div> <!-- end views-block -->
 			<!-- end thumbnails -->
-			<p class="resetimg clear no-print">
-				<span id="wrapResetImages" style="display: none;">
-					<a href="http://prestashop-demos.org/PRS06/PRS060144/en/camcorder/20-printed-summer-dress.html" name="resetImages">
-						<i class="icon-repeat"></i>
-						نمایش همه تصاویر
-					</a>
-				</span>
-			</p>
 		</div> <!-- end pb-left-column -->
 		<!-- end left infos--> 
 		<!-- center infos -->
