@@ -5,7 +5,7 @@
 <body id="index" class="index hide-right-column lang_en">
 	<div id="page">
 <?php
-	include_once('./inc/header-sidebar.php')
+	include_once('./inc/main-sidebar.php')
 ?>		
 		
 <div id="center_column" class="center_column col-xs-12 accordion" style="width:80%;">
