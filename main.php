@@ -44,7 +44,7 @@
 									<a class="product_img_link" href="#" title="" itemprop="url">
 										<img class="replace-2x img-responsive" src="./img/product/2-1.jpg" alt="Nascetur ridiculus mus" title="Nascetur ridiculus mus" itemprop="image" height="173" width="173">
 									</a>
-									<a class="quick-view" href="#">
+									<a class="quick-view" href="javascript:void(0);" rel="single-product.php">
 										<span>نمایش</span>
 									</a>
 									<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">

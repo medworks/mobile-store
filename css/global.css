@@ -1032,7 +1032,7 @@ header .row #header_logo,
   .col-md-9,
   .col-md-10,
   .col-md-11 {
-    float: left;
+    float: right;
   }
 
   .col-md-1 {
@@ -8757,7 +8757,7 @@ div.star a:hover {
 .breadcrumb a {
   background: transparent;
   display: inline-block;
-  padding: 0 15px 0 15px;
+  padding: 0 12px 0;
   margin-left: -6px;
   position: relative;
   z-index: 2;
