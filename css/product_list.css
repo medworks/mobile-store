@@ -46,7 +46,7 @@ ul.product_list .product-image-container .quick-view {
   background: none repeat scroll 0 0 #FFFFFF;
   border: 2px solid #C2D82E;
   color: #000000;
-  font: 700 13px/16px "Open Sans", sans-serif;
+  font-size: 16px;
   height: 35px;
   left: 20%;
   margin: 0;
