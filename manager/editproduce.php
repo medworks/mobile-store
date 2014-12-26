@@ -58,12 +58,11 @@ $html.=<<<cd
                                             <thead>
                                             <tr>
 											<th>#</th>
-                                                <th>عنوان محصول</th>
-                                                <th>کد قطعه</th>
-                                                <th>کیفیت</th>
+												<th>کد قطعه</th>
+                                                <th>عنوان محصول</th>                                                                                                
                                                 <th>برند</th>
                                                 <th>گروه</th>
-                                                <th>کیفیت</th>
+												<th>کیفیت</th>                              
                                                 <th>قیمت محصول</th>
                                                 <th>موجودی</th>
                                                 <th class="text-center">عملیات</th>
@@ -95,22 +94,28 @@ $vals = array();
 for($i = 0; $i < Count($rows); $i++)
 {
 	$rownumber = $i+1;
-	$rows[$i]["name"] =(mb_strlen($rows[$i]["subject"])>20)?mb_substr($rows[$i]["subject"],0,20,"UTF-8")."...":$rows[$i]["subject"];
+	$rows[$i]["name"] =(mb_strlen($rows[$i]["name"])>30)?mb_substr($rows[$i]["name"],0,30,"UTF-8")."...":$rows[$i]["name"];
+	$brand=$db->Select("brands","name","id='{$rows[$i]["bid"]}'",NULL);
+	$group=$db->Select("groups","name","id='{$rows[$i]["gid"]}'",NULL);		
+	$quality=$db->Select("quality","name","id='{$rows[$i]["qid"]}'",NULL);		
+	$rows[$i]["bid"] = $brand[0];
+	$rows[$i]["gid"] = $group[0];
+	$rows[$i]["qid"] = $quality[0];
 
 $html.=<<<cd
 
                                                 
                                             <tr>
                                                 <td>{$rownumber}</td>
-                                                <td>{$rows[$i]["subject"]}</td>
-                                                <td>{$rows[$i]["text"]}</td>
-                                                <td>
-                                                    <span class="label label-success">{$vals[2]}</span>
-                                                    <span class="label label-info">{$vals[1]}</span>
-                                                    <span class="label label-warning">{$vals[0]}</span>                        
-                                                </td>
+												<td>{$rows[$i]["code"]}</td>
+                                                <td>{$rows[$i]["name"]}</td>
+												<td>{$rows[$i]["bid"]}</td>
+												<td>{$rows[$i]["gid"]}</td>
+												<td>{$rows[$i]["qid"]}</td>
+												<td>{$rows[$i]["price"]}</td>
+												<td>{$rows[$i]["mojodi"]}</td>                                               
                                                 <td class="text-center">
-    												<a href="addnews.php?act=edit&did={$rows[$i]["id"]}"  >					
+    												<a href="addproduce.php?act=edit&did={$rows[$i]["id"]}"  >					
                                                         <button class="btn btn-xs btn-warning" title="ویرایش"><i class="fa fa-pencil-square-o"></i></button>
     												</a>
     												<a href="?act=del&did={$rows[$i]["id"]}"  >												

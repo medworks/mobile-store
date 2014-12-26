@@ -65,7 +65,7 @@
 		
 	if ($_GET['act']=="edit")
 	{
-	    $row=$db->Select("goods","*","id='{$_GET["did"]}'",NULL);		
+	    $row=$db->Select("goods","*","id='{$_GET["did"]}'",NULL);
 		$insertoredit = "
 			<button id='submit' type='submit' class='btn btn-default'>ویرایش</button>
 			<input type='hidden' name='mark' value='editgoods' /> ";
