@@ -100,7 +100,18 @@
 		} 	
 		else 
 		{  	
-			$id = $db->InsertId();			
+			$id = $db->InsertId();
+			$quality = $db->SelectAll("quality","*");
+			$fields = array("`gid`","`qid`","`price`","`mojodi`");
+			for($i=0;$i<count($quality);$i++)
+			{
+				$ii = $i+1;
+				if ($_POST["chbqlty$ii"])
+				{
+					$values = array("'{$id}'","'{$_POST[chbqlty.$ii]}'","'{$_POST[edtprice.$ii]}'","'{$_POST[edtmojodi.$ii]}'");
+					$db->InsertQuery('gquality',$fields,$values);
+				}	
+			}	
 			uploadpics("userfile1",$db,$id,"1",$id."-1");
 			uploadpics("userfile2",$db,$id,"2",$id."-2");
 			uploadpics("userfile3",$db,$id,"3",$id."-3");
@@ -132,8 +143,30 @@
 		$groups = $db->SelectAll("groups","*");	
 		$cbgroups = DbSelectOptionTag("cbgroups",$groups,"name",NULL,NULL,"form-control",NULL,"  انتخاب گروه  ");
 		
-		$quality = $db->SelectAll("quality","*");	
-		$cbquality = DbSelectOptionTag("cbquality",$quality,"name",NULL,NULL,"form-control",NULL,"  انتخاب کیفیت  ");
+		$quality = $db->SelectAll("quality","*");
+		//$cbquality = DbSelectOptionTag("cbquality",$quality,"name",NULL,NULL,"form-control",NULL,"  انتخاب کیفیت  ");
+$gquality=<<<cd
+	<table border="0">
+		<tr>
+			<th style="width:150px;">کیفیت</th>
+			<th style="width:110px;">قیمت</th> 
+			<th style="width:110px;">تعداد</th>
+		</tr>
+cd;
+for($i=0;$i<count($quality);$i++)
+{
+	$ii= $i+1;
+$gquality.=<<<cd
+		<tr>
+			<td> <input type="checkbox" id="chbqlty{$ii}" name="chbqlty{$ii}" value="{$quality[$i][id]}" /> {$quality[$i]["name"]} </td>
+			<td> <input type="text" id="edtprice{$ii}" name="edtprice{$ii}" style="width:80px;" /> </td> 
+			<td> <input type="text" id="edtmojodi{$ii}" name="edtmojodi{$ii}" style="width:80px;"/> </td>
+		</tr>		
+cd;
+}
+$gquality.=<<<cd
+	</table>	
+cd;
 	}
 	
 		
@@ -238,7 +271,7 @@ $html.=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="radio-inline">
-                                    	{$cbquality}
+                                    	{$gquality}
                                     </div>
                                 </div>
                             </div>
