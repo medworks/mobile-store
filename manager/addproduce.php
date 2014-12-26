@@ -75,9 +75,9 @@
 		{
 			if (move_uploaded_file($_FILES[$fileup]["tmp_name"], $target_file)) 
 			{	
-				$fields = array("`gid`","`lvl`","`name`");
 				$fn = $filename.".".$imageFileType;
-			    $values = array("'{$id}'","{$lvl}","'{$fn}'")
+				$fields = array("`gid`","`lvl`","`name`");				
+			    $values = array("'{$id}'","{$lvl}","'{$fn}'");
 				$db->InsertQuery('pics',$fields,$values);
 		    } 
 		    else 
