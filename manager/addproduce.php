@@ -20,7 +20,7 @@
 	if ($_POST["mark"]=="savegoods")
 	{		
 		//$date = date('Y-m-d H:i:s');
-		$fields = array("`bid`","`gid`","`code`","`name`","`quality`","`price`","`mojodi`","`desc`");
+		$fields = array("`bid`","`gid`","`code`","`name`","`qid`","`price`","`mojodi`","`desc`");
 		$values = array("'{$_POST[cbbrands]}'","'{$_POST[cbgroups]}'","'{$_POST[edtcode]}'",
 		                "'{$_POST[edtname]}'","'{$_POST[cbquality]}'","'{$_POST[edtprice]}'",
 						"'{$_POST[edtmojodi]}'","'{$_POST[txtdesc]}'");	
@@ -30,8 +30,9 @@
 		} 	
 		else 
 		{  					
-				header('location:addproduce.php?act=new&msg=1');
-		}  		
+			header('location:addproduce.php?act=new&msg=1');
+		}
+		//echo $db->cmd;
 	}
 	else
 	if ($_POST["mark"]=="editgoods")
@@ -39,7 +40,7 @@
 				
 		$values = array("`bid`"=>"'{$_POST[cbbrands]}'","`gid`"=>"'{$_POST[cbgroups]}'",
 						"`code`"=>"'{$_POST[edtcode]}'","`name`"=>"'{$_POST[edtname]}'",
-						"`quality`"=>"'{$_POST[cbquality]}'","`price`"=>"'{$_POST[edtprice]}'",
+						"`qid`"=>"'{$_POST[cbquality]}'","`price`"=>"'{$_POST[edtprice]}'",
 						"`mojodi`"=>"'{$_POST[edtmojodi]}'","`desc`"=>"'{$_POST[txtdesc]}'");
         $db->UpdateQuery("goods",$values,array("id='{$_GET[did]}'"));		
 		header('location:addproduce.php?act=new&msg=1');
@@ -67,7 +68,16 @@
 	    $row=$db->Select("goods","*","id='{$_GET["did"]}'",NULL);		
 		$insertoredit = "
 			<button id='submit' type='submit' class='btn btn-default'>ویرایش</button>
-			<input type='hidden' name='mark' value='editgoods' /> ";		
+			<input type='hidden' name='mark' value='editgoods' /> ";
+
+		$brands = $db->SelectAll("brands","*");	
+		$cbbrands = DbSelectOptionTag("cbbrands",$brands,"name",$row["bid"],NULL,"form-control",NULL,"  انتخاب برند  ");
+		
+		$groups = $db->SelectAll("groups","*");	
+		$cbgroups = DbSelectOptionTag("cbgroups",$groups,"name",$row["gid"],NULL,"form-control",NULL,"  انتخاب گروه  ");
+		
+		$quality = $db->SelectAll("quality","*");	
+		$cbquality = DbSelectOptionTag("cbquality",$quality,"name",$row["qid"],NULL,"form-control",NULL,"  انتخاب کیفیت  ");
 	}
   
 $html.=<<<cd
