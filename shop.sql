@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.1
+-- version 4.1.6
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Dec 20, 2014 at 02:13 
--- Server version: 5.6.12
--- PHP Version: 5.5.3
+-- Host: 127.0.0.1
+-- Generation Time: Dec 26, 2014 at 04:33 PM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `shop`
 --
-CREATE DATABASE IF NOT EXISTS `shop` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `shop`;
 
 -- --------------------------------------------------------
 
@@ -55,10 +53,33 @@ CREATE TABLE IF NOT EXISTS `goods` (
   `gid` int(11) NOT NULL,
   `code` varchar(10) NOT NULL,
   `name` varchar(50) NOT NULL,
+  `qid` tinyint(4) NOT NULL,
   `price` int(11) NOT NULL,
+  `mojodi` int(11) NOT NULL,
   `takhfikh` int(11) NOT NULL,
+  `desc` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+
+--
+-- Dumping data for table `goods`
+--
+
+INSERT INTO `goods` (`id`, `bid`, `gid`, `code`, `name`, `qid`, `price`, `mojodi`, `takhfikh`, `desc`) VALUES
+(1, 3, 1, '   1001', '   فلت C7', 1, 150000, 1000, 0, '  5465'),
+(2, 4, 2, ' 1002', ' ال سی دی 1250', 3, 150000, 200, 0, ' '),
+(3, 3, 1, '1005', ' ملی', 4, 150000, 200, 0, ' '),
+(4, 5, 3, '   1003', 'تاچ بالونی', 1, 0, 2000, 0, ' '),
+(5, 3, 1, '   1003', ' ملی', 3, 150000, 0, 0, ' '),
+(6, 3, 1, '   1003', ' ملی', 3, 150000, 0, 0, ' '),
+(7, 3, 1, '   1003', ' ملی', 3, 150000, 0, 0, ' '),
+(8, 4, 2, '   1001', ' فلت C7', 4, 150000, 200, 0, ' '),
+(9, 3, 2, ' 1001', ' ملی', 2, 150000, 0, 0, ' '),
+(10, 3, 2, ' 10001', ' gh', 2, 123500, 150, 0, ' '),
+(11, 3, 1, ' 1001', ' ملی', 2, 150000, 0, 0, ' '),
+(12, 3, 1, ' 1001', ' ملی', 2, 150000, 0, 0, ' '),
+(13, 5, 4, ' 10001', ' bhkj', 4, 123500, 150, 0, ' '),
+(14, 4, 4, ' 1002', ' bhkj', 0, 123500, 150, 0, ' ');
 
 -- --------------------------------------------------------
 
@@ -71,7 +92,62 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `pid` int(11) NOT NULL,
   `name` varchar(60) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `groups`
+--
+
+INSERT INTO `groups` (`id`, `pid`, `name`) VALUES
+(1, 0, 'فلت'),
+(2, 0, 'ال سی دی'),
+(3, 0, 'تاچ'),
+(4, 0, 'دوربین');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pics`
+--
+
+CREATE TABLE IF NOT EXISTS `pics` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `gid` int(11) NOT NULL,
+  `lvl` tinyint(4) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `pics`
+--
+
+INSERT INTO `pics` (`id`, `gid`, `lvl`, `name`) VALUES
+(1, 14, 1, '14-1.jpg'),
+(2, 14, 2, '14-2.jpg'),
+(3, 14, 3, '14-3.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quality`
+--
+
+CREATE TABLE IF NOT EXISTS `quality` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(60) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `quality`
+--
+
+INSERT INTO `quality` (`id`, `name`) VALUES
+(1, 'اصلی'),
+(2, 'ارجینال'),
+(3, 'کپی'),
+(4, 'متفرقه');
 
 -- --------------------------------------------------------
 
