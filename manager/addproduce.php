@@ -20,8 +20,10 @@
 	if ($_POST["mark"]=="savegoods")
 	{		
 		//$date = date('Y-m-d H:i:s');
-		$fields = array("`bid`","`gid`","`code`","`name`","`quality`","`price`","`mojodi`");		
-		$values = array("'{$grp}'","'{$sm}'","'{$_POST[edtsubject]}'","'{$_POST[edttext]}'","'{$date}'","'0'");	
+		$fields = array("`bid`","`gid`","`code`","`name`","`quality`","`price`","`mojodi`","`desc`");
+		$values = array("'{$_POST[cbbrands]}'","'{$_POST[cbgroups]}'","'{$_POST[edtcode]}'",
+		                "'{$_POST[edtname]}'","'{$_POST[cbquality]}'","'{$_POST[edtprice]}'",
+						"'{$_POST[edtmojodi]}'","'{$_POST[txtdesc]}'");	
 		if (!$db->InsertQuery('goods',$fields,$values)) 
 		{			
 			header('location:addproduce.php?act=new&msg=2');			
@@ -35,9 +37,10 @@
 	if ($_POST["mark"]=="editgoods")
 	{		
 				
-		$values = array("`bid`"=>"'{$_POST[cbgroup]}'","`gid`"=>"'{$sm}'",
-						"`code`"=>"'{$_POST[edtsubject]}'","`name`"=>"'{$_POST[edttext]}'",
-						"`quality`"=>"'0'","`price`"=>"'{$_POST[edttext]}'","`mojodi`"=>"'{$_POST[edttext]}'");
+		$values = array("`bid`"=>"'{$_POST[cbbrands]}'","`gid`"=>"'{$_POST[cbgroups]}'",
+						"`code`"=>"'{$_POST[edtcode]}'","`name`"=>"'{$_POST[edtname]}'",
+						"`quality`"=>"'{$_POST[cbquality]}'","`price`"=>"'{$_POST[edtprice]}'",
+						"`mojodi`"=>"'{$_POST[edtmojodi]}'","`desc`"=>"'{$_POST[txtdesc]}'");
         $db->UpdateQuery("goods",$values,array("id='{$_GET[did]}'"));		
 		header('location:addproduce.php?act=new&msg=1');
 	}
@@ -50,6 +53,12 @@
 					
 		$brands = $db->SelectAll("brands","*");	
 		$cbbrands = DbSelectOptionTag("cbbrands",$brands,"name",NULL,NULL,"form-control",NULL,"  انتخاب برند  ");
+		
+		$groups = $db->SelectAll("groups","*");	
+		$cbgroups = DbSelectOptionTag("cbgroups",$groups,"name",NULL,NULL,"form-control",NULL,"  انتخاب گروه  ");
+		
+		$quality = $db->SelectAll("quality","*");	
+		$cbquality = DbSelectOptionTag("cbquality",$quality,"name",NULL,NULL,"form-control",NULL,"  انتخاب کیفیت  ");
 	}
 	
 		
@@ -89,7 +98,7 @@ $html.=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="radio-inline">
-                                    	{$cbbrand}
+                                    	{$cbbrands}
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +112,7 @@ $html.=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="radio-inline">
-                                    	{$cbgroup}
+                                    	{$cbgroups}
                                     </div>
                                 </div>
                             </div>
@@ -117,7 +126,7 @@ $html.=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <input id="edtsubject" name="edtsubject" type="text" class="form-control" value = " {$row["subject"]}" />
+                                        <input id="edtname" name="edtname" type="text" class="form-control" value = " {$row["subject"]}" />
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +140,7 @@ $html.=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <input id="edtsubject" name="edtsubject" type="text" class="form-control" value = " {$row["subject"]}" />
+                                        <input id="edtcode" name="edtcode" type="text" class="form-control" value = " {$row["subject"]}" />
                                     </div>
                                 </div>
                             </div>
@@ -145,7 +154,7 @@ $html.=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="radio-inline">
-                                    	{$cbgroup}
+                                    	{$cbquality}
                                     </div>
                                 </div>
                             </div>
@@ -159,7 +168,7 @@ $html.=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <input id="edtsubject" name="edtsubject" type="text" class="form-control" value = " {$row["subject"]}" />
+                                        <input id="edtprice" name="edtprice" type="text" class="form-control" value = " {$row["subject"]}" />
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +182,7 @@ $html.=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <input id="edtsubject" name="edtsubject" type="text" class="form-control" value = " {$row["subject"]}" />
+                                        <input id="edtmojodi" name="edtmojodi" type="text" class="form-control" value = " {$row["subject"]}" />
                                     </div>
                                 </div>
                             </div>
@@ -188,7 +197,7 @@ $html.=<<<cd
                                 <div class="panel-body">
                                     <div class="row ls_divider last">
                                         <div class="col-md-10 ls-group-input">
-                                            <textarea class="animatedTextArea form-control " id="edttext" name="edttext"> {$row["text"]}</textarea>
+                                            <textarea class="animatedTextArea form-control " id="txtdesc" name="txtdesc"> {$row["text"]}</textarea>
                                         </div>
                                     </div>
                                 </div>
