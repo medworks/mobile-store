@@ -81,9 +81,11 @@ $html2.=<<<cd
 								<span itemprop="price" class="price product-price">{$rows[$i]["price"]} ریال</span>
 								<meta itemprop="priceCurrency" content="1">
 							</div>
+							<!--
 							<span class="new-box">
 								<span class="new-label">جدید</span>
 							</span>
+							-->
 						</div>
 					</div>
 					<div class="right-block">
