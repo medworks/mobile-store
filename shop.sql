@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2014 at 04:33 PM
+-- Generation Time: Dec 26, 2014 at 09:26 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `goods` (
   `takhfikh` int(11) NOT NULL,
   `desc` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `goods`
@@ -79,7 +79,31 @@ INSERT INTO `goods` (`id`, `bid`, `gid`, `code`, `name`, `qid`, `price`, `mojodi
 (11, 3, 1, ' 1001', ' ملی', 2, 150000, 0, 0, ' '),
 (12, 3, 1, ' 1001', ' ملی', 2, 150000, 0, 0, ' '),
 (13, 5, 4, ' 10001', ' bhkj', 4, 123500, 150, 0, ' '),
-(14, 4, 4, ' 1002', ' bhkj', 0, 123500, 150, 0, ' ');
+(15, 3, 3, ' 2005', ' دوربین 8 مگا', 0, 522211, 0, 0, ' ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gquality`
+--
+
+CREATE TABLE IF NOT EXISTS `gquality` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `gid` int(11) NOT NULL,
+  `qid` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `mojodi` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `gquality`
+--
+
+INSERT INTO `gquality` (`id`, `gid`, `qid`, `price`, `mojodi`) VALUES
+(1, 15, 1, 50000, 100),
+(2, 15, 3, 30000, 150),
+(3, 15, 4, 20000, 200);
 
 -- --------------------------------------------------------
 
@@ -116,16 +140,19 @@ CREATE TABLE IF NOT EXISTS `pics` (
   `lvl` tinyint(4) NOT NULL,
   `name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `pics`
 --
 
 INSERT INTO `pics` (`id`, `gid`, `lvl`, `name`) VALUES
-(1, 14, 1, '14-1.jpg'),
-(2, 14, 2, '14-2.jpg'),
-(3, 14, 3, '14-3.jpg');
+(1, 13, 1, '13-1.png'),
+(2, 13, 2, '13-2.png'),
+(3, 13, 3, '13-3.png'),
+(4, 15, 1, '15-1.jpg'),
+(5, 15, 2, '15-2.png'),
+(6, 15, 3, '15-3.jpg');
 
 -- --------------------------------------------------------
 
