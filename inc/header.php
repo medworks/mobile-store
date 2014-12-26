@@ -48,6 +48,7 @@
 <link rel="stylesheet" href="./css/tmnewproducts.css" type="text/css" media="all" />
 <link rel="stylesheet" href="./css/superfish-modified.css" type="text/css" media="all" />
 <link rel="stylesheet" href="./css/tmstyle.css" type="text/css" media="all" />
+<link href="./css/zebra_pagination.css" rel="stylesheet" />
             
 <!-- ================ Additional Links By Tempaltemela : START  ============= -->
 <link rel="stylesheet" type="text/css" href="./css/custom.css" />
@@ -95,5 +96,5 @@ html .jqueryslidemenu{height: 1%;} /*Holly Hack for IE7 and below*/
 <script type="text/javascript" src="./js/jquery.min.js"></script>
 <script type="text/javascript" src="./js/jqueryslidemenu.js"></script>
 <!-- Drop Down End -->
-
+<script type="text/javascript" src="./js/zebra_pagination.js"></script>
 </head>
