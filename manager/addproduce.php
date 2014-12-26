@@ -16,7 +16,73 @@
 	}
 	
 	$db = Database::GetDatabase();
+	
+    function uploadpics($fileup,$filename=NULL)
+	{
+		$target_dir = "../goodspics/";
+		$imageFileType = pathinfo($_FILES[$fileup]["name"],PATHINFO_EXTENSION);
+		//$target_file = $target_dir . basename($_FILES[$fileup]["name"]);
+		if (!isset($filename))
+		{
+			$target_file = $target_dir . basename($_FILES[$fileup]["name"]);
+		}
+		else
+		{
+			$target_file = $target_dir .$filename.".".$imageFileType;
+		}
+		$uploadOk = 1;
 		
+		
+		if(isset($_POST["submit"])) 
+		{
+			$check = getimagesize($_FILES[$fileup]["tmp_name"]);
+			if($check !== false) 
+			{				
+				$uploadOk = 1;
+			} 
+			else 
+			{
+				echo "File is not an image.";
+				$uploadOk = 0;
+			}
+		}
+		// Check if file already exists
+		if (file_exists($target_file)) 
+		{
+			echo "Sorry, file already exists.";
+			$uploadOk = 0;
+		}
+		// Check file size
+		if ($_FILES[$fileup]["size"] > 500000) 
+		{
+			echo "Sorry, your file is too large.";
+			$uploadOk = 0;
+		}
+		// Allow certain file formats
+		if($imageFileType != "jpg" && $imageFileType != "png" && 
+		$imageFileType != "jpeg"&& $imageFileType != "gif" ) 
+		{
+			echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+			$uploadOk = 0;
+		}
+		// Check if $uploadOk is set to 0 by an error
+		if ($uploadOk == 0) 
+		{
+			echo "Sorry, your file was not uploaded.";
+			// if everything is ok, try to upload file
+		} 
+		else 
+		{
+			if (move_uploaded_file($_FILES[$fileup]["tmp_name"], $target_file)) 
+			{	
+		    } 
+		    else 
+		    {
+				echo "Sorry, there was an error uploading your file.";
+		    }
+		}
+	}
+	
 	if ($_POST["mark"]=="savegoods")
 	{		
 		//$date = date('Y-m-d H:i:s');
@@ -29,7 +95,11 @@
 			header('location:addproduce.php?act=new&msg=2');			
 		} 	
 		else 
-		{  					
+		{  	
+			$id = $db->InsertId();
+			uploadpics("userfile1",$id."-1");
+			uploadpics("userfile2",$id."-2");
+			uploadpics("userfile3",$id."-3");
 			header('location:addproduce.php?act=new&msg=1');
 		}
 		//echo $db->cmd;
@@ -136,7 +206,7 @@ $html.=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <input id="edtname" name="edtname" type="text" class="form-control" value = " {$row["subject"]}" />
+                                        <input id="edtname" name="edtname" type="text" class="form-control" value = " {$row["name"]}" />
                                     </div>
                                 </div>
                             </div>
@@ -150,7 +220,7 @@ $html.=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <input id="edtcode" name="edtcode" type="text" class="form-control" value = " {$row["subject"]}" />
+                                        <input id="edtcode" name="edtcode" type="text" class="form-control" value = " {$row["code"]}" />
                                     </div>
                                 </div>
                             </div>
@@ -178,7 +248,7 @@ $html.=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <input id="edtprice" name="edtprice" type="text" class="form-control" value = " {$row["subject"]}" />
+                                        <input id="edtprice" name="edtprice" type="text" class="form-control" value = " {$row["price"]}" />
                                     </div>
                                 </div>
                             </div>
@@ -192,7 +262,7 @@ $html.=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <input id="edtmojodi" name="edtmojodi" type="text" class="form-control" value = " {$row["subject"]}" />
+                                        <input id="edtmojodi" name="edtmojodi" type="text" class="form-control" value = " {$row["mojodi"]}" />
                                     </div>
                                 </div>
                             </div>
@@ -207,7 +277,7 @@ $html.=<<<cd
                                 <div class="panel-body">
                                     <div class="row ls_divider last">
                                         <div class="col-md-10 ls-group-input">
-                                            <textarea class="animatedTextArea form-control " id="txtdesc" name="txtdesc"> {$row["text"]}</textarea>
+                                            <textarea class="animatedTextArea form-control " id="txtdesc" name="txtdesc"> {$row["desc"]}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -224,7 +294,7 @@ $html.=<<<cd
                                     <div class="row ls_divider last">
                                         <div class="form-group">
                                             <div class="col-md-10 col-md-offset-2 ls-group-input">
-                                                <input kl_virtual_keyboard_secure_input="on" id="userfile"  name="userfile" class="file" multiple="true" data-preview-file-type="any" type="file" />
+                                                <input kl_virtual_keyboard_secure_input="on" id="userfile1"  name="userfile1" class="file" multiple="true" data-preview-file-type="any" type="file" />
                                             </div>
                                         </div>
                                     </div>
@@ -243,7 +313,7 @@ $html.=<<<cd
                                     <div class="row ls_divider last">
                                         <div class="form-group">
                                             <div class="col-md-10 col-md-offset-2 ls-group-input">
-                                                <input kl_virtual_keyboard_secure_input="on" id="userfile"  name="userfile" class="file" multiple="true" data-preview-file-type="any" type="file" />
+                                                <input kl_virtual_keyboard_secure_input="on" id="userfile2"  name="userfile2" class="file" multiple="true" data-preview-file-type="any" type="file" />
                                             </div>
                                         </div>
                                     </div>
@@ -262,7 +332,7 @@ $html.=<<<cd
                                     <div class="row ls_divider last">
                                         <div class="form-group">
                                             <div class="col-md-10 col-md-offset-2 ls-group-input">
-                                                <input kl_virtual_keyboard_secure_input="on" id="userfile"  name="userfile" class="file" multiple="true" data-preview-file-type="any" type="file" />
+                                                <input kl_virtual_keyboard_secure_input="on" id="userfile3"  name="userfile3" class="file" multiple="true" data-preview-file-type="any" type="file" />
                                             </div>
                                         </div>
                                     </div>
