@@ -17,7 +17,7 @@
 	
 	$db = Database::GetDatabase();
 	
-    function uploadpics($fileup,$filename=NULL)
+    function uploadpics($fileup,$db,$id,$lvl,$filename=NULL)
 	{
 		$target_dir = "../goodspics/";
 		$imageFileType = pathinfo($_FILES[$fileup]["name"],PATHINFO_EXTENSION);
@@ -75,6 +75,10 @@
 		{
 			if (move_uploaded_file($_FILES[$fileup]["tmp_name"], $target_file)) 
 			{	
+				$fields = array("`gid`","`lvl`","`name`");
+				$fn = $filename.".".$imageFileType;
+			    $values = array("'{$id}'","{$lvl}","'{$fn}'")
+				$db->InsertQuery('pics',$fields,$values);
 		    } 
 		    else 
 		    {
@@ -96,10 +100,10 @@
 		} 	
 		else 
 		{  	
-			$id = $db->InsertId();
-			uploadpics("userfile1",$id."-1");
-			uploadpics("userfile2",$id."-2");
-			uploadpics("userfile3",$id."-3");
+			$id = $db->InsertId();			
+			uploadpics("userfile1",$db,$id,"1",$id."-1");
+			uploadpics("userfile2",$db,$id,"2",$id."-2");
+			uploadpics("userfile3",$db,$id,"3",$id."-3");
 			header('location:addproduce.php?act=new&msg=1');
 		}
 		//echo $db->cmd;
