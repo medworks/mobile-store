@@ -162,7 +162,7 @@
 								<a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
 									<span><i class="icon-minus"></i></span>
 								</a>
-								<a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up ">
+								<a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
 									<span><i class="icon-plus"></i></span>
 								</a>
 								<span class="clearfix"></span>

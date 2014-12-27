@@ -5,24 +5,13 @@ deny from all
                            
 <IFModule mod_rewrite.c>   
 	RewriteEngine On 
-	RewriteRule ^index.html dr-share/index.php [L]
-	RewriteRule ^about-us.html dr-share/about-us.php [L]
-	RewriteRule ^gallery.html dr-share/gallery.php [L]	
-	RewriteRule ^class.html dr-share/class.php [L]	
-	RewriteRule ^conferences.html dr-share/conferences.php [L]	
-	RewriteRule ^contactus.html dr-share/contactus.php [L]	
-	RewriteRule ^membership.html dr-share/membership.php [L]	
-	RewriteRule ^faq.html dr-share/faq.php [L]	
-	RewriteRule ^one-gallery([0-9]+).html dr-share/one-gallery.php?id=$1 [L]	
-	RewriteRule ^contactus.html dr-share/contactus.php [L]
-	RewriteRule ^healthgroup.html dr-share/healthgroup.php [L]
-	RewriteRule ^exam.html dr-share/exam.php [L]
-	RewriteRule ^news.html dr-share/news.php [L]
-	RewriteRule ^one-news([0-9]+).html dr-share/one-news.php?id=$1 [L]	
-	RewriteRule ^articles.html dr-share/articles.php [L]
-	RewriteRule ^one-article([0-9]+).html dr-share/one-article.php?id=$1 [L]	
-	RewriteRule ^menues([0-9]+)-([0-9]+).html dr-share/menues.php?id=$1&lvl=$2 [L]
-	RewriteRule ^sitemap.xml dr-share/sitemap.php [L]
+	RewriteRule ^index.html mobile-store/index.php [L]
+	RewriteRule ^aboutus.html mobile-store/aboutus.php [L]
+	RewriteRule ^contactus.html mobile-store/contactus.php [L]	
+	RewriteRule ^news.html mobile-store/news.php [L]
+	RewriteRule ^single-news([0-9]+).html mobile-store/single-news.php?id=$1 [L]	
+	RewriteRule ^single-product([0-9]+).html mobile-store/single-product.php?id=$1 [L]	
+	RewriteRule ^sitemap.xml mobile-store/sitemap.php [L]
 	RewriteBase / 	
 
 #Skip WWW	
@@ -54,7 +43,7 @@ deny from all
 	RewriteRule ^(.*)$ index.php [F,L]	
 
 </IFModule>
-ErrorDocument 404 http://www.mediateq.ir/themes/404.html
+# ErrorDocument 404 http://www.mediateq.ir/themes/404.html
 # Enable / Disable directory Listing/Browsing
 Options -Indexes
 IndexOptions -FancyIndexing

@@ -132,6 +132,7 @@
     <script type="text/javascript" src="./js/jquery.scrollTo.js"></script>
     <script type="text/javascript" src="./js/jquery.serialScroll.js"></script>
     <script type="text/javascript" src="./js/jquery.bxslider.js"></script>
+    <script type="text/javascript" src="./js/product.js"></script>
     <script type="text/javascript" src="./js/treeManagement.js"></script>
     <script type="text/javascript" src="./js/blocknewsletter.js"></script>
     <script type="text/javascript" src="./js/jquery.autocomplete.js"></script>

@@ -37,6 +37,8 @@ $html2=<<<cd
                 </li>
 			</ul>
 		</div>
+		<div class="clearfix">
+		</div>
 		<!-- /Module TmHomeSlider -->
 		<div id="featured-products_block_center" class="block products_block clearfix">
 			<h2 class="centertitle_block">محصولات (گروه مورد نظر)</h2>
@@ -67,14 +69,14 @@ for($i = 0; $i < Count($rows); $i++)
 {
 $pics = $db->SelectAll("pics","*","`gid`={$rows[$i]['id']}","id ASC");
 $html2.=<<<cd
-			<li class=" ajax_block_product col-xs-12 col-sm-4 col-md-3   first-in-line first-item-of-tablet-line first-item-of-mobile-line">
+			<li class=" ajax_block_product col-xs-12 col-sm-4 col-md-3 first-in-line first-item-of-tablet-line first-item-of-mobile-line">
 				<div class="product-container" itemscope="" itemtype="http://schema.org/Product">
 					<div class="left-block">
 						<div class="product-image-container">
 							<a class="product_img_link" href="#" title="" itemprop="url">
 								<img class="replace-2x img-responsive" src="./goodspics/{$pics[0]['name']}" alt="{$rows[$i]['name']}" title="{$rows[$i]['name']}" itemprop="image" height="173" width="173">
 							</a>
-							<a class="quick-view" href="javascript:void(0);" rel="single-product.php">
+							<a class="quick-view" href="single-product{$rows[$i]['id']}.html" rel="single-product{$rows[$i]['id']}.html">
 								<span>نمایش</span>
 							</a>
 							<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">

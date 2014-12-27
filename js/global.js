@@ -37,7 +37,7 @@ $(document).ready(function(){
 	}
 	blockHover();
 	if (typeof quickView !== 'undefined' && quickView)
-		quick_view();
+		// quick_view();
 	dropDown();
 
 	if (typeof page_name != 'undefined' && !in_array(page_name, ['index', 'product']))
