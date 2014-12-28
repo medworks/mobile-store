@@ -161,7 +161,6 @@
 									<a href="#" title="">الکترونیکی</a>
 									<ul>
 										<li>
-											<a href="#" title="">موبایل</a>
 											<ul>
 												<li>
 													<a href="#" title="">Nokia Lumia</a>
@@ -177,92 +176,6 @@
 												</li>
 												<li>
 													<a href="#" title="">HTC Desire</a>
-												</li>
-											</ul>
-										</li>
-										<li>
-											<a href="#" title="">صوتی و تصویری</a>
-											<ul>
-												<li>
-													<a href="#" title="">MP3 Players</a>
-												</li>
-												<li>
-													<a href="#" title="">iPods</a>
-												</li>
-												<li>
-													<a href="#" title="">Speakers</a>
-												</li>
-												<li>
-													<a href="#" title="">Video Players</a>
-												</li>
-												<li>
-													<a href="#" title="">All Audio &amp; Video</a>
-												</li>
-											</ul>
-										</li>
-										<li>
-											<a href="#" title="">دوربین</a>
-											<ul>
-												<li>
-													<a href="#" title="">Canon Power Shot</a>
-												</li>
-												<li>
-													<a href="#" title="">Sony Cyber Shot</a>
-												</li>
-												<li>
-													<a href="#" title="">Camcorder</a>
-												</li>
-												<li>
-													<a href="#" title="">Mirrorless</a>
-												</li>
-												<li>
-													<a href="#" title="">Digital Photoframes</a>
-												</li>
-											</ul>
-										</li>
-										<li>
-											<a href="#" title="">لپ تاپ</a>
-											<ul>
-												<li>
-													<a href="#" title="">Dell</a>
-												</li>
-												<li>
-													<a href="#" title="">Lenovo</a>
-												</li>
-												<li>
-													<a href="#" title="">Sony</a>
-												</li>
-												<li>
-													<a href="#" title="">Apple</a>
-												</li>
-												<li>
-													<a href="#" title="">HP</a>
-												</li>
-												<li>
-													<a href="#" title="">Acer</a>
-												</li>
-											</ul>
-										</li>
-										<li>
-											<a href="#" title="">دسکتاپ</a>
-											<ul>
-												<li>
-													<a href="#" title="">Peripherals </a>
-												</li>
-												<li>
-													<a href="#" title="">External Hard Disks</a>
-												</li>
-												<li>
-													<a href="#" title="">Pen Drives </a>
-												</li>
-												<li>
-													<a href="#" title="">Computer Speakers </a>
-												</li>
-												<li>
-													<a href="#" title="">Printer &amp; inks</a>
-												</li>
-												<li>
-													<a href="#" title="">PC Componenet</a>
 												</li>
 											</ul>
 										</li>

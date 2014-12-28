@@ -249,7 +249,7 @@ ul.sf-menu li li li.sfHover ul {
 .sf-menu > li > ul {
   padding: 15px;
   width: 100%;
-  min-width: 400px;
+  min-width: 220px;
   text-align: right;
 }
 .sf-menu > li > ul > li > a {
