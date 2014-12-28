@@ -78,7 +78,7 @@
 			{	
 				$fn = $filename.".".$imageFileType;
 				$fields = array("`kind`","`gid`","`lvl`","`name`");				
-				$values = array("`2`","'{$id}'","'0'","'{$fn}'");
+				$values = array("'2'","'{$id}'","'0'","'{$fn}'");
 				$db->InsertQuery('pics',$fields,$values);
 			} 
 			else 
@@ -102,6 +102,7 @@
 		{  		
 			$id = $db->InsertId();
 			uploadpics("userfile",$db,$id,"1",$id."-1");
+			//echo $db->cmd;
 			header('location:addnews.php?act=new&msg=1');
 		}  		
 	}
