@@ -6,12 +6,12 @@
   	include_once("../classes/security.php");
   	include_once("../classes/database.php");	
 	include_once("../classes/login.php");
-    include_once("../lib/persiandate.php"); 
+	include_once("../lib/persiandate.php"); 
 	include_once("../lib/Zebra_Pagination.php"); 
 	
 	
 	$login = Login::GetLogin();
-    if (!$login->IsLogged())
+	if (!$login->IsLogged())
 	{
 		header("Location: ../index.php");
 		die(); // solve a security bug
@@ -60,7 +60,6 @@ $html.=<<<cd
 											<th>#</th>
                                                 <th>عنوان</th>
                                                 <th>متن</th>
-                                                <th>منو و زیر منو</th>
                                                 <th class="text-center">عملیات</th>
                                             </tr>
                                             </thead>
@@ -92,28 +91,7 @@ for($i = 0; $i < Count($rows); $i++)
 $rownumber = $i+1;
 $rows[$i]["subject"] =(mb_strlen($rows[$i]["subject"])>20)?mb_substr($rows[$i]["subject"],0,20,"UTF-8")."...":$rows[$i]["subject"];
 $rows[$i]["text"] =(mb_strlen($rows[$i]["text"])>20)?mb_substr($rows[$i]["text"],0,20,"UTF-8")."...":$rows[$i]["text"];
-$vals = "";
-if ($rows[$i]['smid']!=0)
-{
-	$row = $db->Select("submenues","*","id={$rows[$i]['smid']}","id ASC");	
-	$vals[] = $row["name"];
-		
-	while($row["pid"]!=0)
-	{
-		$row = $db->Select("submenues","*","id={$row['pid']}","id ASC");
-		$vals[] = $row["name"];
-	}
-    
-	$row = $db->Select("menues","*","id={$row['mid']}","id ASC");	
-	$vals[] = $row["name"];
-}
-else
-{
-		$row = $db->Select("categories","*","id={$rows[$i]['gid']}","id ASC");	
-		$vals[] = "";
-		$vals[] = "";
-		$vals[] = $row["name"];
-}	
+
 $html.=<<<cd
 
                                                 
@@ -121,11 +99,6 @@ $html.=<<<cd
                                                 <td>{$rownumber}</td>
                                                 <td>{$rows[$i]["subject"]}</td>
                                                 <td>{$rows[$i]["text"]}</td>
-                                                <td>
-                                                    <span class="label label-success">{$vals[2]}</span>
-                                                    <span class="label label-info">{$vals[1]}</span>
-                                                    <span class="label label-warning">{$vals[0]}</span>                        
-                                                </td>
                                                 <td class="text-center">
 												<a href="addnews.php?act=edit&did={$rows[$i]["id"]}"  >					
                                                     <button class="btn btn-xs btn-warning" title="ویرایش"><i class="fa fa-pencil-square-o"></i></button>
