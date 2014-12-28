@@ -78,7 +78,7 @@
 			<button type="submit" name="submitAccount" id="submitAccount" class="btn btn-default button button-medium">
 				<span>ثبت نام<i class="icon-chevron-left left"></i></span>
 			</button>
-			<p class="pull-right required" style="font-size:18px"><span><sup>*</sup> قیلدهای ضروری</span></p>
+			<p class="pull-right required" style="font-size:18px"><span><sup>*</sup> فیلدهای ضروری</span></p>
 		</div>
 	</form>
 </div>
