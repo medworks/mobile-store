@@ -194,7 +194,7 @@ div.checker span.checked {
   background-position: -15px -256px;
 }
 div.checker input {
-  opacity: 0;
+  opacity: 1;
   filter: alpha(opacity=0);
   -moz-opacity: 0;
   border: none;
@@ -462,7 +462,7 @@ div.selector.disabled span, div.selector.disabled.active span {
 /* Checker */
 div.checker {
   cursor: pointer;
-  margin-right: 5px;
+  margin-left: 5px;
 }
 div.checker span {
   position: relative;

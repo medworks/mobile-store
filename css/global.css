@@ -9772,6 +9772,7 @@ p.cheque-indent {
 #authentication .form-group label {
   float: right;
   width: 15%;
+  font-size: 15px;
 }
 @media (max-width: 767px) {
   #address .form-group label,
@@ -10318,7 +10319,7 @@ div.star.star_hover:after {
   padding-left: 0;
 }
 .radio-inline .checker, .checkbox .checker {
-  float: left;
+  float: right;
 }
 .radio-inline .checker span, .checkbox .checker span {
   top: 0px;
