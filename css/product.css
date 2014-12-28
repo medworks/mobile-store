@@ -466,10 +466,10 @@ span.view_scroll_spacer {
   word-wrap: break-word;
 }
 .pb-center-column #short_description_block #short_description_content p {
-  font-size: 21px;
+  font-size: 18px;
   line-height: 28px;
   font-weight: normal!important;
-  text-align: justify;
+  text-align: right;
 }
 .pb-center-column #buy_block {
   margin-top: 10px;
