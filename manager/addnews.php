@@ -18,30 +18,98 @@
 	}
 	$db = Database::GetDatabase();
 	
+	function uploadpics($fileup,$db,$id,$lvl,$filename=NULL)
+	{
+		$target_dir = "../newspics/";
+		$imageFileType = pathinfo($_FILES[$fileup]["name"],PATHINFO_EXTENSION);
+		//$target_file = $target_dir . basename($_FILES[$fileup]["name"]);
+		if (!isset($filename))
+		{
+			$target_file = $target_dir . basename($_FILES[$fileup]["name"]);
+		}
+		else
+		{
+			$target_file = $target_dir .$filename.".".$imageFileType;
+		}
+		$uploadOk = 1;
+		
+		
+		if(isset($_POST["submit"])) 
+		{
+			$check = getimagesize($_FILES[$fileup]["tmp_name"]);
+			if($check !== false) 
+			{				
+				$uploadOk = 1;
+			} 
+			else 
+			{
+				echo "File is not an image.";
+				$uploadOk = 0;
+			}
+		}
+		// Check if file already exists
+		if (file_exists($target_file)) 
+		{
+			echo "Sorry, file already exists.";
+			$uploadOk = 0;
+		}
+		// Check file size
+		if ($_FILES[$fileup]["size"] > 500000) 
+		{
+			echo "Sorry, your file is too large.";
+			$uploadOk = 0;
+		}
+		// Allow certain file formats
+		if($imageFileType != "jpg" && $imageFileType != "png" && 
+		$imageFileType != "jpeg"&& $imageFileType != "gif" ) 
+		{
+			echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+			$uploadOk = 0;
+		}
+		// Check if $uploadOk is set to 0 by an error
+		if ($uploadOk == 0) 
+		{
+			echo "Sorry, your file was not uploaded.";
+			// if everything is ok, try to upload file
+		} 
+		else 
+		{       // kind 1 is for goods pics, 2 is for news pics
+			if (move_uploaded_file($_FILES[$fileup]["tmp_name"], $target_file)) 
+			{	
+				$fn = $filename.".".$imageFileType;
+				$fields = array("`kind`","`gid`","`lvl`","`name`");				
+				$values = array("`2`","'{$id}'","'0'","'{$fn}'");
+				$db->InsertQuery('pics',$fields,$values);
+			} 
+			else 
+			{
+				echo "Sorry, there was an error uploading your file.";
+			}
+		}
+	}
 	
 	if ($_POST["mark"]=="savenews")
 	{
 		
 		$date = date('Y-m-d H:i:s');
-		$fields = array("`gid`","`smid`","`subject`","`text`","`regdate`","`picid`");		
-		$values = array("'{$grp}'","'{$sm}'","'{$_POST[edtsubject]}'","'{$_POST[edttext]}'","'{$date}'","'0'");	
+		$fields = array("`subject`","`text`");		
+		$values = array("'{$_POST[edtsubject]}'","'{$_POST[edttext]}'");	
 		if (!$db->InsertQuery('news',$fields,$values)) 
 		{			
 			header('location:addnews.php?act=new&msg=2');			
 		} 	
 		else 
 		{  		
-			$did = $db->InsertId();
-				header('location:addnews.php?act=new&msg=1');
+			$id = $db->InsertId();
+			uploadpics("userfile",$db,$id,"1",$id."-1");
+			header('location:addnews.php?act=new&msg=1');
 		}  		
 	}
 	else
 	if ($_POST["mark"]=="editnews")
 	{		
 		
-		$values = array("`gid`"=>"'{$_POST[cbgroup]}'","`smid`"=>"'{$sm}'",
-				"`subject`"=>"'{$_POST[edtsubject]}'","`text`"=>"'{$_POST[edttext]}'",
-				"`picid`"=>"'0'");
+		$values = array("`subject`"=>"'{$_POST[edtsubject]}'","`text`"=>"'{$_POST[edttext]}'");
 		$db->UpdateQuery("news",$values,array("id='{$_GET[did]}'"));	
 		header('location:dataentry.php?act=new&msg=1');
 	}
@@ -57,7 +125,7 @@
 	
 	if ($_GET['act']=="edit")
 	{
-		$row=$db->Select("news","*","id='{$_GET["did"]}'",NULL);		
+		$row=$db->Select("news","*","id='{$_GET[did]}'",NULL);		
 		$insertoredit = "
 			<button id='submit' type='submit' class='btn btn-default'>ویرایش</button>
 			<input type='hidden' name='mark' value='editnews' /> ";
@@ -150,24 +218,6 @@ $html.=<<<cd
         </div>
     </section>
     <!--Page main section end -->
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("#cbmenu").change(function(){
-				var id= $(this).val();
-				$.get('./ajaxcommand.php?smid='+id,function(data) {			
-						$('#sm1').html(data);
-						
-						$("#cbsm1").change(function(){
-							var id= $(this).val();
-							$.get('./ajaxcommand.php?smid2='+id,function(data) {			
-								$('#sm2').html(data);
-							});
-						});			
-				});
-			});			
-		
-		});
-	</script>
 cd;
 	include_once("./inc/header.php");
 	echo $html;
