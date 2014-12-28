@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.6
+-- version 4.0.4.1
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 26, 2014 at 09:26 PM
--- Server version: 5.6.16
--- PHP Version: 5.5.9
+-- Host: localhost
+-- Generation Time: Dec 28, 2014 at 11:22 
+-- Server version: 5.6.12
+-- PHP Version: 5.5.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `shop`
 --
+CREATE DATABASE IF NOT EXISTS `shop` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `shop`;
 
 -- --------------------------------------------------------
 
@@ -30,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `brands` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(60) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `brands`
@@ -39,7 +41,11 @@ CREATE TABLE IF NOT EXISTS `brands` (
 INSERT INTO `brands` (`id`, `name`) VALUES
 (3, 'نوکیا'),
 (4, 'ال جی'),
-(5, 'سامسونگ');
+(5, 'سامسونگ'),
+(6, 'لنوو'),
+(7, 'اپل'),
+(8, 'اچ تی سی'),
+(9, 'هو آوی');
 
 -- --------------------------------------------------------
 
@@ -113,10 +119,10 @@ INSERT INTO `gquality` (`id`, `gid`, `qid`, `price`, `mojodi`) VALUES
 
 CREATE TABLE IF NOT EXISTS `groups` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `pid` int(11) NOT NULL,
+  `pid` int(11) NOT NULL DEFAULT '0',
   `name` varchar(60) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `groups`
@@ -126,7 +132,37 @@ INSERT INTO `groups` (`id`, `pid`, `name`) VALUES
 (1, 0, 'فلت'),
 (2, 0, 'ال سی دی'),
 (3, 0, 'تاچ'),
-(4, 0, 'دوربین');
+(4, 0, 'دوربین'),
+(5, 0, 'آی سی'),
+(12, 0, 'کیبورد'),
+(13, 0, 'قاب'),
+(14, 0, 'بازر'),
+(15, 0, 'کانکتور'),
+(16, 0, 'جوی استیک');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news`
+--
+
+CREATE TABLE IF NOT EXISTS `news` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(100) NOT NULL,
+  `text` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `subject`, `text`) VALUES
+(1, 'موبایل آبنوس مجهز به سایت شد', ' از مورخه ۱۰/۱۰/۹۳'),
+(2, '  تست مقاله', ' gg'),
+(7, ' تست خبر', ' hkjhkhkj'),
+(8, '   تست خبر', ' hkkhkkj'),
+(9, '   تست خبر', ' hkkhkkj');
 
 -- --------------------------------------------------------
 
@@ -136,23 +172,25 @@ INSERT INTO `groups` (`id`, `pid`, `name`) VALUES
 
 CREATE TABLE IF NOT EXISTS `pics` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `kind` tinyint(4) NOT NULL DEFAULT '0',
   `gid` int(11) NOT NULL,
   `lvl` tinyint(4) NOT NULL,
   `name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `pics`
 --
 
-INSERT INTO `pics` (`id`, `gid`, `lvl`, `name`) VALUES
-(1, 13, 1, '13-1.png'),
-(2, 13, 2, '13-2.png'),
-(3, 13, 3, '13-3.png'),
-(4, 15, 1, '15-1.jpg'),
-(5, 15, 2, '15-2.png'),
-(6, 15, 3, '15-3.jpg');
+INSERT INTO `pics` (`id`, `kind`, `gid`, `lvl`, `name`) VALUES
+(1, 0, 13, 1, '13-1.png'),
+(2, 0, 13, 2, '13-2.png'),
+(3, 0, 13, 3, '13-3.png'),
+(4, 0, 15, 1, '15-1.jpg'),
+(5, 0, 15, 2, '15-2.png'),
+(6, 0, 15, 3, '15-3.jpg'),
+(7, 2, 9, 0, '9-1.png');
 
 -- --------------------------------------------------------
 
