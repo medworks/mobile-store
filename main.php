@@ -99,7 +99,7 @@ $html2.=<<<cd
 							<meta itemprop="priceCurrency" content="1">
 						</div>
 						<div class="button-container">
-							<a class="button ajax_add_to_cart_button btn btn-default" href="#" rel="nofollow" title="" data-id-product="1">
+							<a class="button ajax_add_to_cart_button btn btn-default" href="#" rel="nofollow" title="اضافه به سبد خرید" data-id-product="1">
 								<span>اضافه به سبد</span>
 							</a>
 						</div>
