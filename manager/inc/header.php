@@ -158,17 +158,22 @@
                     <li><a href="compose-mail.html">Compose Mail</a></li>
                 </ul>
             </li> -->
-            <li>
+            <!-- <li>
                 <a href="brands.php?act=new">
                     <i class="fa fa-users"></i>
                     <span>ایجاد برند</span>
                 </a>
-            </li>
-	     <li>
-                <a href="groups.php?act=new">
+            </li> -->
+	        <li>
+                <a href="#">
                     <i class="fa fa-briefcase"></i>
-                    <span>تعریف گروه</span>
+                    <span>اطلاعات پایه</span>
                 </a>
+                <ul>
+                    <li><a href="brands.php?act=new">تعریف برند</a></li>
+                    <li><a href="groups.php?act=new">تعریف گروه</a></li>
+                    <li><a href="addquality.php">تعریف کیفیت</a></li>
+                </ul>
             </li>
             
             <li>
@@ -177,7 +182,6 @@
                     <span>ایجاد محصول</span>
                 </a>
                 <ul>
-                    <li><a href="addquality.php">ثبت کیفیت</a></li>
                     <li><a href="addproduce.php?act=new">ثبت اطلاعات</a></li>
                     <li><a href="editproduce.php?act=edit">ویرایش اطلاعات</a></li>
                 </ul>
