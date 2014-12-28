@@ -13,190 +13,114 @@
 	<div class="breadcrumb clearfix rtl">
 		<a class="home" href="./" title="Return to Home"><i class="icon-home"></i></a>
 		<span class="navigation-pipe">&gt;</span>
-		<a href="javascript:void(0);" title="">الکترونیکی</a>
-		<span class="navigation-pipe">&gt;</span>
-		<a href="javascript:void(0);" title="">دوربین</a>
-		<span class="navigation-pipe">&gt;</span>
-		<a href="javascript:void(0);" title="">سونی</a>
-		<span class="navigation-pipe">&gt;</span>
-		سونی h300 
+		سبد خرید 
 	</div>
+	<h1 id="cart_title" class="page-heading">سبد خرید شما
+		<span class="heading-counter">سبد خرید شما شامل:
+			<span id="summary_products_quantity">3 محصول</span>
+		</span>
+	</h1>
+	<ul class="step clearfix" id="order_step">
+		<li class="step_current  first">
+			<span><em>1-</em> سبد خرید</span>
+		</li>
+		<li class="step_todo second">
+			<span><em>2-</em> ورود به سایت</span>
+		</li>
+		<li class="step_todo third">
+			<span><em>3-</em> آدرس</span>
+		</li>
+		<li class="step_todo four">
+			<span><em>4-</em> پرداخت</span>
+		</li>
+		<li id="step_end" class="step_todo last">
+			<span><em>5-</em> ارسال</span>
+		</li>
+	</ul>
 	<!-- /Breadcrumb -->
-	<div class="primary_block row" itemscope="" itemtype="http://schema.org/Product">
-		<div class="container">
-			<div class="top-hr"></div>
-		</div>
-		<!-- left infos-->  
-		<div class="pb-left-column col-xs-12 col-sm-4 col-md-5">
-			<!-- product img-->        
-			<div id="image-block" class="clearfix">
-				<span class="new-box">
-					<span class="new-label">جدید</span>
-				</span>
-				<span id="view_full_size">
-					<img id="bigpic" itemprop="image" src="http://prestashop-demos.org/PRS06/PRS060144/199-large_default/printed-summer-dress.jpg" title="" alt="" width="458" height="458">
-					<span class="span_link no-print">نمایش بزرگتر</span>
-				</span>
-			</div> <!-- end image-block -->
-			<!-- thumbnails -->
-			<div id="views_block" class="clearfix ">
-				<span class="view_scroll_spacer">
-					<a id="view_scroll_left" class="" title="Other views" href="javascript:{}">
-						قبلی
-					</a>
-				</span>
-				<div id="thumbs_list">
-					<ul id="thumbs_list_frame" style="width: 1106px;">						<li id="thumbnail_180">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/180-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_180" src="http://prestashop-demos.org/PRS06/PRS060144/180-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>															
-						<li id="thumbnail_199">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/199-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_199" src="http://prestashop-demos.org/PRS06/PRS060144/199-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>
-						<li id="thumbnail_200">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/200-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_200" src="http://prestashop-demos.org/PRS06/PRS060144/200-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>															
-						<li id="thumbnail_201">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/201-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_201" src="http://prestashop-demos.org/PRS06/PRS060144/201-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>															
-						<li id="thumbnail_202">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/202-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_202" src="http://prestashop-demos.org/PRS06/PRS060144/202-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>
-						<li id="thumbnail_203">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/203-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_203" src="http://prestashop-demos.org/PRS06/PRS060144/203-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>
-						<li id="thumbnail_268">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/268-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_268" src="http://prestashop-demos.org/PRS06/PRS060144/268-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>
-						<li id="thumbnail_269">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/269-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_269" src="http://prestashop-demos.org/PRS06/PRS060144/269-cart_default/printed-summer-dress.jpg" alt="" title=" " height="60" width="60" itemprop="image">
-							</a>
-						</li>
-						<li id="thumbnail_270">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/270-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_270" src="http://prestashop-demos.org/PRS06/PRS060144/270-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>
-						<li id="thumbnail_271">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/271-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_271" src="http://prestashop-demos.org/PRS06/PRS060144/271-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>
-						<li id="thumbnail_289">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/289-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_289" src="http://prestashop-demos.org/PRS06/PRS060144/289-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>
-						<li id="thumbnail_290">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/290-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_290" src="http://prestashop-demos.org/PRS06/PRS060144/290-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>
-						<li id="thumbnail_291">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/291-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_291" src="http://prestashop-demos.org/PRS06/PRS060144/291-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>
-						<li id="thumbnail_292" class="last">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/292-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_292" src="http://prestashop-demos.org/PRS06/PRS060144/292-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>
-					</ul>
-					</div> <!-- end thumbs_list -->					
-						<a id="view_scroll_right" title="Other views" href="javascript:{}">
-							بعدی
-						</a>		
-			</div> <!-- end views-block -->
-			<!-- end thumbnails -->
-		</div> <!-- end pb-left-column -->
-		<!-- end left infos--> 
-		<!-- center infos -->
-		<div class="pb-center-column col-xs-12 col-sm-7">
-			<h1 itemprop="name">سونی h600</h1>
-			<div id="short_description_block">
-				<div id="short_description_content" class="rte align_justify" itemprop="description">
-					<p>
-						سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... 
-					</p>
-				</div>
-				<!---->
-			</div> <!-- end short_description_block -->
-			<!-- pb-right-column-->
-			<div class="pb-right-column">
-				<!-- add to cart form-->
-				<form id="buy_block" action="" method="post">
-					<div class="box-info-product">
-						<div class="content_prices clearfix">
-							<!-- prices -->
-							<div class="price">
-								<p class="our_price_display" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-									<link itemprop="availability" href="http://schema.org/InStock">												<span id="our_price_display" itemprop="price">قیمت: 152,000 ریال</span>
-										<!---->
-								</p>
-							</div> <!-- end prices -->
-							<p id="reduction_amount" style="display: none;">
-								<span id="reduction_amount_display"></span>
-							</p>				 
-							<div class="clear"></div>
-						</div> <!-- end content_prices -->
-						<div class="product_attributes clearfix">
-							<!-- quantity wanted -->
-							<p id="quantity_wanted_p">
-								<label>تعداد:</label>
-								<input type="text" name="qty" id="quantity_wanted" class="text" value="1" style="border: 1px solid rgb(227, 226, 226);">
-								<a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
-									<span><i class="icon-minus"></i></span>
-								</a>
-								<a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
-									<span><i class="icon-plus"></i></span>
-								</a>
-								<span class="clearfix"></span>
-							</p>
-							<p id="quality_wanted_p">
-								<label style="width:40px">کیفیت:</label>
-								<select style="border: 1px solid rgb(227, 226, 226);width:150px;">
-									<option value="0">انتخاب کیفیت</option>
-									<option value="1">اورجینال</option>
-									<option value="2">متوسط</option>
-									<option value="3">پایین</option>
-								</select>
-								<span class="clearfix"></span>
-							</p>
-							<!-- attributes -->
-							<div id="attributes">
-								<div class="clearfix"></div>
-							</div> <!-- end attributes -->
-						</div> <!-- end product_attributes -->
-						<div class="box-cart-bottom">
-							<div>
-								<p id="add_to_cart" class="buttons_bottom_block no-print">
-									<button type="submit" name="Submit" class="exclusive">
-										<span>اضافه به سبد</span>
-									</button>
-								</p>
-							</div>
-						</div> <!-- end box-cart-bottom -->
-					</div> <!-- end box-info-product -->
-				</form>
-			</div> <!-- end pb-right-column-->
-		</div>
-		<!-- end center infos-->	
-	</div> <!-- end primary_block -->
+	<div id="order-detail-content" class="table_block table-responsive">
+		<table id="cart_summary" class="table table-bordered rtl">
+			<thead>
+				<tr>
+					<th class="cart_product first_item">محصولات</th>
+					<th class="cart_description item">توضیحات</th>
+					<th class="cart_unit item">قیمت (ریال)</th>
+					<th class="cart_quantity item">تعداد</th>
+					<th class="cart_quantity item">کیفیت</th>
+					<th class="cart_total item">مجموع</th>
+					<th class="cart_delete last_item">&nbsp;</th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr class="cart_total_price">
+					<td rowspan="3" colspan="2" id="cart_voucher" class="cart_voucher"></td>
+					<td colspan="3" class="text-right">مجموع خرید</td>
+					<td colspan="2" class="price" id="total_product">75.00</td>
+				</tr>
+				<tr class="cart_total_delivery">
+					<td colspan="3" class="text-right">هزینه حمل و نقل</td>
+					<td colspan="2" class="price" id="total_shipping">00</td>
+				</tr>
+				<tr class="cart_total_price">
+					<td colspan="3" class="total_price_container text-right">
+						<span>مجموعا</span>
+					</td>
+					<td colspan="2" class="price" id="total_price_container">
+						<span id="total_price">377.00</span>
+					</td>
+				</tr>
+			</tfoot>
+			<tbody>
+				<tr id="product_1_1_0_0" class="cart_item last_item first_item address_0 odd">
+					<td class="cart_product">
+						<a href="#"><img src="./img/product/1.jpg" alt="" width="55" height="55"></a>
+					</td>
+					<td class="cart_description">
+						<p class="product-name">
+							<a href="#">عنوان و توضیحات</a>
+						</p>
+				    </td>
+					<td class="cart_unit" data-title="Unit price">
+						<span class="price" id="product_price_1_1_0">
+							<span class="price">125.00</span>
+						</span>
+					</td>
+					<td id="quantity_wanted_p">
+						<input type="text" name="qty" id="quantity_wanted" class="text" value="1" style="border: 1px solid rgb(227, 226, 226);width:58px;font-size:15px;font-family:'bmitra'">
+						<a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down" style="margin-top:5px">
+							<span><i class="icon-minus"></i></span>
+						</a>
+						<a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up" style="margin-top:5px">
+							<span><i class="icon-plus"></i></span>
+						</a>
+						<span class="clearfix"></span>
+					</td>
+					<td id="quality_wanted_p">
+						<select style="border: 1px solid rgb(227, 226, 226);width:150px;font-size:15px;font-family:'bmitra'">
+							<option value="0">انتخاب کیفیت</option>
+							<option value="1">اورجینال</option>
+							<option value="2">متوسط</option>
+							<option value="3">پایین</option>
+						</select>
+						<span class="clearfix"></span>
+					</td>
+					<td class="cart_total" data-title="Total">
+						<span class="price" id="total_product_price_1_1_0">375.00</span>
+					</td>
+					<td class="cart_delete text-center" data-title="Delete">
+						<div>
+							<a rel="nofollow" title="Delete" class="cart_quantity_delete" id="1_1_0_0" href="#"><i class="icon-trash"></i></a>
+						</div>
+					</td>
+				</tr>				
+			</tbody>
+		</table>
+	</div>
+	<p class="cart_navigation clearfix">
+		<a href="authenticate.php" class="button btn btn-default standard-checkout button-medium" title="تکمیل فرایند خرید" style="font-size:18px;padding:18px 10px">
+			<span style="padding:0">تکمیل فرایند خرید</span>
+		</a>
+	</p>
 </div>
 
 <?php
