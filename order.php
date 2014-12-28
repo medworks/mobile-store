@@ -25,7 +25,7 @@
 			<span><em>1-</em> سبد خرید</span>
 		</li>
 		<li class="step_todo second">
-			<span><em>2-</em> ورود به سایت</span>
+			<span><em>2-</em> ورود به حساب</span>
 		</li>
 		<li class="step_todo third">
 			<span><em>3-</em> آدرس</span>

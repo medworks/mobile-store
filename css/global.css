@@ -9770,8 +9770,8 @@ p.cheque-indent {
 #new_account_form .form-group label,
 #opc_account_form .form-group label,
 #authentication .form-group label {
-  float: left;
-  width: 30%;
+  float: right;
+  width: 15%;
 }
 @media (max-width: 767px) {
   #address .form-group label,
