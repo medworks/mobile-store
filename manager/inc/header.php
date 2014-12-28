@@ -177,6 +177,7 @@
                     <span>ایجاد محصول</span>
                 </a>
                 <ul>
+                    <li><a href="addquality.php">ثبت کیفیت</a></li>
                     <li><a href="addproduce.php?act=new">ثبت اطلاعات</a></li>
                     <li><a href="editproduce.php?act=edit">ویرایش اطلاعات</a></li>
                 </ul>
