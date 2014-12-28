@@ -28,13 +28,13 @@
 			<span><em>2-</em> ورود به حساب</span>
 		</li>
 		<li class="step_todo third">
-			<span><em>3-</em> آدرس</span>
+			<span><em>3-</em> تایید سفارش</span>
 		</li>
 		<li class="step_todo four">
 			<span><em>4-</em> پرداخت</span>
 		</li>
 		<li id="step_end" class="step_todo last">
-			<span><em>5-</em> ارسال</span>
+			<span><em>5-</em> کد پیگیری</span>
 		</li>
 	</ul>
 	<!-- /Breadcrumb -->
