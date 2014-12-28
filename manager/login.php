@@ -11,7 +11,7 @@ $msg=Message::GetMessage();
 $msgs = "";
 if ($login->IsLogged())
 {	
-		header("Location: ../manager/admin.php");
+		header("Location: ../manager/trackorders.php");
 } 
 else
 {
@@ -19,7 +19,7 @@ else
 	{
 		if ($login->AdminLogin($_POST['username'],$_POST['password']))
 		{		 
-			header("location:regfaq.php");	
+			header("location:trackorders.php");	
 		}	
 		else
 		{ 
