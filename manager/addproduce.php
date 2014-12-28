@@ -72,18 +72,18 @@
 			// if everything is ok, try to upload file
 		} 
 		else 
-		{
+		{       // kind 1 is for goods pics, 2 is for news pics
 			if (move_uploaded_file($_FILES[$fileup]["tmp_name"], $target_file)) 
 			{	
 				$fn = $filename.".".$imageFileType;
-				$fields = array("`gid`","`lvl`","`name`");				
-			    $values = array("'{$id}'","{$lvl}","'{$fn}'");
+				$fields = array("`kind`","`gid`","`lvl`","`name`");				
+				$values = array("`1`","'{$id}'","{$lvl}","'{$fn}'");
 				$db->InsertQuery('pics',$fields,$values);
-		    } 
-		    else 
-		    {
+			} 
+			else 
+			{
 				echo "Sorry, there was an error uploading your file.";
-		    }
+			}
 		}
 	}
 	
