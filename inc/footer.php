@@ -1,3 +1,25 @@
+<?php
+        include_once("config.php");
+	include_once("classes/functions.php");
+  	include_once("classes/session.php");	
+  	include_once("classes/security.php");
+  	include_once("classes/database.php");	
+	
+	//error_reporting(E_ALL);
+	//ini_set('display_errors', 1);
+	
+	$db = Database::GetDatabase();
+	
+	$rwnews = $db->SelectAll("news","*",NULL,"id DESC",0,4);
+	
+	$Tell_Number = GetSettingValue('Tell_Number',0);
+	$Address = GetSettingValue('Address',0);
+	$Contact_Email = GetSettingValue('Contact_Email',0);
+	
+	$About_System = GetSettingValue('About_System',0);
+	$About_System= (mb_strlen($About_System)>450) ? mb_substr($About_System,0,450,"UTF-8")."..." : $About_System;
+        
+$html=<<<cd
                 </div><!-- .row -->
             </div><!-- #columns -->
         </div><!-- .columns-container -->
@@ -30,9 +52,9 @@
                 <div class="one">
                     <h4>اطلاعات تماس</h4>
                     <ul>
-                        <li>ایمیل: <a href="gavascript:void(0);" title="">info@mediateq.ir</a></li>
-                        <li>تلفن: <a href="gavascript:void(0);" title="" style="display:inline-block;direction:ltr">+98-513-7666436</a></li>
-                        <li>آدرس: <a href="gavascript:void(0);" title="">سه راه فلسطین-ساختمان 202-طبقه اول-واحد3</a></li>
+                        <li>ایمیل: <a href="gavascript:void(0);" title="">{$Contact_Email}</a></li>
+                        <li>تلفن: <a href="gavascript:void(0);" title="" style="display:inline-block;direction:ltr">{$Tell_Number}</a></li>
+                        <li>آدرس: <a href="gavascript:void(0);" title="">{$Address}</a></li>
                     </ul>
                 </div>
                 <div class="two">
@@ -47,10 +69,10 @@
                 <div class="three">
                     <h4>اخبار و تازه ها</h4>
                     <ul>
-                        <li><a href="gavascript:void(0);" title="">خبر اول</a></li>
-                        <li><a href="gavascript:void(0);" title="">خبر دوم</a></li>
-                        <li><a href="gavascript:void(0);" title="">خبر سوم</a></li>
-                        <li><a href="gavascript:void(0);" title="">خبر سوم</a></li>
+                        <li><a href="gavascript:void(0);" title="{$rwnews[0]["subject"]}">{$rwnews[0]["subject"]}</a></li>
+                        <li><a href="gavascript:void(0);" title="{$rwnews[1]["subject"]}">{$rwnews[1]["subject"]}</a></li>
+                        <li><a href="gavascript:void(0);" title="{$rwnews[2]["subject"]}">{$rwnews[2]["subject"]}</a></li>
+                        <li><a href="gavascript:void(0);" title="{$rwnews[3]["subject"]}">{$rwnews[3]["subject"]}</a></li>
                     </ul>
                 </div>
                 <div class="four">
@@ -154,3 +176,7 @@
     
 </body>
 </html>
+cd;
+
+    echo $html;
+?>
