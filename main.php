@@ -3,16 +3,19 @@
 	include_once("classes/functions.php");
   	include_once("classes/security.php");
   	include_once("classes/database.php");	
-    include_once("./lib/persiandate.php");
+	include_once("./lib/persiandate.php");
 	include_once("./lib/Zebra_Pagination.php");
 	include_once("classes/seo.php");
 			
 	$db = Database::GetDatabase();
 	
+	$slides = $db->SelectAll("slides","*",NULL," id ASC");
+	
 $html1=<<<cd
 <body id="index" class="index hide-right-column lang_en">
 	<div id="page">
 cd;
+
 	
 $html2=<<<cd
 <div id="center_column" class="center_column col-xs-12 accordion" style="width:80%;">
@@ -20,21 +23,23 @@ $html2=<<<cd
 		<!-- Module TmHomeSlider -->
 		<div id="tmhomepage-slider">
 			<ul id="tmhomeslider">
-                <li class="tmhomeslider-container" id="slide_1">
-                    <a href="#" title="">
-                        <img src="./img/slides/1.jpg" alt="">
+cd;
+
+for($i=0;$i<count($slides);$i++)
+{
+    $ii = $i+1;
+    $img = base64_encode($slides[$i]['img']);
+    $src = 'data: '.$slides[$i]['itype'].';base64,'.$img;
+$html2.=<<<cd
+                <li class="tmhomeslider-container" id="slide_{$ii}">
+                    <a href="#" title="{$slides[$i][subject]}">
+                        <img src="{$src}" alt="{$slides[$i][subject]}">
                     </a>
                 </li>
-                <li class="tmhomeslider-container" id="slide_2">
-                    <a href="#" title="">
-                        <img src="./img/slides/1.jpg" alt="">
-                    </a>
-                </li>
-                <li class="tmhomeslider-container" id="slide_3">
-                    <a href="#" title="">
-                        <img src="./img/slides/3.jpg" alt="">
-                    </a>
-                </li>
+cd;
+}
+
+$html2.=<<<cd
 			</ul>
 		</div>
 		<div class="clearfix">
