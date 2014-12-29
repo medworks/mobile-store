@@ -1,8 +1,20 @@
 <?php
-    include_once('./inc/header.php')
-?>
-<body>
+    
+	include_once("config.php");
+	include_once("classes/functions.php");
+  	include_once("classes/session.php");	
+  	include_once("classes/security.php");
+  	include_once("classes/database.php");	
+	
+	//error_reporting(E_ALL);
+	//ini_set('display_errors', 1);
+	
+	$db = Database::GetDatabase();
+	$slides = $db->SelectAll("slides","*",NULL," id ASC");
+	$news = $db->SelectAll("news","*",NULL," id ASC");
 
+$html=<<<cd
+<body>
 <!-- Wrapper div -->
 <div id="wrapper">
 	<!-- Top header including top navigation -->
@@ -11,7 +23,7 @@
         	<!-- Logo -->
     		<div class="logo">
                 <a href="./">
-                    <img src="./img/logo.png" alt="" width="75" height="50" />
+                    <img src="img/logo.png" alt="" width="75" height="50" />
                 </a><br>
             </div>
             <div class="navi_right">
@@ -29,16 +41,31 @@
         <div class="wrap">
             <div id="slide-holder">
                 <div id="slide-runner">
-                    <a href=""><img id="slide-img-1" src="img/slides/4.jpg" class="slide" alt=""></a>
-                    <a href=""><img id="slide-img-2" src="img/slides/5.jpg" class="slide" alt=""></a>
-                    <a href=""><img id="slide-img-3" src="img/slides/6.jpg" class="slide" alt=""></a>
-                    
+cd;
+for($i=0;$i<count($slides);$i++)
+{
+    $ii = $i+1;
+    $img = base64_encode($slides[$i]['img']);
+    $src = 'data: '.$slides[$i]['itype'].';base64,'.$img;
+
+$html.=<<<cd
+            <a href=""> <img id="slide-img-{$ii}" src="{$src}"
+	                class="slide" alt="" width="1000px">
+	    </a>
+cd;
+}
+
+$html.=<<<cd
                 </div>
         	<!--content featured gallery here -->
             </div>
+	    
             <script type="text/javascript">
-                if(!window.slider) var slider={};slider.data=[{"id":"slide-img-1","client":"Valentine Day Special","desc":"14% off for only 7 days"},{"id":"slide-img-2","client":"Redesigned to keep you moving","desc":"25% off"},{"id":"slide-img-3","client":"Introducing the:","desc":"New classic messenger"}];
+                if(!window.slider) var slider={};
+		slider.data=[{"id":"slide-img-1","client":"Valentine Day Special","desc":"14% off for only 7 days"},
+		{"id":"slide-img-2","client":"Redesigned to keep you moving","desc":"25% off"},{"id":"slide-img-3","client":"Introducing the:","desc":"New classic messenger"}];
             </script>
+	    
         </div>
     </div>
     <div id="slide-controls">
@@ -50,7 +77,18 @@
             <div class="br-news">
                 <h4>تازه ها</h4>
                 <ul>
-                    <li><a href='javascript:void(0);' title='خبر اول' style="font-size:22px;font-weight:normal">خبر اول</a></li>
+cd;
+for($i=0;$i<count($news);$i++)
+{
+$html.=<<<cd
+                    <li>
+			<a href='javascript:void(0);' title='خبر اول' style="font-size:22px;font-weight:normal">{$news[$i]["subject"]}
+			</a>
+		    </li>
+cd;
+}
+
+$html.=<<<cd
                     <li><a href='javascript:void(0);' title='خبر دوم' style="font-size:22px;font-weight:normal">خبر دوم</a></li>
                     <li><a href='javascript:void(0);' title='خبر سوم' style="font-size:22px;font-weight:normal">خبر سوم</a></li>
                 </ul>
@@ -237,6 +275,8 @@
         </div>
     </div>
 </div>
-<?php
+cd;
+    include_once('./inc/header.php');
+    echo $html;
     include_once('./inc/footer.php');
 ?>
