@@ -7,7 +7,8 @@ deny from all
 	RewriteEngine On 
 	RewriteRule ^index.html mobile-store/index.php [L]
 	RewriteRule ^aboutus.html mobile-store/aboutus.php [L]
-	RewriteRule ^contactus.html mobile-store/contactus.php [L]	
+	RewriteRule ^contactus.html mobile-store/contactus.php [L]
+        RewriteRule ^craccount.html mobile-store/craccount.php [L]
 	RewriteRule ^news.html mobile-store/news.php [L]
 	RewriteRule ^single-news([0-9]+).html mobile-store/single-news.php?id=$1 [L]	
 	RewriteRule ^single-product([0-9]+).html mobile-store/single-product.php?id=$1 [L]	
