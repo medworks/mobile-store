@@ -6,7 +6,7 @@
   	include_once("../classes/security.php");
   	include_once("../classes/database.php");	
 	include_once("../classes/login.php");
-    include_once("../lib/persiandate.php"); 
+	include_once("../lib/persiandate.php"); 
 
 	$login = Login::GetLogin();
     if (!$login->IsLogged())
@@ -16,43 +16,43 @@
 	}
 	$db = Database::GetDatabase();	
 	
-	if ($_POST["mark"]=="savegroup")
+	if ($_POST["mark"]=="saveqty")
 	{
 		$fields = array("`name`");		
 		$values = array("'{$_POST[edtname]}'");	
-		if (!$db->InsertQuery('groups',$fields,$values)) 
+		if (!$db->InsertQuery('quality',$fields,$values)) 
 		{			
-			header('location:groups.php?act=new&msg=2');			
+			header('location:addquality.php?act=new&msg=2');			
 		} 	
 		else 
 		{  										
-			header('location:groups.php?act=new&msg=1');
+			header('location:addquality.php?act=new&msg=1');
 		}  		
 	}
 	else
-	if ($_POST["mark"]=="editgroup")
+	if ($_POST["mark"]=="editqty")
 	{			    
 		$values = array("`name`"=>"'{$_POST[edtname]}'");
-        $db->UpdateQuery("groups",$values,array("id='{$_GET[gid]}'"));		
-		header('location:groups.php?act=new&msg=1');
+		$db->UpdateQuery("quality",$values,array("id='{$_GET[qid]}'"));		
+		header('location:addquality.php?act=new&msg=1');
 	}	
 	if ($_GET['act']=="new")
 	{
 		$insertoredit = "
 			<button type='submit' class='btn btn-default'>ثبت</button>
-			<input type='hidden' name='mark' value='savegroup' /> ";
+			<input type='hidden' name='mark' value='saveqty' /> ";
 	}
 	if ($_GET['act']=="edit")
 	{
-	    $row=$db->Select("groups","*","id='{$_GET["gid"]}'",NULL);		
+		$row=$db->Select("quality","*","id='{$_GET[qid]}'",NULL);		
 		$insertoredit = "
 			<button type='submit' class='btn btn-default'>ویرایش</button>
-			<input type='hidden' name='mark' value='editgroup' /> ";
+			<input type='hidden' name='mark' value='editqty' /> ";
 	}
 	if ($_GET['act']=="del")
 	{
-		$db->Delete("groups"," id",$_GET["gid"]);		
-		header('location:groups.php?act=new');	
+		$db->Delete("quality"," id",$_GET["qid"]);		
+		header('location:addquality.php?act=new');	
 	}	
 $msgs = GetMessage($_GET['msg']);
 
@@ -112,7 +112,7 @@ $html=<<<cd
 								<tbody>
 								<tr>
 cd;
-$rows = $db->SelectAll("groups","*",NULL,"id ASC");
+$rows = $db->SelectAll("quality","*",NULL,"id ASC");
 for($i = 0; $i < Count($rows); $i++)
 {
 $rownumber = $i+1;
@@ -122,8 +122,8 @@ $html.=<<<cd
 	<td>
 		<ul class="ls-glyphicons-list">
 			<li>
-				<a href="?act=del&gid={$rows[$i]["id"]}" title="پاک کردن" style="margin-left:5px"><span class="glyphicon glyphicon-remove"></span></a>
-				<a href="?act=edit&gid={$rows[$i]["id"]}" title="ویرایش"><span class="glyphicon glyphicon-edit"></span></a>
+				<a href="?act=del&qid={$rows[$i]["id"]}" title="پاک کردن" style="margin-left:5px"><span class="glyphicon glyphicon-remove"></span></a>
+				<a href="?act=edit&qid={$rows[$i]["id"]}" title="ویرایش"><span class="glyphicon glyphicon-edit"></span></a>
 			</li>
 		</ul>
 	</td>
@@ -147,5 +147,5 @@ $html.=<<<cd
 cd;
 	include_once("./inc/header.php");
 	echo $html;
-    include_once("./inc/footer.php");
+	include_once("./inc/footer.php");
 ?>

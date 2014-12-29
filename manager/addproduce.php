@@ -6,10 +6,10 @@
   	include_once("../classes/security.php");
   	include_once("../classes/database.php");	
 	include_once("../classes/login.php");
-    include_once("../lib/persiandate.php");
+	 include_once("../lib/persiandate.php");
 	
 	$login = Login::GetLogin();
-    if (!$login->IsLogged())
+	if (!$login->IsLogged())
 	{
 		header("Location: ../index.php");
 		die(); // solve a security bug
@@ -17,7 +17,7 @@
 	
 	$db = Database::GetDatabase();
 	
-    function uploadpics($fileup,$db,$id,$lvl,$filename=NULL)
+	function uploadpics($fileup,$db,$id,$lvl,$filename=NULL)
 	{
 		$target_dir = "../goodspics/";
 		$imageFileType = pathinfo($_FILES[$fileup]["name"],PATHINFO_EXTENSION);
