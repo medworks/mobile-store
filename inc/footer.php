@@ -15,6 +15,10 @@
 	$Tell_Number = GetSettingValue('Tell_Number',0);
 	$Address = GetSettingValue('Address',0);
 	$Contact_Email = GetSettingValue('Contact_Email',0);
+        $Rss_Add = GetSettingValue('Rss_Add',0);
+	$FaceBook_Add = GetSettingValue('FaceBook_Add',0);
+	$Twitter_Add = GetSettingValue('Twitter_Add',0);
+	$Gplus_Add = GetSettingValue('Gplus_Add',0);
 	
 	$About_System = GetSettingValue('About_System',0);
 	$About_System= (mb_strlen($About_System)>450) ? mb_substr($About_System,0,450,"UTF-8")."..." : $About_System;
@@ -28,10 +32,10 @@ $html=<<<cd
         <div class="containfoot ">
             <div class="social">
                 <ul>
-                    <li><a href="javascript:void(0);" title="Facebook" class="facebook"></a></li>
-                    <li><a href="javascript:void(0);" title="Twitter" class="twitter"></a></li>
-                    <li><a href="javascript:void(0);" title="Google plus" class="gplus"></a></li>
-                    <li><a href="javascript:void(0);" title="RSS" class="rss"></a></li>
+                    <li><a href="{$FaceBook_Add}" title="Facebook" class="facebook"></a></li>
+                    <li><a href="{$Twitter_Add}" title="Twitter" class="twitter"></a></li>
+                    <li><a href="{$Gplus_Add}" title="Google plus" class="gplus"></a></li>
+                    <li><a href="{$Rss_Add}" title="RSS" class="rss"></a></li>
                 </ul>
             <div class="clear"></div>
 
