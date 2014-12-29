@@ -19,8 +19,8 @@
 	$db = Database::GetDatabase(); 
 	if ($_GET['act']=="del")
 	{
-		$db->Delete("slide"," id ",$_GET["did"]);		
-		header('location:editgallery.php?act=new');	
+		$db->Delete("slides"," id ",$_GET["did"]);		
+		header('location:editslide.php?act=new');	
 	}		
     
 $html.=<<<cd
@@ -72,21 +72,20 @@ cd;
 
 	$pagination->navigation_position("right");
 
-	$reccount = $db->CountAll("slide");
+	$reccount = $db->CountAll("slides");
 	$pagination->records($reccount); 
 	
     $pagination->records_per_page($records_per_page);	
 
-$rows = $db->SelectAll(
-				"slide",
-				"*",
-				NULL,
-				"id ASC",
-				($pagination->get_page() - 1) * $records_per_page,
-				$records_per_page);
+$rows = $db->SelectAll("slides",
+		       "*",
+		       NULL,
+		       "id ASC",
+		       ($pagination->get_page() - 1) * $records_per_page,
+		        $records_per_page);
 				
 	
-$vals = array();
+
 for($i = 0; $i < Count($rows); $i++)
 {
 $rownumber = $i+1;
@@ -101,7 +100,7 @@ $html.=<<<cd
                                                 <td>{$rows[$i]["subject"]}</td>
                                                 <td>{$rows[$i]["text"]}</td>
                                                 <td>
-                                                    <img src="img.php?did={img.php?slide=yes&did={$slide[$i]['id']}" width="50px" height="50px" /> 
+                                                    <img src="img.php?slide=yes&did={$rows[$i][id]}" width="50px" height="50px" /> 
                                                 </td>
                                                 <td class="text-center">
 												<a href="?act=del&did={$rows[$i]["id"]}"  >												
@@ -132,5 +131,5 @@ $html.=<<<cd
 cd;
 	include_once("./inc/header.php");
 	echo $html;
-    include_once("./inc/footer.php");
+	include_once("./inc/footer.php");
 ?>

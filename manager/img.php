@@ -1,5 +1,5 @@
 <?php
-    include_once("../config.php");
+	include_once("../config.php");
 	include_once("../classes/functions.php");
   	include_once("../classes/security.php");
   	include_once("../classes/database.php");	
@@ -8,22 +8,13 @@
 	$pic = NULL;	
 	if (isset($_GET["slide"])and $_GET["slide"]=="yes")
 	{
-		$pic = $db->Select("slide","*","`id`='{$_GET[did]}'",NULL);
+		$pic = $db->Select("slides","*","`id`='{$_GET[did]}'");
 	}	
-	else
-	{
-		if (isset($_GET["type"]) and $_GET["type"]=="gall")
-		{
-			$pic = $db->Select("gpics","*","`gid`='{$_GET[did]}'",NULL);
-		}
-		else
-		{
-			$pic = $db->Select("pics","*","`sid`='{$_GET[did]}' AND `tid`='{$_GET[tid]}'",NULL);
-		}
-    }	
+	
 	//echo $db->cmd;
 	header("Content-type: {$pic[itype]}");
 	//echo base64_decode($pic['img']);
-	echo base64_encode($pic['img']);
+	//echo base64_encode($pic['img']);
+	echo $pic['img']
 	//echo $img;	
 ?>

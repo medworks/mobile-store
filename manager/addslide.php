@@ -30,13 +30,11 @@
             //echo $db->cmd;
             if($_FILES['userfile']['size'] < $maxsize )
             {    
-                //echo "my1";
-                //tid 1 is for menu pics, 2 for news pics, 3 for maghalat pics
                 if ($mode == "insert")
                 {
                     $fields = array("`subject`","`text`","`itype`","`img`","`iname`","`isize`");     
                     $values = array("'{$_POST[edtsubject]}'","'{$_POST[edttext]}'","'{$type}'","'{$imgfp}'","'{$name}'","'{$size}'"); 
-                    $db->InsertQuery('slide',$fields,$values);
+                    $db->InsertQuery('slides',$fields,$values);
                 }
                 else
                 {
@@ -83,7 +81,7 @@
     }
 	if ($_GET['act']=="edit")
 	{
-	    $row=$db->Select("topics","*","id='{$_GET["did"]}'",NULL);		
+	    $row=$db->Select("slides","*","id='{$_GET["did"]}'",NULL);		
 		$insertoredit = "
 			<button id='submit' type='submit' class='btn btn-default'>ویرایش</button>
 			<input type='hidden' name='mark' value='editslide' /> ";
