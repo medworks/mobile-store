@@ -256,6 +256,40 @@ $html.=<<<cd
 				</div>
 				<div class="row" id="columns_inner">
 					<div id="left_column" class="column col-xs-12 accordion" style="width:20%;">
+						<!-- Cart shop -->
+						<div id="manufacturers_block_left" class="block blockmanufacturer">
+							<p class="title_block">
+								<a href="javascript:void(0);" title="سبد خرید">
+									سبد خرید
+								</a>
+							</p>
+							<div class="block_content list-block">
+cd;
+								if(isset($_SESSION["products"]))
+								{
+								    $total = 0;
+								    echo '<ul>';
+								    foreach ($_SESSION["products"] as $cart_itm)
+								    {
+								        echo '<li class="cart-itm">';
+								        echo '<span class="remove-itm"><a href="cart_update.php?removep='.$cart_itm["code"].'&return_url='.$current_url.'">&times;</a></span>';
+								        echo '<h3>'.$cart_itm["name"].'</h3>';
+								        echo '<div class="p-code">P code : '.$cart_itm["code"].'</div>';
+								        echo '<div class="p-qty">Qty : '.$cart_itm["qty"].'</div>';
+								        echo '<div class="p-price">Price :'.$currency.$cart_itm["price"].'</div>';
+								        echo '</li>';
+								        $subtotal = ($cart_itm["price"]*$cart_itm["qty"]);
+								        $total = ($total + $subtotal);
+								    }
+								    echo '</ul>';
+								    echo '<span class="check-out-txt"><strong>Total : '.$currency.$total.'</strong> <a href="view_cart.php">Check-out!</a></span>';
+									echo '<span class="empty-cart"><a href="cart_update.php?emptycart=1&return_url='.$current_url.'">Empty Cart</a></span>';
+								}else{
+								    echo '<p style="font-size:20px;color:#E76453;text-align:left">سبد خرید شما خالی میباشد<p>';
+								}
+$html.=<<<cd
+							</div>
+						</div>
 						<!-- Block CMS module -->
 						<section id="informations_block_left_1" class="block informations_block_left">
 							<p class="title_block">
