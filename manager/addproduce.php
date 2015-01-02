@@ -17,7 +17,7 @@
 	
 	$db = Database::GetDatabase();
 	
-	function uploadpics($fileup,$db,$id,$lvl,$filename=NULL)
+	function uploadpics($mode,$fileup,$db,$id,$lvl,$filename=NULL)
 	{
 		$target_dir = "../goodspics/";
 		$imageFileType = pathinfo($_FILES[$fileup]["name"],PATHINFO_EXTENSION);
@@ -47,11 +47,11 @@
 			}
 		}
 		// Check if file already exists
-		if (file_exists($target_file)) 
+		/* if (file_exists($target_file)) 
 		{
 			echo "Sorry, file already exists.";
 			$uploadOk = 0;
-		}
+		} */
 		// Check file size
 		if ($_FILES[$fileup]["size"] > 500000) 
 		{
@@ -80,7 +80,7 @@
 				{	
 					$fn = $filename.".".$imageFileType;
 					$fields = array("`kind`","`gid`","`lvl`","`name`");				
-					$values = array("`1`","'{$id}'","{$lvl}","'{$fn}'");
+					$values = array("'1'","'{$id}'","{$lvl}","'{$fn}'");
 					$db->InsertQuery('pics',$fields,$values);
 				} 
 				else 
@@ -90,7 +90,28 @@
 			}
 			else
 			{
-				
+				//if (!empty($_FILES[$fileup]["name"])) 
+				{
+					$lpic = $db->Select("pics","*","gid = '{$id}' AND kind='1' AND lvl='{$lvl}'");
+					$lfn = $target_dir.$lpic["name"];
+					if (file_exists($lfn)&& $lpic["name"]!="")
+					{
+						unlink($lfn);
+					}
+					$db->Delete("pics"," id",$lpic["id"]);	
+					if (move_uploaded_file($_FILES[$fileup]["tmp_name"], $target_file)) 
+					{	
+						$fn = $filename.".".$imageFileType;
+						$fields = array("`kind`","`gid`","`lvl`","`name`");				
+						$values = array("'1'","'{$id}'","{$lvl}","'{$fn}'");
+						$db->InsertQuery('pics',$fields,$values);
+						//echo $db->cmd;
+					} 
+					else 
+					{
+						echo "Sorry, there was an error uploading your file.";
+					}
+				}	
 			}
 		}
 	}
@@ -120,9 +141,9 @@
 					$db->InsertQuery('gquality',$fields,$values);
 				}	
 			}	
-			uploadpics("userfile1",$db,$id,"1",$id."-1");
-			uploadpics("userfile2",$db,$id,"2",$id."-2");
-			uploadpics("userfile3",$db,$id,"3",$id."-3");
+			uploadpics("insert","userfile1",$db,$id,"1",$id."-1");
+			uploadpics("insert","userfile2",$db,$id,"2",$id."-2");
+			uploadpics("insert","userfile3",$db,$id,"3",$id."-3");
 			header('location:addproduce.php?act=new&msg=1');
 		}
 		//echo $db->cmd;
@@ -135,8 +156,26 @@
 						"`code`"=>"'{$_POST[edtcode]}'","`name`"=>"'{$_POST[edtname]}'",
 						"`qid`"=>"'{$_POST[cbquality]}'","`price`"=>"'{$_POST[edtprice]}'",
 						"`mojodi`"=>"'{$_POST[edtmojodi]}'","`desc`"=>"'{$_POST[txtdesc]}'");
-        $db->UpdateQuery("goods",$values,array("id='{$_GET[did]}'"));		
-		header('location:addproduce.php?act=new&msg=1');
+        $db->UpdateQuery("goods",$values,array("id='{$_GET[did]}'"));
+
+			$id = $_GET["did"];
+			$db->Delete("gquality"," gid",$id);	
+			$quality = $db->SelectAll("quality","*");
+			$fields = array("`gid`","`qid`","`price`","`mojodi`");
+			for($i=0;$i<count($quality);$i++)
+			{
+				$ii = $i+1;
+				if ($_POST["chbqlty$ii"])
+				{
+					$values = array("'{$id}'","'{$_POST[chbqlty.$ii]}'","'{$_POST[edtprice.$ii]}'","'{$_POST[edtmojodi.$ii]}'");
+					$db->InsertQuery('gquality',$fields,$values);
+				}	
+			}	
+			uploadpics("edit","userfile1",$db,$id,"1",$id."-1");
+			uploadpics("edit","userfile2",$db,$id,"2",$id."-2");
+			uploadpics("edit","userfile3",$db,$id,"3",$id."-3");
+			
+		//header('location:addproduce.php?act=new&msg=1');
 	}
 	
 	if ($_GET['act']=="new")
