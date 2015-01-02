@@ -219,7 +219,7 @@ $html.=<<<cd
 								<a href="" title="">راهنمای خرید</a></li>
 										 
 								<li>
-								<a href="#" title="">پرداخت امن</a></li>
+								<a href="craccount.html" title="ثبت نام">ثبت نام</a></li>
 										 
 								<li>
 								<a href="" title="">تماس با ما</a></li>

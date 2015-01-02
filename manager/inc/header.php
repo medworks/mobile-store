@@ -247,9 +247,9 @@
                 </a>
             </li> -->
             <li>
-                <a href="sendnews.php">
+                <a href="regusers.php">
                     <i class="fa fa-send-o"></i>
-                    <span>ارسال خبر به اعضاء</span>
+                    <span>لیست اعضا</span>
                 </a>
             </li>
             <!-- <li>
