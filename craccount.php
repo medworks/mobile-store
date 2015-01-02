@@ -33,7 +33,7 @@
 	}
 $msgs = GetMessage($_GET['msg']);	
 	
-$html=<<<cd
+$html1=<<<cd
 <body id="product" class="product product-20 product-printed-summer-dress category-11 category-camcorder hide-right-column lang_en">
 	<div id="page">
 cd;
