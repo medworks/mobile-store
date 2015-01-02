@@ -36,9 +36,6 @@
 $msgs = GetMessage($_GET['msg']);	
 	
 $html=<<<cd
-<body id="product" class="product product-20 product-printed-summer-dress category-11 category-camcorder hide-right-column lang_en">
-	<div id="page">
-
 <div id="center_column" class="center_column col-xs-12" style="width:80%;">				
 	<!-- Breadcrumb -->
 	<h1 class="page-heading" style="margin-top:15px;">ایجاد حساب کاربری</h1>

@@ -72,17 +72,25 @@
 			// if everything is ok, try to upload file
 		} 
 		else 
-		{       // kind 1 is for goods pics, 2 is for news pics
-			if (move_uploaded_file($_FILES[$fileup]["tmp_name"], $target_file)) 
-			{	
-				$fn = $filename.".".$imageFileType;
-				$fields = array("`kind`","`gid`","`lvl`","`name`");				
-				$values = array("`1`","'{$id}'","{$lvl}","'{$fn}'");
-				$db->InsertQuery('pics',$fields,$values);
-			} 
-			else 
+		{    
+			if ($mode == "insert")
 			{
-				echo "Sorry, there was an error uploading your file.";
+				// kind 1 is for goods pics, 2 is for news pics
+				if (move_uploaded_file($_FILES[$fileup]["tmp_name"], $target_file)) 
+				{	
+					$fn = $filename.".".$imageFileType;
+					$fields = array("`kind`","`gid`","`lvl`","`name`");				
+					$values = array("`1`","'{$id}'","{$lvl}","'{$fn}'");
+					$db->InsertQuery('pics',$fields,$values);
+				} 
+				else 
+				{
+					echo "Sorry, there was an error uploading your file.";
+				}
+			}
+			else
+			{
+				
 			}
 		}
 	}
@@ -143,8 +151,7 @@
 		$groups = $db->SelectAll("groups","*");	
 		$cbgroups = DbSelectOptionTag("cbgroups",$groups,"name",NULL,NULL,"form-control",NULL,"  انتخاب گروه  ");
 		
-		$quality = $db->SelectAll("quality","*");
-		//$cbquality = DbSelectOptionTag("cbquality",$quality,"name",NULL,NULL,"form-control",NULL,"  انتخاب کیفیت  ");
+		$quality = $db->SelectAll("quality","*");		
 $gquality=<<<cd
 	<table border="0">
 		<tr>
@@ -183,8 +190,48 @@ cd;
 		$groups = $db->SelectAll("groups","*");	
 		$cbgroups = DbSelectOptionTag("cbgroups",$groups,"name",$row["gid"],NULL,"form-control",NULL,"  انتخاب گروه  ");
 		
-		$quality = $db->SelectAll("quality","*");	
-		$cbquality = DbSelectOptionTag("cbquality",$quality,"name",$row["qid"],NULL,"form-control",NULL,"  انتخاب کیفیت  ");
+		$ggquality = $db->SelectAll("gquality","*","gid ='{$row[id]}'");
+//echo $db->cmd;		
+		$quality = $db->SelectAll("quality","*");
+$gquality=<<<cd
+	<table border="0">
+		<tr>
+			<th style="width:150px;">کیفیت</th>
+			<th style="width:110px;">قیمت</th> 
+			<th style="width:110px;">تعداد</th>
+		</tr>
+cd;
+for($i=0;$i<count($quality);$i++)
+{
+	$ii= $i+1;
+	//if ($i<count($ggquality))
+	{
+		//echo "$i->",$ggquality[$i]["qid"]."<br/>";
+		if (in_array($quality[$i]["id"],array_column($ggquality, 'qid')))
+		//if ($ggquality[$i]["qid"]==$quality[$i]["id"])		
+		{
+			$ggqual = $db->Select("gquality","*","qid ='{$quality[$i][id]}'");	
+			$eprice  = $ggqual["price"];
+			$emojodi = $ggqual["mojodi"];
+		}
+		else
+		{
+			$eprice = "";
+			$emojodi = "";
+		}
+	}	
+$gquality.=<<<cd
+		<tr>
+			<td> <input type="checkbox" id="chbqlty{$ii}" name="chbqlty{$ii}" value="{$quality[$i][id]}" /> {$quality[$i]["name"]} </td>
+			<td> <input type="text" id="edtprice{$ii}" name="edtprice{$ii}" style="width:80px;" value="{$eprice}" /> </td> 
+			<td> <input type="text" id="edtmojodi{$ii}" name="edtmojodi{$ii}" style="width:80px;" value="{$emojodi}"/> </td>
+		</tr>		
+cd;
+
+}
+$gquality.=<<<cd
+	</table>	
+cd;
 	}
   
 $html.=<<<cd
