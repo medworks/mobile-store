@@ -1,119 +1,204 @@
 <?php
-	include_once("../config.php");
-	include_once("../classes/functions.php");
-  	include_once("../classes/messages.php");
-  	include_once("../classes/session.php");	
-  	include_once("../classes/security.php");
-  	include_once("../classes/database.php");	
-	include_once("../classes/login.php");
-	include_once("../lib/persiandate.php"); 	
+    include_once("../config.php");
+    include_once("../classes/functions.php");
+    include_once("../classes/messages.php");
+    include_once("../classes/session.php"); 
+    include_once("../classes/security.php");
+    include_once("../classes/database.php");    
+    include_once("../classes/login.php");
+    include_once("../lib/persiandate.php"); 
+
+    $login = Login::GetLogin();
+    if (!$login->IsLogged())
+    {
+        header("Location: ../index.php");
+        die(); // solve a security bug
+    }
+    $db = Database::GetDatabase();
+    
+       
+           
+    if (isset($_GET["act"]) and $_GET["act"]=="view")
+    {
+	$row = $db->Select("classes","*","id ={$_GET['did']}");
+	$pic = $db->Select("clspics","*","cid='{$_GET['did']}' AND tid='1' ");
+	$class = $db->Select("defclasses","*","id ={$row['clsid']}");
+	$img = base64_encode($pic['img']);
+	$src = 'data: '.$pic['itype'].';base64,'.$img;
+	$regdate = ToJalali($row["regdate"]," l d F  Y ساعت H:i");
+        if($row["tahol"] ==0)
+        {
+          $row["tahol"] = "مجرد" ;
+        }
+        else
+        {
+            $row["tahol"]="متاهل" ;
+        }
+    
+        //echo $db->cmd;
+    }
 	
-	//error_reporting(E_ALL);
-	//ini_set('display_errors', 1);
-	
-	$db = Database::GetDatabase();
-	if (isset($_POST["mark"]) and $_POST["mark"]="register" )
-	{
-		$date = date('Y-m-d H:i:s');
-		$fields = array("`sex`","`name`","`company`","`email`","`password`",
-		                "`tel`","`mobile`","`address`","`regdate`");
-		
-		$passwd = md5($_POST[password]);
-		$values = array("'{$_POST[gender]}'","'{$_POST[name]}'","'{$_POST[company]}'",
-						"'{$_POST[email]}'","'{$passwd}'","'{$_POST[tel]}'",
-						"'{$_POST[mobile]}'","'{$_POST[address]}'","'{$date}'");	
-		if (!$db->InsertQuery('clients',$fields,$values)) 
-		{			
-			header('location:craccount.html?act=new&msg=2');			
-		} 	
-		else 
-		{  
-			header('location:craccount.html?act=new&msg=1');
-			
-		}  		
-		//echo $db->cmd;
-	}
-$msgs = GetMessage($_GET['msg']);	
-	
+    if ((isset($_POST["mark"]) and $_POST["mark"]=="confirm"))
+    {
+	$values = array("`confirm`"=>"'1'");
+	$db->UpdateQuery("classes",$values,array("id='{$_GET[did]}'"));		
+	header('location:regclassconf.php?act=new');
+    }
+    
 $html=<<<cd
-<div id="center_column" class="center_column col-xs-12" style="width:80%;">				
-	<!-- Breadcrumb -->
-	<h1 class="page-heading" style="margin-top:15px;">ایجاد حساب کاربری</h1>
-	<!-- /Breadcrumb -->
-	{$msgs}
-	<form action="" method="post" id="frmregister" class="std box">
-		
-		<div class="account_creation">
-			<h3 class="page-subheading" style="font-size:25px!important;">مشخصات فردی</h3>
-			<div class="clearfix rtl">
-				<label style="font-size:18px">عنوان</label>
-				<br />
-				<div class="radio-inline">
-					<label for="id_gender1" class="top" style="font-size:15px">
-						<div class="radio" id="uniform-id_gender1">
-							<span>
-								<input type="radio" name="gender" id="id_gender1" value="1">
-							</span>
-						</div>
-						آقا
-					</label>
-				</div>
-				<div class="radio-inline">
-					<label for="id_gender2" class="top" style="font-size:15px">
-						<div class="radio" id="uniform-id_gender2">
-							<span>
-								<input type="radio" name="gender" id="id_gender2" value="0">
-							</span>
-						</div>
-						خانم
-					</label>
-				</div>
-			</div>
-			<div class="required form-group rtl">
-				<label for="customer_firstname">نام و نام خانوادگی <sup>*</sup></label>
-				<input type="text" class="is_required validate form-control" id="name" name="name" value="">
-			</div>
-			<div class="required form-group rtl">
-				<label for="customer_lastname">نام فروشگاه <sup>*</sup></label>
-				<input type="text" class="is_required validate form-control" id="company" name="company" value="">
-			</div>
-			<div class="required form-group rtl">
-				<label for="email">ایمیل <sup>*</sup></label>
-				<input type="text" class="is_required validate form-control" id="email" name="email" value="">
-			</div>
-			<div class="required password form-group rtl">
-				<label for="passwd">رمز عبور <sup>*</sup></label>
-				<input type="password" class="is_required validate form-control" name="password" id="password">
-				<span class="form_info" style="font-size:15px">(حداقل کارکترهای رمز عبور 5 کاراکتر باشد!)</span>
-			</div>
-			<div class="required form-group rtl">
-				<label for="customer_lastname">تلفن ثابت <sup>*</sup></label>
-				<input type="text" class="is_required validate form-control"id="tel" name="tel" value="">
-			</div>
-			<div class="required form-group rtl">
-				<label for="customer_lastname">موبایل <sup>*</sup></label>
-				<input type="text" class="is_required validate form-control" id="mobile" name="mobile" value="">
-			</div>
-			<div class="required form-group rtl">
-				<label for="address">آدرس <sup>*</sup></label>
-				<textarea name="address" class="is_required validate form-control" style="width:233px;height:100px;"></textarea>
-			</div>
-		</div>
-						
-		<div class="submit clearfix">
-			<input type="hidden" name="email_create" value="1">
-			<input type="hidden" name="is_new_customer" value="1">
-			<input type="hidden" class="hidden" name="back" value="">
-			<button type="submit" name="submitAccount" id="submitAccount" class="btn btn-default button button-medium">
-				<span>ثبت نام<i class="icon-chevron-left left"></i></span>
-			</button>
-			<input type="hidden" name="mark" value="register" />
-			<p class="pull-right required" style="font-size:18px"><span><sup>*</sup> فیلدهای ضروری</span></p>
-		</div>
-	</form>
-</div>
+    <!--Page main section start-->
+    <section id="min-wrapper">
+        <div id="main-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!--Top header start-->
+                        <h3 class="ls-top-header">مشخصات ثبت نام کننده</h3>
+                        <!--Top header end -->
+                        <!--Top breadcrumb start -->
+                        <ol class="breadcrumb">
+                            <li><a href="javascript:void(0);"><i class="fa fa-home"></i></a></li>
+                            <li class="active">مشخصات ثبت نام کننده</li>
+                        </ol>
+                        <!--Top breadcrumb start -->
+                    </div>
+                </div>
+                <!-- Main Content Element  Start-->
+                <form id="frmdata" name="frmdata" enctype="multipart/form-data" action="" method="post" class="form-inline ls_form" role="form">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">تاریخ ثبت نام</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        {$regdate}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">نام و نام خانوادگی</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">نام فروشگاه</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">ایمیل</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <input id="edtname" name="edtname" type="text" class="form-control" value="{$row["name"]}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">رمز</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <input id="edtfather" name="edtfather" type="text" class="form-control" value="{$row["father"]}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">آدرس</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <input id="edtaddress" name="edtaddress" type="text" class="form-control" value="{$row["address"]}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">تلفن</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <input id="edttel" name="edttel" type="text" class="form-control" value="{$row["tel"]}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">موبایل</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <input id="edtmobile" name="edtmobile" type="text" class="form-control" value="{$row["mobile"]}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">ویرایش</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <button id="submit" type="submit" class="btn btn-default">تایید</button>
+                                    <input type="hidden" name="mark" value="confirm"> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- Main Content Element  End-->
+            </div>
+        </div>
+    </section>
+    <!--Page main section end -->
 cd;
-	include_once('./inc/header.php');
-	echo $html;	
-	include_once('./inc/footer.php');
+
+    include_once("./inc/header.php");
+    echo $html;
+    include_once("./inc/footer.php");
 ?>
