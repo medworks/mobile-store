@@ -18,31 +18,32 @@
     
        
            
-    if (isset($_GET["act"]) and $_GET["act"]=="view")
+    if (isset($_GET["act"]) and $_GET["act"]=="edit")
     {
-	$row = $db->Select("classes","*","id ={$_GET['did']}");
-	$pic = $db->Select("clspics","*","cid='{$_GET['did']}' AND tid='1' ");
-	$class = $db->Select("defclasses","*","id ={$row['clsid']}");
-	$img = base64_encode($pic['img']);
-	$src = 'data: '.$pic['itype'].';base64,'.$img;
+	$row = $db->Select("clients","*","id ={$_GET['did']}");
 	$regdate = ToJalali($row["regdate"]," l d F  Y ساعت H:i");
-        if($row["tahol"] ==0)
+        if($row["sex"] ==0)
         {
-          $row["tahol"] = "مجرد" ;
+          $male = "checked";
+	  $man = "";
         }
         else
         {
-            $row["tahol"]="متاهل" ;
+           $male = "";
+	   $man = "checked";
         }
     
         //echo $db->cmd;
     }
 	
-    if ((isset($_POST["mark"]) and $_POST["mark"]=="confirm"))
+    if ((isset($_POST["mark"]) and $_POST["mark"]=="edit"))
     {
-	$values = array("`confirm`"=>"'1'");
-	$db->UpdateQuery("classes",$values,array("id='{$_GET[did]}'"));		
-	header('location:regclassconf.php?act=new');
+	$values = array("`sex`"=>"'1'","`name`"=>"'{$_POST[edtname]}'","`company`"=>"'{$_POST[edtcompany]}'",
+			"`email`"=>"'{$_POST[edtemail]}'","`tel`"=>"'{$_POST[edttel]}'",
+			"`mobile`"=>"'{$_POST[edtmobile]}'","`address`"=>"'{$_POST[edtaddress]}'");
+	$db->UpdateQuery("clients",$values,array("id='{$_GET[did]}'"));		
+	header('location:editclients.php?act=new');
+	//echo $db->cmd;
     }
     
 $html=<<<cd
@@ -64,7 +65,7 @@ $html=<<<cd
                     </div>
                 </div>
                 <!-- Main Content Element  Start-->
-                <form id="frmdata" name="frmdata" enctype="multipart/form-data" action="" method="post" class="form-inline ls_form" role="form">
+                <form id="frmdata" name="frmdata" action="" method="post" class="form-inline ls_form" role="form">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-default">
@@ -79,6 +80,39 @@ $html=<<<cd
                             </div>
                         </div>
                     </div>
+		    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">جنسیت</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                       <div class="radio-inline">
+					<label for="id_gender1" class="top" style="font-size:15px">
+						<div class="radio" id="uniform-id_gender1">
+							<span>
+								<input type="radio" name="gender" id="id_gender1" value="1" {$man}>
+							</span>
+						</div>
+						آقا
+					</label>
+				</div>
+				<div class="radio-inline">
+					<label for="id_gender2" class="top" style="font-size:15px">
+						<div class="radio" id="uniform-id_gender2">
+							<span>
+								<input type="radio" name="gender" id="id_gender2" value="0" {$male}>
+							</span>
+						</div>
+						خانم
+					</label>
+				</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-default">
@@ -87,7 +121,7 @@ $html=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                                                        
+                                        <input id="edtname" name="edtname" type="text" class="form-control" value="{$row["name"]}"/>                               
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +135,7 @@ $html=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                                                        
+                                         <input id="edtcompany" name="edtcompany" type="text" class="form-control" value="{$row["company"]}"/>                               
                                     </div>
                                 </div>
                             </div>
@@ -115,12 +149,13 @@ $html=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <input id="edtname" name="edtname" type="text" class="form-control" value="{$row["name"]}"/>
+                                        <input id="edtemail" name="edtemail" type="text" class="form-control" value="{$row["email"]}"/>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+		    <!--
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-default">
@@ -129,12 +164,13 @@ $html=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <input id="edtfather" name="edtfather" type="text" class="form-control" value="{$row["father"]}"/>
+                                        <input id="edtpass" name="edtpass" type="text" class="form-control" value="{$row["father"]}"/>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+		    -->
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-default">
@@ -185,7 +221,7 @@ $html=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <button id="submit" type="submit" class="btn btn-default">تایید</button>
-                                    <input type="hidden" name="mark" value="confirm"> 
+                                    <input type="hidden" name="mark" value="edit"> 
                                 </div>
                             </div>
                         </div>
