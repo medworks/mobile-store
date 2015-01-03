@@ -1,5 +1,4 @@
 <?php
-
 	include_once("config.php");
 	include_once("classes/functions.php");
   	include_once("classes/security.php");
@@ -276,10 +275,10 @@ cd;
 $html.=<<<cd
 								        <li class="cart-itm">
 									        <span class="remove-itm">
-									        	<a href="cart_update.php?removep=$cart_itm[code]&return_url=$current_url">&times</a>
+									        	<a href="cart_update.php?removep=$cart_itm[id]&return_url=$current_url">&times</a>
 									        </span>
 									        <h3>$cart_itm[name]</h3>
-									        <div class="p-code">کد کالا: $cart_itm[code]</div>
+									        <div class="p-code">کد کالا: $cart_itm[id]</div>
 									        <div class="p-qty">تعداد: $cart_itm[qty]</div>
 									        <div class="p-price">قیمت: $currency$cart_itm[price]</div>
 									    </li>

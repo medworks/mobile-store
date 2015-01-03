@@ -68,7 +68,7 @@ $rows = $db->SelectAll(
 				"goods",
 				"*",
 				NULL,
-				"id ASC",
+				"id desc",
 				($pagination->get_page() - 1) * $records_per_page,
 				$records_per_page);
 for($i = 0; $i < Count($rows); $i++)
@@ -136,26 +136,28 @@ cd;
     //current URL of the Page. cart_update.php redirects back to this URL
 	$current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
     
-	$results = $mysqli->query("SELECT * FROM products ORDER BY id ASC");
+	$results = $mysqli->query("SELECT * FROM goods ORDER BY id ASC");
     if ($results) { 
 	
         //fetch results set as object and output HTML
-        while($obj = $results->fetch_object())
+       // while($obj = $results->fetch_object())
+       for($i = 0; $i < Count($rows); $i++)
         {
+		$pics = $db->SelectAll("pics","*","`gid`={$rows[$i]['id']}","id ASC");
 $html2.=<<<cd
 			<li>
 				<div class="product">
-		            <form method="post" action="cart_update.php">';
-						<div class="product-thumb"><img src="images/'.$obj->product_img_name.'"></div>
-			            	<div class="product-content"><h3>'.$obj->product_name.'</h3>
-			           			<div class="product-desc">'.$obj->product_desc.'</div>
+		            <form method="post" action="cart_update.php">'
+						<div class="product-thumb"><img src="./goodspics/{$pics[0]['name']}"></div>
+			            	<div class="product-content"><h3>{$rows[$i]["name"]}</h3>
+			           			<div class="product-desc">{$rows[$i]["desc"]}</div>
 					            <div class="product-info">
-								Price '.$currency.$obj->price.' |
-					            Qty <input type="text" name="product_qty" value="1" size="3" />
-								<button class="add_to_cart">Add To Cart</button>
+								قیمت {$rows[$i]["price"]} |
+					            تعداد <input type="text" name="qty" value="1" size="3" />
+								<button class="add_to_cart">اضافه به سبد خرید</button>
 							</div>
 						</div>
-			            <input type="hidden" name="product_code" value="'.$obj->product_code.'" />
+			            <input type="hidden" name="goodsid" value="{$rows[$i]["id"]}" />
 			            <input type="hidden" name="type" value="add" />
 						<input type="hidden" name="return_url" value="'.$current_url.'" />
 		            </form>
