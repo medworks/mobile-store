@@ -36,13 +36,14 @@
         //echo $db->cmd;
     }
 	
-    if ((isset($_POST["mark"]) and $_POST["mark"]=="confirm"))
+    if ((isset($_POST["mark"]) and $_POST["mark"]=="edit"))
     {
 	$values = array("`sex`"=>"'1'","`name`"=>"'{$_POST[edtname]}'","`company`"=>"'{$_POST[edtcompany]}'",
 			"`email`"=>"'{$_POST[edtemail]}'","`tel`"=>"'{$_POST[edttel]}'",
 			"`mobile`"=>"'{$_POST[edtmobile]}'","`address`"=>"'{$_POST[edtaddress]}'");
 	$db->UpdateQuery("clients",$values,array("id='{$_GET[did]}'"));		
-	header('location:editclients.php?act=new');
+	//header('location:editclients.php?act=new');
+	echo $db->cmd;
     }
     
 $html=<<<cd
@@ -64,7 +65,7 @@ $html=<<<cd
                     </div>
                 </div>
                 <!-- Main Content Element  Start-->
-                <form id="frmdata" name="frmdata" enctype="multipart/form-data" action="" method="post" class="form-inline ls_form" role="form">
+                <form id="frmdata" name="frmdata" action="" method="post" class="form-inline ls_form" role="form">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-default">
@@ -220,7 +221,7 @@ $html=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <button id="submit" type="submit" class="btn btn-default">تایید</button>
-                                    <input type="hidden" name="mark" value="confirm"> 
+                                    <input type="hidden" name="mark" value="edit"> 
                                 </div>
                             </div>
                         </div>
