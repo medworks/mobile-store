@@ -264,32 +264,47 @@ $html.=<<<cd
 								</a>
 							</p>
 							<div class="block_content list-block">
+								<ul>
 cd;
+								//current URL of the Page. cart_update.php redirects back to this URL
+								$current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 								if(isset($_SESSION["products"]))
 								{
 								    $total = 0;
-								    echo '<ul>';
 								    foreach ($_SESSION["products"] as $cart_itm)
 								    {
-								        echo '<li class="cart-itm">';
-								        echo '<span class="remove-itm"><a href="cart_update.php?removep='.$cart_itm["code"].'&return_url='.$current_url.'">&times;</a></span>';
-								        echo '<h3>'.$cart_itm["name"].'</h3>';
-								        echo '<div class="p-code">P code : '.$cart_itm["code"].'</div>';
-								        echo '<div class="p-qty">Qty : '.$cart_itm["qty"].'</div>';
-								        echo '<div class="p-price">Price :'.$currency.$cart_itm["price"].'</div>';
-								        echo '</li>';
+$html.=<<<cd
+								        <li class="cart-itm">
+									        <span class="remove-itm">
+									        	<a href="cart_update.php?removep=$cart_itm[code]&return_url=$current_url">&times</a>
+									        </span>
+									        <h3>$cart_itm[name]</h3>
+									        <div class="p-code">کد کالا: $cart_itm[code]</div>
+									        <div class="p-qty">تعداد: $cart_itm[qty]</div>
+									        <div class="p-price">قیمت: $currency$cart_itm[price]</div>
+									    </li>
+cd;
 								        $subtotal = ($cart_itm["price"]*$cart_itm["qty"]);
 								        $total = ($total + $subtotal);
 								    }
-								    echo '</ul>';
-								    echo '<span class="check-out-txt"><strong>Total : '.$currency.$total.'</strong> <a href="view_cart.php">Check-out!</a></span>';
-									echo '<span class="empty-cart"><a href="cart_update.php?emptycart=1&return_url='.$current_url.'">Empty Cart</a></span>';
+$html.=<<<cd
+								   <span class="check-out-txt"><strong>مجموع قیمت: $currency$total</strong>
+								   		<br /><a href="view_cart.php">پرداخت!</a>
+								   </span>
+								   <span class="empty-cart">
+								   		<br /><a href="cart_update.php?emptycart=1&return_url=$current_url">خالی کردن سبد</a>
+								   	</span>
+cd;
 								}else{
-								    echo '<p style="font-size:20px;color:#E76453;text-align:left">سبد خرید شما خالی میباشد<p>';
+$html.=<<<cd
+								   <p style="font-size:20px;color:#E76453;text-align:left">سبد خرید شما خالی میباشد<p>
+cd;
 								}
 $html.=<<<cd
+								</ul>
 							</div>
 						</div>
+						<!-- END Cart shop -->
 						<!-- Block CMS module -->
 						<section id="informations_block_left_1" class="block informations_block_left">
 							<p class="title_block">

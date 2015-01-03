@@ -124,6 +124,8 @@ $html2.=<<<cd
 		</div>
 	</div>
 </div><!-- #center_column -->
+
+<!-- cut -->
 <div id="featured-products_block_center" class="block products_block clearfix">
 	<h2 class="centertitle_block">محصولات (گروه مورد نظر)</h2>
 	<div class="block_content">
@@ -140,28 +142,34 @@ cd;
         //fetch results set as object and output HTML
         while($obj = $results->fetch_object())
         {
-			echo '<li><div class="product">'; 
-            echo '<form method="post" action="cart_update.php">';
-			echo '<div class="product-thumb"><img src="images/'.$obj->product_img_name.'"></div>';
-            echo '<div class="product-content"><h3>'.$obj->product_name.'</h3>';
-            echo '<div class="product-desc">'.$obj->product_desc.'</div>';
-            echo '<div class="product-info">';
-			echo 'Price '.$currency.$obj->price.' | ';
-            echo 'Qty <input type="text" name="product_qty" value="1" size="3" />';
-			echo '<button class="add_to_cart">Add To Cart</button>';
-			echo '</div></div>';
-            echo '<input type="hidden" name="product_code" value="'.$obj->product_code.'" />';
-            echo '<input type="hidden" name="type" value="add" />';
-			echo '<input type="hidden" name="return_url" value="'.$current_url.'" />';
-            echo '</form>';
-            echo '</div></li>';
+$html2.=<<<cd
+			<li>
+				<div class="product">
+		            <form method="post" action="cart_update.php">';
+						<div class="product-thumb"><img src="images/'.$obj->product_img_name.'"></div>
+			            	<div class="product-content"><h3>'.$obj->product_name.'</h3>
+			           			<div class="product-desc">'.$obj->product_desc.'</div>
+					            <div class="product-info">
+								Price '.$currency.$obj->price.' |
+					            Qty <input type="text" name="product_qty" value="1" size="3" />
+								<button class="add_to_cart">Add To Cart</button>
+							</div>
+						</div>
+			            <input type="hidden" name="product_code" value="'.$obj->product_code.'" />
+			            <input type="hidden" name="type" value="add" />
+						<input type="hidden" name="return_url" value="'.$current_url.'" />
+		            </form>
+	            </div>
+            </li>
+cd;
         }
     
     }
-$html.=<<<cd
+$html2.=<<<cd
 		</ul>
 	</div>
 </div>
+<!-- END cut -->
 cd;
 
 	include_once('./inc/header.php');
