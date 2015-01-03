@@ -42,8 +42,8 @@
 			"`email`"=>"'{$_POST[edtemail]}'","`tel`"=>"'{$_POST[edttel]}'",
 			"`mobile`"=>"'{$_POST[edtmobile]}'","`address`"=>"'{$_POST[edtaddress]}'");
 	$db->UpdateQuery("clients",$values,array("id='{$_GET[did]}'"));		
-	//header('location:editclients.php?act=new');
-	echo $db->cmd;
+	header('location:editclients.php?act=new');
+	//echo $db->cmd;
     }
     
 $html=<<<cd
