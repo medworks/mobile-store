@@ -11,7 +11,7 @@ if(isset($_GET["emptycart"]) && $_GET["emptycart"]==1)
 	header('Location:'.$return_url);
 	
 }
-
+	$mysqli->query("set character_set_results='utf8'");
 //add item in shopping cart
 if(isset($_POST["type"]) && $_POST["type"]=='add')
 {
