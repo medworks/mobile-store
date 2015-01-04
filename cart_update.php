@@ -71,7 +71,7 @@ if(isset($_POST["type"]) && $_POST["type"]=='add')
 //remove item from shopping cart
 if(isset($_GET["removep"]) && isset($_GET["return_url"]) && isset($_SESSION["products"]))
 {
-	$product_code 	= $_GET["removep"]; //get the product code to remove
+	$goodsid 	= $_GET["removep"]; //get the product code to remove
 	$return_url 	= base64_decode($_GET["return_url"]); //get return url
 
 	
