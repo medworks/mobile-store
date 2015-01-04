@@ -20,14 +20,12 @@ if(isset($_POST["type"]) && $_POST["type"]=='add')
 	$priceid    = filter_var($_POST["cbgquality"], FILTER_SANITIZE_NUMBER_INT); //price id
 	$return_url = base64_decode($_POST["return_url"]); //return url
 	
-	//MySqli query - get details of item from db using product code
 	$results = $mysqli->query("SELECT * FROM goods WHERE id='$goodsid' LIMIT 1");
 	$obj = $results->fetch_object();	
-	if ($results) { //we have the product info 
+	if ($results) 
+	{ //we have the product info 
 		$price = $mysqli->query("SELECT * FROM gquality WHERE id='$priceid' LIMIT 1");
-		$probj = $price->fetch_object();
-		//echo $probj->price;
-		//echo "SELECT * FROM gquality WHERE id='$priceid' LIMIT 1";
+		$probj = $price->fetch_object();		
 		//prepare array for the session variable
 		$new_product = array(array( 'id'=>$goodsid,'name'=>$obj->name, 'qty'=>$qty, 'priceid'=>$priceid,'price'=>$probj->price));
 		
@@ -39,7 +37,7 @@ if(isset($_POST["type"]) && $_POST["type"]=='add')
 			{
 				if($cart_itm["id"] == $goodsid){ //the item exist in array
 
-					$product[] = array('id'=>$cart_itm["id"],'name'=>$cart_itm["name"],  'qty'=>$qty, 'priceid'=>$cart_itm["priceid"],'price'=>$cart_itm["price"]);
+					$product[] = array('id'=>$cart_itm["id"],'name'=>$cart_itm["name"],  'qty'=>$qty+$cart_itm["qty"], 'priceid'=>$cart_itm["priceid"],'price'=>$cart_itm["price"]);
 					$found = true;
 				}else{
 					//item doesn't exist in the list, just retrive old info and prepare array for session var
