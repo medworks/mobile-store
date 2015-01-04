@@ -38,7 +38,8 @@ if(isset($_POST["type"]) && $_POST["type"]=='add')
 			
 			foreach ($_SESSION["products"] as $cart_itm) //loop through session array
 			{
-				if($cart_itm["id"] == $goodsid){ //the item exist in array
+				if($cart_itm["id"] == $goodsid and $cart_itm["priceid"] == $priceid)
+				{ //the item exist in array
 
 					$product[] = array('id'=>$cart_itm["id"],'name'=>$cart_itm["name"],  'qty'=>$qty+$cart_itm["qty"], 'priceid'=>$cart_itm["priceid"],'price'=>$cart_itm["price"],'quality'=>$cart_itm["quality"]);
 					$found = true;
