@@ -25,9 +25,12 @@ if(isset($_POST["type"]) && $_POST["type"]=='add')
 	if ($results) 
 	{ //we have the product info 
 		$price = $mysqli->query("SELECT * FROM gquality WHERE id='$priceid' LIMIT 1");
-		$probj = $price->fetch_object();		
+		$probj = $price->fetch_object();
+		
+		$quality = $mysqli->query("SELECT * FROM quality WHERE id='{$probj->qid}' LIMIT 1");
+		$qobj = $quality->fetch_object();				
 		//prepare array for the session variable
-		$new_product = array(array( 'id'=>$goodsid,'name'=>$obj->name, 'qty'=>$qty, 'priceid'=>$priceid,'price'=>$probj->price));
+		$new_product = array(array( 'id'=>$goodsid,'name'=>$obj->name, 'qty'=>$qty, 'priceid'=>$priceid,'price'=>$probj->price,'quality'=>$qobj->name));
 		
 		if(isset($_SESSION["products"])) //if we have the session
 		{
@@ -37,11 +40,11 @@ if(isset($_POST["type"]) && $_POST["type"]=='add')
 			{
 				if($cart_itm["id"] == $goodsid){ //the item exist in array
 
-					$product[] = array('id'=>$cart_itm["id"],'name'=>$cart_itm["name"],  'qty'=>$qty+$cart_itm["qty"], 'priceid'=>$cart_itm["priceid"],'price'=>$cart_itm["price"]);
+					$product[] = array('id'=>$cart_itm["id"],'name'=>$cart_itm["name"],  'qty'=>$qty+$cart_itm["qty"], 'priceid'=>$cart_itm["priceid"],'price'=>$cart_itm["price"],'quality'=>$cart_itm["quality"]);
 					$found = true;
 				}else{
 					//item doesn't exist in the list, just retrive old info and prepare array for session var
-					$product[] = array('id'=>$cart_itm["id"],'name'=>$cart_itm["name"],  'qty'=>$cart_itm["qty"], 'priceid'=>$cart_itm["priceid"],'price'=>$cart_itm["price"]);
+					$product[] = array('id'=>$cart_itm["id"],'name'=>$cart_itm["name"],  'qty'=>$cart_itm["qty"], 'priceid'=>$cart_itm["priceid"],'price'=>$cart_itm["price"],'quality'=>$cart_itm["quality"]);
 				}
 			}
 			
@@ -75,7 +78,7 @@ if(isset($_GET["removep"]) && isset($_GET["return_url"]) && isset($_SESSION["pro
 	foreach ($_SESSION["products"] as $cart_itm) //loop through session array var
 	{
 		if($cart_itm["id"]!=$goodsid){ //item does,t exist in the list
-			$product[] = array( 'id'=>$cart_itm["id"],'name'=>$cart_itm["name"], 'qty'=>$cart_itm["qty"],'priceid'=>$cart_itm["priceid"],'price'=>$cart_itm["price"]);
+			$product[] = array( 'id'=>$cart_itm["id"],'name'=>$cart_itm["name"], 'qty'=>$cart_itm["qty"],'priceid'=>$cart_itm["priceid"],'price'=>$cart_itm["price"],'quality'=>$cart_itm["quality"]);
 		}
 		
 		//create a new product list for cart
