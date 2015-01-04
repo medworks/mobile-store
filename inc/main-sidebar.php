@@ -288,7 +288,7 @@ cd;
 								        $total = ($total + $subtotal);
 								    }
 $html.=<<<cd
-								   <span class="check-out-txt"><strong>مجموع قیمت: $currency$total</strong>
+								   <span class="check-out-txt"><strong>مجموع قیمت: $currency $total</strong>
 								   		<br /><a href="view_cart.php">پرداخت!</a>
 								   </span>
 								   <span class="empty-cart">
