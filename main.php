@@ -74,6 +74,16 @@ $rows = $db->SelectAll(
 $current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);				
 for($i = 0; $i < Count($rows); $i++)
 {
+$db->cmd = "SELECT gq.*,q.name,CONCAT(gq.price,'(',q.name,')') as pn FROM `gquality` as gq ,`quality` as q where gq.qid = q.id AND gq.gid = '{$rows[$i][id]}'";
+//echo $db->cmd;
+$res =$db->RunSQL();
+$gqualitys = array();
+if ($res)
+{
+	while($rawrow = mysqli_fetch_array($res)) $gqualitys[] = $rawrow;
+}		
+$cbgquality = DbSelectOptionTag("cbgquality",$gqualitys,"pn",NULL,NULL,NULL,NULL,"کیفیت");
+		
 $pics = $db->SelectAll("pics","*","`gid`={$rows[$i]['id']}","id ASC");
 $html2.=<<<cd
 			<form method="post" action="cart_update.php">
@@ -84,14 +94,16 @@ $html2.=<<<cd
 							<a class="product_img_link" href="#" title="" itemprop="url">
 								<img class="replace-2x img-responsive" src="./goodspics/{$pics[0]['name']}" alt="{$rows[$i]['name']}" title="{$rows[$i]['name']}" itemprop="image" height="173" width="173">
 							</a>
+							
 							<a class="quick-view" href="single-product{$rows[$i]['id']}.html" rel="single-product{$rows[$i]['id']}.html">
 								<span>نمایش</span>
 							</a>
+							<!--
 							<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
 								<span itemprop="price" class="price product-price">{$rows[$i]["price"]} ریال</span>
 								<meta itemprop="priceCurrency" content="1">
 							</div>
-							<!--
+							
 							<span class="new-box">
 								<span class="new-label">جدید</span>
 							</span>
@@ -103,13 +115,11 @@ $html2.=<<<cd
 							<a class="product-name" href="#" title="Nascetur ridiculus mus" itemprop="url">{$rows[$i]["name"]}</a>
 						</h5>
 						<div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer" class="content_price">
-							<span itemprop="price" class="price product-price">{$rows[$i]["price"]} ریال</span>
-							<meta itemprop="priceCurrency" content="1">
-						</div>
-						<div class="button-container">
-							<a class="button add_to_cart btn btn-default" href="#" rel="nofollow" title="اضافه به سبد خرید" data-id-product="1">
-								<span>اضافه به سبد</span>
-							</a>
+							<div class="product-info">
+								قیمت {$cbgquality} |
+					            تعداد <input type="text" name="qty" value="1" size="3" />
+								<button class="add_to_cart">اضافه به سبد خرید</button>
+							</div>
 						</div>
 						<div class="product-flags"></div>
 					</div>
@@ -130,55 +140,6 @@ $html2.=<<<cd
 		</div>
 	</div>
 </div><!-- #center_column -->
-
-<!-- cut -->
-<div id="featured-products_block_center" class="block products_block clearfix">
-	<h2 class="centertitle_block">محصولات (گروه مورد نظر)</h2>
-	<div class="block_content">
-		<!-- Megnor start -->
-		<ul class="product_list grid row">	
-cd;
-
-    //current URL of the Page. cart_update.php redirects back to this URL
-	$current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-    for($i = 0; $i < Count($rows); $i++)
-    {
-		$db->cmd = "SELECT gq.*,q.name,CONCAT(gq.price,'(',q.name,')') as pn FROM `gquality` as gq ,`quality` as q where gq.qid = q.id AND gq.gid = '{$rows[$i][id]}'";
-		//echo $db->cmd;
-		$res =$db->RunSQL();
-		$gqualitys = array();
-		if ($res)
-		{
-			while($rawrow = mysqli_fetch_array($res)) $gqualitys[] = $rawrow;
-		}		
-		$cbgquality = DbSelectOptionTag("cbgquality",$gqualitys,"pn",NULL,NULL,NULL,NULL,"کیفیت");	
-		$pics = $db->SelectAll("pics","*","`gid`={$rows[$i]['id']}","id ASC");
-$html2.=<<<cd
-			<li>
-				<div class="product">
-		            <form method="post" action="cart_update.php">
-						<div class="product-thumb"><img src="./goodspics/{$pics[0]['name']}"></div>
-			            	<div class="product-content"><h4>{$rows[$i]["name"]}</h4>
-			           			<div class="product-desc">{$rows[$i]["desc"]}</div>
-					            <div class="product-info">
-								قیمت {$cbgquality} |
-					            تعداد <input type="text" name="qty" value="1" size="3" />
-								<button class="add_to_cart">اضافه به سبد خرید</button>
-							</div>
-						</div>
-			            <input type="hidden" name="goodsid" value="{$rows[$i]["id"]}" />
-			            <input type="hidden" name="type" value="add" />
-						<input type="hidden" name="return_url" value="'.$current_url.'" />
-		            </form>
-	            </div>
-            </li>
-cd;
-        }
-$html2.=<<<cd
-		</ul>
-	</div>
-</div>
-<!-- END cut -->
 cd;
 
 	include_once('./inc/header.php');
