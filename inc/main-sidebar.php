@@ -280,7 +280,7 @@ $html.=<<<cd
 									        <h3>$cart_itm[name]</h3>
 									        <div class="p-code">کد کالا: $cart_itm[id]</div>
 									        <div class="p-qty">تعداد: $cart_itm[qty]</div>
-									        <div class="p-price">قیمت: $currency$cart_itm[price]</div>
+									        <div class="p-price">قیمت: $currency $cart_itm[price]</div>
 									    </li>
 cd;
 								        $subtotal = ($cart_itm["price"]*$cart_itm["qty"]);
