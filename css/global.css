@@ -9905,7 +9905,7 @@ p.cheque-indent {
 
 #password {
   padding-top: 0;
-  border: none;
+  /*border: none;*/
 }
 #password .box p {
   margin-bottom: 9px;
