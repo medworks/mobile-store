@@ -277,7 +277,7 @@ $html.=<<<cd
 									        <span class="remove-itm">
 									        	<a href="cart_update.php?removep=$cart_itm[id]&return_url=$current_url">&times</a>
 									        </span>
-									        <h3>$cart_itm[name]</h3>
+									        <h5>$cart_itm[name]</h5>
 									        <div class="p-code">کد کالا: $cart_itm[id]</div>											
 									        <div class="p-qty">تعداد: $cart_itm[qty]</div>
 											<div class="p-code">کیفیت: $cart_itm[quality]</div>
