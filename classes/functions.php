@@ -335,7 +335,7 @@ function DataGrid($cols, $rows, $colsClass, $rowsClass, $itemsInPage, $pageNo, $
                 $option.="<option value='{$val["id"]}' {$select} >{$val[$feild]}</option>";
             }
             $option.="</select>";
-            //var_dump($option);
+            //var_dump($option);			
             return  $option;
         }
        function GetUserName($userid)

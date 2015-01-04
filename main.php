@@ -71,10 +71,12 @@ $rows = $db->SelectAll(
 				"id desc",
 				($pagination->get_page() - 1) * $records_per_page,
 				$records_per_page);
+$current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);				
 for($i = 0; $i < Count($rows); $i++)
 {
 $pics = $db->SelectAll("pics","*","`gid`={$rows[$i]['id']}","id ASC");
 $html2.=<<<cd
+			<form method="post" action="cart_update.php">
 			<li class=" ajax_block_product col-xs-12 col-sm-4 col-md-3 first-in-line first-item-of-tablet-line first-item-of-mobile-line">
 				<div class="product-container" itemscope="" itemtype="http://schema.org/Product">
 					<div class="left-block">
@@ -113,6 +115,10 @@ $html2.=<<<cd
 					</div>
 				</div><!-- .product-container> -->
 			</li>
+			 <input type="hidden" name="goodsid" value="{$rows[$i]["id"]}" />
+			 <input type="hidden" name="type" value="add" />
+			 <input type="hidden" name="return_url" value="'.$current_url.'" />
+			</form>
 cd;
 }
 $pgcodes = $pagination->render(true);
@@ -135,24 +141,28 @@ cd;
 
     //current URL of the Page. cart_update.php redirects back to this URL
 	$current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-    
-	$results = $mysqli->query("SELECT * FROM goods ORDER BY id ASC");
-    if ($results) { 
-	
-        //fetch results set as object and output HTML
-       // while($obj = $results->fetch_object())
-       for($i = 0; $i < Count($rows); $i++)
-        {
+    for($i = 0; $i < Count($rows); $i++)
+    {
+		$db->cmd = "SELECT gq.*,q.name,CONCAT(gq.price,'(',q.name,')') as pn FROM `gquality` as gq ,`quality` as q where gq.qid = q.id AND gq.gid = '{$rows[$i][id]}'";
+		//echo $db->cmd;
+		$res =$db->RunSQL();
+		$gqualitys = array();
+		if ($res)
+		{
+			while($rawrow = mysqli_fetch_array($res)) $gqualitys[] = $rawrow;
+		}
+		//print_r($gqualitys);
+		$cbgquality = DbSelectOptionTag("cbgquality",$gqualitys,"pn",NULL,NULL,NULL,NULL,"کیفیت");	
 		$pics = $db->SelectAll("pics","*","`gid`={$rows[$i]['id']}","id ASC");
 $html2.=<<<cd
 			<li>
 				<div class="product">
-		            <form method="post" action="cart_update.php">'
+		            <form method="post" action="cart_update.php">
 						<div class="product-thumb"><img src="./goodspics/{$pics[0]['name']}"></div>
-			            	<div class="product-content"><h3>{$rows[$i]["name"]}</h3>
+			            	<div class="product-content"><h4>{$rows[$i]["name"]}</h4>
 			           			<div class="product-desc">{$rows[$i]["desc"]}</div>
 					            <div class="product-info">
-								قیمت {$rows[$i]["price"]} |
+								قیمت {$cbgquality} |
 					            تعداد <input type="text" name="qty" value="1" size="3" />
 								<button class="add_to_cart">اضافه به سبد خرید</button>
 							</div>
@@ -165,8 +175,6 @@ $html2.=<<<cd
             </li>
 cd;
         }
-    
-    }
 $html2.=<<<cd
 		</ul>
 	</div>
