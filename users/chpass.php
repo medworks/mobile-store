@@ -14,7 +14,7 @@
 	$login = Login::GetLogin();	
 	$db = Database::GetDatabase();	
 	
-	if (!$login->IsLogged())
+	if (!$login->IsUserLogged())
 	{
 		header("Location: ../index.php");
 		die(); //solve security bug
@@ -23,12 +23,40 @@
 	
 	if (isset($_GET["act"]) and $_GET["act"] == "logout")
    {
-	   if ($login->LogOut())
+	   if ($login->UserLogOut())
 			header("Location: ../index.php");
 	   else
 		    echo $mes->ShowError("عملیات خروج با خطا مواجه شد، لطفا مجددا سعی نمایید.");
    }
   
+   $db = Database::GetDatabase();
+   $sess = Session::GetSesstion();
+   $cid = $sess->Get("clientid");   
+   
+   if ((isset($_POST["mark"]) and $_POST["mark"]=="edit"))
+   {
+		$row = $db->Select("clients","*"," id ='{$cid}'");
+        if ($row["password"] != md5($_POST["curpass"]) )
+		{
+			//$msgs = $mes->ShowError("رمز عبور فعلی اشتباه است!!");
+			header('location:chpass.php?msg=11');
+		}
+		else
+		if ($_POST["newpass"] == $_POST["repnewpass"])
+		{
+			$pass = md5($_POST[newpass]);
+			$values = array("`password`"=>"'{$pass}'");
+			$db->UpdateQuery("clients",$values,array("id='{$cid}'"));
+			header('location:chpass.php?msg=1');
+		}
+		else
+		{
+			//$msgs = $mes->ShowError("رمز عبور جدید با تکرار آن برابر نیست!!");
+			header('location:chpass.php?msg=12');
+		}
+	//echo $db->cmd;
+   }
+   $msgs = GetMessage($_GET["msg"]);
 $html=<<<cd
     <!--Page main section start-->
     <section id="min-wrapper">
@@ -49,6 +77,7 @@ $html=<<<cd
                     </div>
                 </div>
                 <!-- Main Content Element  Start-->
+				{$msgs}
                 <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-default">
@@ -57,7 +86,7 @@ $html=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <input id="edtfather" name="edtfather" type="password" class="form-control" value="{$row["father"]}"/>
+                                        <input id="curpass" name="curpass" type="password" class="form-control" value="{$row["father"]}"/>
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +100,7 @@ $html=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <input id="edtfather" name="edtfather" type="password" class="form-control" value="{$row["father"]}"/>
+                                        <input id="newpass" name="newpass" type="password" class="form-control" value="{$row["father"]}"/>
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +114,7 @@ $html=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <input id="edtfather" name="edtfather" type="password" class="form-control" value="{$row["father"]}"/>
+                                        <input id="repnewpass" name="repnewpass" type="password" class="form-control" value="{$row["father"]}"/>
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +127,8 @@ $html=<<<cd
                                     <h3 class="panel-title">ویرایش اطلاعات</h3>
                                 </div>
                                 <div class="panel-body">
-                                    {$insertoredit}
+                                    <input type="submit" name="submit" value="ویرایش"/>
+									<input type="hidden" name="mark" value="edit"/>
                                 </div>
                             </div>
                         </div>

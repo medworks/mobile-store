@@ -124,6 +124,12 @@
 			case 10:
 				$result = $msg->ShowSuccess("سوال شما ارسال شد .به زودی پاسخ خود را از طریق ایمیل دریافت خواهد کرد");
 			break;
+			case 11:
+				$result = $msg->ShowSuccess("رمز عبور فعلی اشتباه است !!");
+			break;
+			case 12:
+				$result = $msg->ShowSuccess("رمز عبور جدید با تکرار آن برابر نیست!!");
+			break;
 		}
 		$result .= <<<JAVA
 		<script language="javascript">
