@@ -9,7 +9,7 @@ include_once("../classes/messages.php");
 $login=Login::GetLogin();
 $msg=Message::GetMessage();
 $msgs = "";
-if ($login->IsLogged())
+if ($login->IsUserLogged())
 {	
 		header("Location: ../users/admin.php");
 } 
@@ -17,7 +17,7 @@ else
 {
 	if (isset ($_POST["mark"]) AND $_POST["mark"] == "login")
 	{
-		if ($login->AdminLogin($_POST['username'],$_POST['password']))
+		if ($login->UserLogin($_POST['username'],$_POST['password']))
 		{		 
 			header("location:admin.php");	
 		}	

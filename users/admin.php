@@ -14,7 +14,7 @@
 	$login = Login::GetLogin();	
 	$db = Database::GetDatabase();	
 	
-	if (!$login->IsLogged())
+	if (!$login->IsUserLogged())
 	{
 		header("Location: ../index.php");
 		die(); //solve security bug
@@ -23,7 +23,7 @@
 	
 	if (isset($_GET["act"]) and $_GET["act"] == "logout")
    {
-	   if ($login->LogOut())
+	   if ($login->UserLogOut())
 			header("Location: ../index.php");
 	   else
 		    echo $mes->ShowError("عملیات خروج با خطا مواجه شد، لطفا مجددا سعی نمایید.");
