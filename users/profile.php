@@ -14,7 +14,7 @@
 	$login = Login::GetLogin();	
 	$db = Database::GetDatabase();	
 	
-	if (!$login->IsLogged())
+	if (!$login->IsUserLogged())
 	{
 		header("Location: ../index.php");
 		die(); //solve security bug
@@ -23,11 +23,15 @@
 	
 	if (isset($_GET["act"]) and $_GET["act"] == "logout")
    {
-	   if ($login->LogOut())
+	   if ($login->UserLogOut())
 			header("Location: ../index.php");
 	   else
 		    echo $mes->ShowError("عملیات خروج با خطا مواجه شد، لطفا مجددا سعی نمایید.");
    }
+   $db = Database::GetDatabase();
+   $sess = Session::GetSesstion();
+   $cid = $sess->Get("clientid");
+   $row = $db->Select("clients","*"," id ='{$cid}'");
   
 $html=<<<cd
     <!--Page main section start-->
@@ -57,7 +61,7 @@ $html=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <input id="edtfather" name="edtfather" type="text" class="form-control" value="{$row["father"]}"/>
+                                        <input id="edtname" name="edtname" type="text" class="form-control" value="{$row[name]}"/>
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +75,7 @@ $html=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <input id="edtfather" name="edtfather" type="text" class="form-control" value="{$row["father"]}"/>
+                                        <input id="edtcompany" name="edtcompany" type="text" class="form-control" value="{$row[company]}"/>
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +89,7 @@ $html=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <input id="edtfather" name="edtfather" type="text" class="form-control" value="{$row["father"]}"/>
+                                        <input id="edtemail" name="edtemail" type="text" class="form-control" value="{$row[email]}"/>
                                     </div>
                                 </div>
                             </div>
@@ -99,7 +103,7 @@ $html=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <input id="edtfather" name="edtfather" type="text" class="form-control" value="{$row["father"]}"/>
+                                        <input id="edttel" name="edttel" type="text" class="form-control" value="{$row[tel]}"/>
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +117,7 @@ $html=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <input id="edtfather" name="edtfather" type="text" class="form-control" value="{$row["father"]}"/>
+                                        <input id="edtmobile" name="edtmobile" type="text" class="form-control" value="{$row[mobile]}"/>
                                     </div>
                                 </div>
                             </div>
@@ -127,7 +131,7 @@ $html=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <textarea id="edtfather" name="edtfather" type="text" class="form-control" value="{$row["father"]}"></textarea>
+                                        <textarea id="edtaddress" name="edtaddress" type="text" class="form-control" value="">{$row["address"]}</textarea>
                                     </div>
                                 </div>
                             </div>
