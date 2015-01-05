@@ -32,7 +32,29 @@
    $sess = Session::GetSesstion();
    $cid = $sess->Get("clientid");
    $row = $db->Select("clients","*"," id ='{$cid}'");
-  
+   
+   $regdate = ToJalali($row["regdate"]," l d F  Y ساعت H:i");
+	if($row["sex"] ==0)
+	{
+	  $male = "checked";
+	  $man = "";
+	}
+	else
+	{
+	  $male = "";
+      $man = "checked";
+	}
+    
+    if ((isset($_POST["mark"]) and $_POST["mark"]=="edit"))
+    {
+	$values = array("`sex`"=>"'1'","`name`"=>"'{$_POST[edtname]}'","`company`"=>"'{$_POST[edtcompany]}'",
+			"`email`"=>"'{$_POST[edtemail]}'","`tel`"=>"'{$_POST[edttel]}'",
+			"`mobile`"=>"'{$_POST[edtmobile]}'","`address`"=>"'{$_POST[edtaddress]}'");
+	$db->UpdateQuery("clients",$values,array("id='{$cid}'"));		
+	header('location:profile.php');
+	//echo $db->cmd;
+    }
+	
 $html=<<<cd
     <!--Page main section start-->
     <section id="min-wrapper">
@@ -53,6 +75,38 @@ $html=<<<cd
                     </div>
                 </div>
                 <!-- Main Content Element  Start-->
+				            <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">جنسیت</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                       <div class="radio-inline">
+					<label for="id_gender1" class="top" style="font-size:15px">
+						<div class="radio" id="uniform-id_gender1">
+							<span>
+								<input type="radio" name="gender" id="id_gender1" value="1" {$man}>
+							</span>
+						</div>
+						آقا
+					</label>
+				</div>
+				<div class="radio-inline">
+					<label for="id_gender2" class="top" style="font-size:15px">
+						<div class="radio" id="uniform-id_gender2">
+							<span>
+								<input type="radio" name="gender" id="id_gender2" value="0" {$male}>
+							</span>
+						</div>
+						خانم
+					</label>
+				</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-default">
@@ -144,11 +198,12 @@ $html=<<<cd
                                     <h3 class="panel-title">ویرایش اطلاعات</h3>
                                 </div>
                                 <div class="panel-body">
-                                    {$insertoredit}
+                                    <input type="submit" name="submit" value="ویرایش"/>
                                 </div>
                             </div>
                         </div>
                     </div>
+					<input type="hidden" name="mark" value="edit"/>
                     </form>       
                 <!-- Main Content Element  End-->
             </div>
