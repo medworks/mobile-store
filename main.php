@@ -87,7 +87,7 @@ $cbgquality = DbSelectOptionTag("cbgquality",$gqualitys,"pn",NULL,NULL,NULL,NULL
 $pics = $db->SelectAll("pics","*","`gid`={$rows[$i]['id']}","id ASC");
 $html2.=<<<cd
 			<form method="post" action="cart_update.php">
-			<li class=" ajax_block_product col-xs-12 col-sm-4 col-md-3 first-in-line first-item-of-tablet-line first-item-of-mobile-line">
+			<li class="ajax_block_product col-xs-12 col-sm-4 col-md-3">
 				<div class="product-container" itemscope="" itemtype="http://schema.org/Product">
 					<div class="left-block">
 						<div class="product-image-container">
@@ -99,11 +99,6 @@ $html2.=<<<cd
 								<span>نمایش</span>
 							</a>
 							<!--
-							<div class="content_price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-								<span itemprop="price" class="price product-price">{$rows[$i]["price"]} ریال</span>
-								<meta itemprop="priceCurrency" content="1">
-							</div>
-							
 							<span class="new-box">
 								<span class="new-label">جدید</span>
 							</span>
@@ -116,18 +111,19 @@ $html2.=<<<cd
 						</h5>
 						<div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer" class="content_price">
 							<div class="product-info">
-								قیمت {$cbgquality} |
-					            تعداد <input type="text" name="qty" value="1" size="3" />
+								<p style="text-align:center;font-size:16px;margin-bottom:5px">قیمت {$cbgquality}</p>
+					            <p style="text-align:center;font-size:16px;margin-bottom:5px">تعداد <input type="text" name="qty" value="1" size="3" /></p>
 								<button class="add_to_cart">اضافه به سبد خرید</button>
 							</div>
 						</div>
 						<div class="product-flags"></div>
 					</div>
 				</div><!-- .product-container> -->
-			</li>
-			 <input type="hidden" name="goodsid" value="{$rows[$i]["id"]}" />
-			 <input type="hidden" name="type" value="add" />
-			 <input type="hidden" name="return_url" value="'.$current_url.'" />
+			
+				<input type="hidden" name="goodsid" value="{$rows[$i]["id"]}" />
+				<input type="hidden" name="type" value="add" />
+				<input type="hidden" name="return_url" value="'.$current_url.'" />
+			 </li>
 			</form>
 cd;
 }
