@@ -157,6 +157,8 @@ Product list(Grid) Styles
 ul.product_list.grid li, ul.tm-carousel li {
   padding: 7px;
   text-align: center;
+  max-height: 342px;
+  max-width: 192px;
 }
 @media (min-width: 480px) and (max-width: 767px) {
   ul.product_list.grid li, ul.tm-carousel li {

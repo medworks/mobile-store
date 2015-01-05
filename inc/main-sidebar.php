@@ -39,127 +39,8 @@ $html=<<<cd
 							</button>
 						</form>
 					</div> -->
-					<!-- /Block search module TOP -->
-					<!-- MODULE Block cart -->
-					<div class="col-sm-4 block_cart clearfix" style="float:left">
-						<div class="shopping_cart">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/en/order" title="View my shopping cart" rel="nofollow">
-								<b>سبد خرید</b>
-								<span class="ajax_cart_quantity unvisible">0</span>
-								<span class="ajax_cart_product_txt unvisible">محصول</span>
-								<span class="ajax_cart_product_txt_s unvisible">محصولات</span>
-								<span class="ajax_cart_total unvisible"></span>
-								<span class="ajax_cart_no_product">(خالی)</span>
-							</a>
-							<div class="cart_block block exclusive">
-								<div class="block_content">
-									<!-- block list of products -->
-									<div class="cart_block_list">
-										<p class="cart_block_no_products">
-											بدون محصول
-										</p>
-										<div class="cart-prices">
-											<!-- <div class="cart-prices-line first-line">
-												<span class="price cart_block_shipping_cost ajax_cart_shipping_cost">Free shipping!</span>
-												<span>
-													Shipping
-												</span>
-											</div> -->
-											<div class="cart-prices-line last-line">
-												<span class="price cart_block_total ajax_block_cart_total">0 ریال</span>
-												<span>مجموع</span>
-											</div>
-										</div>
-										<p class="cart-buttons">
-											<a id="button_order_cart" class="btn btn-default button button-small" href="http://prestashop-demos.org/PRS06/PRS060144/en/order" title="Check out" rel="nofollow">
-												<span>پرداخت
-													<i class="icon-chevron-left right"></i>
-												</span>
-											</a>
-										</p>
-									</div>
-								</div>
-							</div><!-- .cart_block -->
-						</div>
-					</div>
-					<div id="layer_cart">
-						<div class="clearfix">
-							<div class="layer_cart_product col-xs-12 col-md-6">
-								<span class="cross" title="Close window"></span>
-								<h2>
-									<i class="icon-ok"></i>Product successfully added to your shopping cart
-								</h2>
-								<div class="product-image-container layer_cart_img">
-								</div>
-								<div class="layer_cart_product_info">
-									<span id="layer_cart_product_title" class="product-name"></span>
-									<span id="layer_cart_product_attributes"></span>
-									<div>
-										<strong class="dark">Quantity</strong>
-										<span id="layer_cart_product_quantity"></span>
-									</div>
-									<div>
-										<strong class="dark">Total</strong>
-										<span id="layer_cart_product_price"></span>
-									</div>
-								</div>
-							</div>
-							<div class="layer_cart_cart col-xs-12 col-md-6">
-								<h2>
-									<!-- Plural Case [both cases are needed because page may be updated in Javascript] -->
-									<span class="ajax_cart_product_txt_s  unvisible">
-										There are <span class="ajax_cart_quantity">0</span> items in your cart.
-									</span>
-									<!-- Singular Case [both cases are needed because page may be updated in Javascript] -->
-									<span class="ajax_cart_product_txt ">
-										There is 1 item in your cart.
-									</span>
-								</h2>
-					
-								<div class="layer_cart_row">
-									<strong class="dark">
-										Total products
-																	(tax excl.)
-															</strong>
-									<span class="ajax_block_products_total">
-															</span>
-								</div>
-					
-												<div class="layer_cart_row">
-									<strong class="dark">
-										Total shipping&nbsp;(tax excl.)
-									</strong>
-									<span class="ajax_cart_shipping_cost">
-																	Free shipping!
-															</span>
-								</div>
-												<div class="layer_cart_row">	
-									<strong class="dark">
-										Total
-																	(tax excl.)
-															</strong>
-									<span class="ajax_block_cart_total">
-															</span>
-								</div>
-								<div class="button-container">	
-									<span class="continue btn btn-default button exclusive-medium" title="Continue shopping">
-										<span>
-											<i class="icon-chevron-left left"></i>Continue shopping
-										</span>
-									</span>
-									<a class="btn btn-default button button-medium" href="http://prestashop-demos.org/PRS06/PRS060144/en/order" title="Proceed to checkout" rel="nofollow">
-										<span>
-											Proceed to checkout<i class="icon-chevron-right right"></i>
-										</span>
-									</a>	
-								</div>
-							</div>
-						</div>
-						<div class="crossseling"></div>
-					</div> <!-- #layer_cart -->
-					<div class="layer_cart_overlay"></div>
-					<!-- /MODULE Block cart -->
 					<div class="clearfix"></div>
+					<!-- /Block search module TOP -->
 					<!-- Menu -->
 					<div id="block_top_menu" class="sf-contener clearfix col-lg-12">
 						<div class="menu_inner">
@@ -277,7 +158,7 @@ $html.=<<<cd
 									        <span class="remove-itm">
 									        	<a href="cart_update.php?removep=$cart_itm[id]&return_url=$current_url">&times</a>
 									        </span>
-									        <h5>$cart_itm[name]</h5>
+									        <h4 style="font-size:20px!important;color:#E76453">$cart_itm[name]</h4>
 									        <div class="p-code">کد کالا: $cart_itm[id]</div>											
 									        <div class="p-qty">تعداد: $cart_itm[qty]</div>
 											<div class="p-code">کیفیت: $cart_itm[quality]</div>
@@ -288,11 +169,29 @@ cd;
 								        $total = ($total + $subtotal);
 								    }
 $html.=<<<cd
-								   <span class="check-out-txt"><strong>مجموع قیمت: $currency $total</strong>
-								   		<br /><a href="view_cart.php">پرداخت!</a>
+									<style>
+										.empty,
+										.pay{
+											display:inline-block;
+											direction:rtl;
+											text-align:right;
+											margin-top:5px;
+											border:1px solid #E76453;
+											background-color: #E76453;
+											padding:5px;
+										}
+										.empty:hover,
+										.pay:hover{
+											color:#fff;
+										}
+									</style>
+								   <span class="check-out-txt" style="direction:rtl">
+								   		<strong style="font-size:20px!important;color:#E76453">مجموع قیمت: $total $currency</strong>
+								   		<br />
+								   		<a href="view_cart.php" class="empty">پرداخت</a>
 								   </span>
 								   <span class="empty-cart">
-								   		<br /><a href="cart_update.php?emptycart=1&return_url=$current_url">خالی کردن سبد</a>
+								   		<a href="cart_update.php?emptycart=1&return_url=$current_url" class="pay">خالی کردن سبد!</a>
 								   	</span>
 cd;
 								}else{
