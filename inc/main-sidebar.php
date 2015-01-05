@@ -93,16 +93,20 @@ $html.=<<<cd
 							<ul class="bullet">
 									 
 								<li>
-								<a href="" title="">درباره ما</a></li>
-										 
+								<a href="" title="">درباره ما</a>
+								</li>										 
 								<li>
-								<a href="" title="">راهنمای خرید</a></li>
-										 
+								<a href="" title="">راهنمای خرید</a>
+								</li>										 
 								<li>
-								<a href="craccount.html" title="ثبت نام">ثبت نام</a></li>
-										 
+								<a href="craccount.html" title="ثبت نام">ثبت نام</a>
+								</li>
 								<li>
-								<a href="" title="">تماس با ما</a></li>
+								<a href="users/login.php" title="ورود کاربران">ورود کاربران</a>
+								</li>										 
+								<li>
+								<a href="" title="">تماس با ما</a>
+								</li>
 							</ul>
 						</div>
 					</section>
