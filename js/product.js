@@ -246,9 +246,13 @@ $(document).ready(function(){
     $(document).on('click', '.product_quantity_up', function(e){
         e.preventDefault();
         fieldName = $(this).data('field-qty');
+		row = $(this).data('field-row');		
         var currentVal = parseInt($('input[name='+fieldName+']').val());
 		$('input[name='+fieldName+']').val(currentVal + 1).trigger('keyup');
-        
+		price = $('#product_price_'+row+' span').text();
+		tprice = $('input[name='+fieldName+']').val()*price;
+		//alert('#total_price_'+row+' span');
+		$('#total_price_'+row).text(tprice.toString()); 
     });
 	 // The button to decrement the product value
     $(document).on('click', '.product_quantity_down', function(e){

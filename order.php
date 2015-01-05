@@ -8,6 +8,7 @@ $html1=<<<cd
 	<div id="page">
 cd;
 
+$itemscount = count($_SESSION["products"]);
 $html2=<<<cd
 <div id="center_column" class="center_column col-xs-12" style="width:80%;">				
 	<!-- Breadcrumb -->
@@ -18,7 +19,7 @@ $html2=<<<cd
 	</div>
 	<h1 id="cart_title" class="page-heading">سبد خرید شما
 		<span class="heading-counter">سبد خرید شما شامل:
-			<span id="summary_products_quantity">3 محصول</span>
+			<span id="summary_products_quantity">{$itemscount} محصول</span>
 		</span>
 	</h1>
 	<ul class="step clearfix" id="order_step">
@@ -77,8 +78,9 @@ $i=0;
 foreach ($_SESSION["products"] as $cart_itm) 
 {
 $i++;
+$subtotal = ($cart_itm["price"]*$cart_itm["qty"]);
 $html2.=<<<cd
-				<tr id="product_1_1_0_0" class="cart_item last_item first_item address_0 odd">
+				<tr id="product_1_1_0_0" class="cart_item last_item first_item address_0 odd">					
 					<td class="cart_product">
 						<a href="#"><img src="./img/product/1.jpg" alt="" width="55" height="55"></a>
 					</td>
@@ -88,16 +90,16 @@ $html2.=<<<cd
 						</p>
 				    </td>
 					<td class="cart_unit" data-title="Unit price">
-						<span class="price" id="product_price_1_1_0">
-							<span class="price">{$cart_itm["price"]}</span>
+						<span class="price" id="product_price_{$i}">
+							<span id="product_price_{$i}" class="price" data-field-price="{$cart_itm["price"]}" >{$cart_itm["price"]}</span>
 						</span>
 					</td>
 					<td id="quantity_wanted_p">
-						<input type="text" name="qty{$i}" id="quantity_wanted" class="text" value="{$cart_itm['qty']}" style="border: 1px solid rgb(227, 226, 226);width:58px;font-size:15px;font-family:'bmitra'">
-						<a href="#" data-field-qty="qty{$i}" class="btn btn-default button-minus product_quantity_down" style="margin-top:5px">
+						<input type="text" name="qty{$i}" id="qty{$i}" class="text" value="{$cart_itm['qty']}" style="border: 1px solid rgb(227, 226, 226);width:58px;font-size:15px;font-family:'bmitra'">
+						<a href="#" data-field-qty="qty{$i}" data-field-row="{$i}" class="btn btn-default button-minus product_quantity_down" style="margin-top:5px">
 							<span><i class="icon-minus"></i></span>
 						</a>
-						<a href="#" data-field-qty="qty{$i}" class="btn btn-default button-plus product_quantity_up" style="margin-top:5px">
+						<a href="#" data-field-qty="qty{$i}" data-field-row="{$i}" class="btn btn-default button-plus product_quantity_up" style="margin-top:5px">
 							<span><i class="icon-plus"></i></span>
 						</a>
 						<span class="clearfix"></span>
@@ -114,7 +116,7 @@ $html2.=<<<cd
 					</td>
 					-->
 					<td class="cart_total" data-title="Total">
-						<span class="price" id="total_product_price_1_1_0">375.00</span>
+						<span class="price" id="total_price_{$i}">{$subtotal}</span>
 					</td>
 					<td class="cart_delete text-center" data-title="Delete">
 						<div>
