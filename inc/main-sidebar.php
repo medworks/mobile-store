@@ -192,7 +192,7 @@ $html.=<<<cd
 								   <span class="check-out-txt" style="direction:rtl">
 								   		<strong style="font-size:20px!important;color:#E76453">مجموع قیمت: $total $currency</strong>
 								   		<br />
-								   		<a href="view_cart.php" class="empty">پرداخت</a>
+								   		<a href="order.php" class="empty">پرداخت</a>
 								   </span>
 								   <span class="empty-cart">
 								   		<a href="cart_update.php?emptycart=1&return_url=$current_url" class="pay">خالی کردن سبد!</a>

@@ -1,13 +1,14 @@
 <?php
-	include_once('./inc/header.php')
-?>
+	session_start();
+	include_once('./inc/header.php');
 
-<body id="product" class="product product-20 product-printed-summer-dress category-11 category-camcorder hide-right-column lang_en">
+
+$html1=<<<cd
+	<body id="product" class="product product-20 product-printed-summer-dress category-11 category-camcorder hide-right-column lang_en">
 	<div id="page">
-<?php
-	include_once('./inc/main-sidebar.php')
-?>		
-		
+cd;
+
+$html2=<<<cd
 <div id="center_column" class="center_column col-xs-12" style="width:80%;">				
 	<!-- Breadcrumb -->
 	<div class="breadcrumb clearfix rtl">
@@ -122,7 +123,9 @@
 		</a>
 	</p>
 </div>
-
-<?php
+cd;
+	echo $html1;
+	include_once('./inc/main-sidebar.php');
+	echo $html2;
 	include_once('./inc/footer.php');
 ?>
