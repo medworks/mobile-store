@@ -46,8 +46,7 @@ $html2=<<<cd
 					<th class="cart_product first_item">محصولات</th>
 					<th class="cart_description item">توضیحات</th>
 					<th class="cart_unit item">قیمت (ریال)</th>
-					<th class="cart_quantity item">تعداد</th>
-					<th class="cart_quantity item">کیفیت</th>
+					<th class="cart_quantity item">تعداد</th>					
 					<th class="cart_total item">مجموع</th>
 					<th class="cart_delete last_item">&nbsp;</th>
 				</tr>
@@ -72,30 +71,38 @@ $html2=<<<cd
 				</tr>
 			</tfoot>
 			<tbody>
+cd;
+
+$i=0;
+foreach ($_SESSION["products"] as $cart_itm) 
+{
+$i++;
+$html2.=<<<cd
 				<tr id="product_1_1_0_0" class="cart_item last_item first_item address_0 odd">
 					<td class="cart_product">
 						<a href="#"><img src="./img/product/1.jpg" alt="" width="55" height="55"></a>
 					</td>
 					<td class="cart_description">
 						<p class="product-name">
-							<a href="#">عنوان و توضیحات</a>
+							<a href="#">{$cart_itm["name"]}</a>
 						</p>
 				    </td>
 					<td class="cart_unit" data-title="Unit price">
 						<span class="price" id="product_price_1_1_0">
-							<span class="price">125.00</span>
+							<span class="price">{$cart_itm["price"]}</span>
 						</span>
 					</td>
 					<td id="quantity_wanted_p">
-						<input type="text" name="qty" id="quantity_wanted" class="text" value="1" style="border: 1px solid rgb(227, 226, 226);width:58px;font-size:15px;font-family:'bmitra'">
-						<a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down" style="margin-top:5px">
+						<input type="text" name="qty{$i}" id="quantity_wanted" class="text" value="{$cart_itm['qty']}" style="border: 1px solid rgb(227, 226, 226);width:58px;font-size:15px;font-family:'bmitra'">
+						<a href="#" data-field-qty="qty{$i}" class="btn btn-default button-minus product_quantity_down" style="margin-top:5px">
 							<span><i class="icon-minus"></i></span>
 						</a>
-						<a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up" style="margin-top:5px">
+						<a href="#" data-field-qty="qty{$i}" class="btn btn-default button-plus product_quantity_up" style="margin-top:5px">
 							<span><i class="icon-plus"></i></span>
 						</a>
 						<span class="clearfix"></span>
 					</td>
+					<!--
 					<td id="quality_wanted_p">
 						<select style="border: 1px solid rgb(227, 226, 226);width:150px;font-size:15px;font-family:'bmitra'">
 							<option value="0">انتخاب کیفیت</option>
@@ -105,6 +112,7 @@ $html2=<<<cd
 						</select>
 						<span class="clearfix"></span>
 					</td>
+					-->
 					<td class="cart_total" data-title="Total">
 						<span class="price" id="total_product_price_1_1_0">375.00</span>
 					</td>
@@ -113,7 +121,11 @@ $html2=<<<cd
 							<a rel="nofollow" title="Delete" class="cart_quantity_delete" id="1_1_0_0" href="#"><i class="icon-trash"></i></a>
 						</div>
 					</td>
-				</tr>				
+				</tr>
+cd;
+}
+
+$html2.=<<<cd
 			</tbody>
 		</table>
 	</div>
