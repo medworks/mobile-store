@@ -95,7 +95,7 @@ $html2.=<<<cd
 						</span>
 					</td>
 					<td id="quantity_wanted_p">
-						<input type="text" name="qty{$i}" id="qty{$i}" class="text" value="{$cart_itm['qty']}" style="border: 1px solid rgb(227, 226, 226);width:58px;font-size:15px;font-family:'bmitra'">
+						<input type="text" data-field-row="{$i}" name="qty{$i}" id="qty{$i}" class="text" value="{$cart_itm['qty']}" style="border: 1px solid rgb(227, 226, 226);width:58px;font-size:15px;font-family:'bmitra'">
 						<a href="#" data-field-qty="qty{$i}" data-field-row="{$i}" class="btn btn-default button-minus product_quantity_down" style="margin-top:5px">
 							<span><i class="icon-minus"></i></span>
 						</a>

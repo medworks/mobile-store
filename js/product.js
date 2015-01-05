@@ -252,19 +252,27 @@ $(document).ready(function(){
 		price = $('#product_price_'+row+' span').text();
 		tprice = $('input[name='+fieldName+']').val()*price;
 		//alert('#total_price_'+row+' span');
-		$('#total_price_'+row).text(tprice.toString()); 
+		$('#total_price_'+row).text(tprice.toString());
     });
 	 // The button to decrement the product value
     $(document).on('click', '.product_quantity_down', function(e){
         e.preventDefault();
         fieldName = $(this).data('field-qty');
+		row = $(this).data('field-row');
         var currentVal = parseInt($('input[name='+fieldName+']').val());
         if (!isNaN(currentVal) && currentVal > 1) {
             $('input[name='+fieldName+']').val(currentVal - 1).trigger('keyup');
         } else {
             $('input[name='+fieldName+']').val(1);
         }
+		price = $('#product_price_'+row+' span').text();
+		tprice = $('input[name='+fieldName+']').val()*price;
+		//alert('#total_price_'+row+' span');
+		$('#total_price_'+row).text(tprice.toString()); 				
     });
+	
+	// $(document).on('keyup', '.text input', function(e){
+	
 
 	if (typeof minimalQuantity != 'undefined' && minimalQuantity)
 	{
