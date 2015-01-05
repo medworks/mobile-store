@@ -73,12 +73,18 @@ if(isset($_POST["type"]) && $_POST["type"]=='add')
 if(isset($_GET["removep"]) && isset($_GET["return_url"]) && isset($_SESSION["products"]))
 {
 	$goodsid 	= $_GET["removep"]; //get the product code to remove
+	$qid        = $_GET["qid"];
 	$return_url 	= base64_decode($_GET["return_url"]); //get return url
 
 	
 	foreach ($_SESSION["products"] as $cart_itm) //loop through session array var
 	{
-		if($cart_itm["id"]!=$goodsid){ //item does,t exist in the list
+		if($cart_itm["id"]==$goodsid and $cart_itm["priceid"]==$qid)
+		{ //item does,t exist in the list
+			
+		}
+		else
+		{
 			$product[] = array( 'id'=>$cart_itm["id"],'name'=>$cart_itm["name"], 'qty'=>$cart_itm["qty"],'priceid'=>$cart_itm["priceid"],'price'=>$cart_itm["price"],'quality'=>$cart_itm["quality"]);
 		}
 		

@@ -160,7 +160,7 @@ cd;
 $html.=<<<cd
 								        <li class="cart-itm">
 									        <span class="remove-itm">
-									        	<a href="cart_update.php?removep=$cart_itm[id]&return_url=$current_url">&times</a>
+									        	<a href="cart_update.php?removep=$cart_itm[id]&qid=$cart_itm[priceid]&return_url=$current_url">&times</a>
 									        </span>
 									        <h4 style="font-size:20px!important;color:#E76453">$cart_itm[name]</h4>
 									        <div class="p-code">کد کالا: $cart_itm[id]</div>											
