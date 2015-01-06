@@ -3,17 +3,33 @@ session_start();
 include_once("config.php");
 include_once("classes/functions.php");
 include_once("classes/security.php");
-include_once("classes/database.php");	
+include_once("classes/database.php");
+include_once("./classes/session.php");
+include_once("./classes/login.php");	
 include_once("./lib/persiandate.php");
 include_once("./lib/Zebra_Pagination.php");
 include_once("classes/seo.php");
 
-if (isset($_SESSION["clientlogin"]) and $_SESSION["clientlogin"]==true)
-{
+$login = Login::GetLogin();	
+
+if ($login->IsUserLogged())
+{	
 	header("Location: ./conforder.php");
 }
 else
 {
+	if (isset ($_POST["mark"]) AND $_POST["mark"] == "login")
+	{
+		if ($login->UserLogin($_POST['email'],$_POST['password']))
+		{		 
+			header("Location: ./conforder.php");	
+		}	
+		else
+		{ 
+			$msgs = $msg->ShowError("نام کاربری یا کلمه عبور اشتباه می باشد !");			
+		}	
+	}   
+
 $html1=<<<cd
 <body id="product" class="product product-20 product-printed-summer-dress category-11 category-camcorder hide-right-column lang_en">
 	<div id="page">
@@ -46,6 +62,7 @@ $html2=<<<cd
 		</li>
 	</ul>
 	<!-- /Breadcrumb -->
+	{$msgs}
 	<div class="row">
 		<div class="col-xs-12 col-sm-6">
 			<form action="" method="post" id="create-account_form" class="box">
@@ -79,10 +96,10 @@ $html2=<<<cd
 					</div>
 					<div class="form-group">
 						<label for="passwd">Password</label>
-						<span><input class="is_required validate account_input form-control" type="password" data-validate="isPasswd" id="passwd" name="passwd" value=""></span>
+						<span><input class="is_required validate account_input form-control" type="password" data-validate="isPasswd" id="password" name="password" value=""></span>
 					</div>
 					<p class="submit">
-						<input type="hidden" class="hidden" name="back" value="">
+						<input type="hidden" class="hidden" name="mark" value="login">
 						<button type="submit" id="SubmitLogin" name="SubmitLogin" class="button btn btn-default button-medium">
 							<span>
 								<i class="icon-lock left"></i>

@@ -1,13 +1,21 @@
 <?php
-	include_once('./inc/header.php')
-?>
+session_start();
+include_once("config.php");
+include_once("classes/functions.php");
+include_once("classes/security.php");
+include_once("classes/database.php");
+include_once("./classes/session.php");
+include_once("./classes/login.php");	
+include_once("./lib/persiandate.php");
+include_once("./lib/Zebra_Pagination.php");
+include_once("classes/seo.php");
 
+$html1=<<<cd
 <body id="product" class="product product-20 product-printed-summer-dress category-11 category-camcorder hide-right-column lang_en">
 	<div id="page">
-<?php
-	include_once('./inc/main-sidebar.php')
-?>		
-		
+cd;
+
+$html2=<<<cd
 <div id="center_column" class="center_column col-xs-12" style="width:80%;">				
 	<!-- Breadcrumb -->
 	<div class="breadcrumb clearfix rtl">
@@ -122,7 +130,10 @@
 		</a>
 	</p>
 </div>
-
-<?php
-	include_once('./inc/footer.php');
+cd;
+include_once('./inc/header.php');
+echo $html1;
+include_once('./inc/main-sidebar.php')
+echo $html2;
+include_once('./inc/footer.php');
 ?>
