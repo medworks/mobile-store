@@ -10,6 +10,9 @@ include_once("./lib/persiandate.php");
 include_once("./lib/Zebra_Pagination.php");
 include_once("classes/seo.php");
 
+$sess = Session::GetSesstion();
+$clientname = $sess->Get("clientname",$row["name"]);
+$cartcount = count($_SESSION["products"]);
 $html1=<<<cd
 <body id="product" class="product product-20 product-printed-summer-dress category-11 category-camcorder hide-right-column lang_en">
 	<div id="page">
@@ -23,9 +26,9 @@ $html2=<<<cd
 		<span class="navigation-pipe">&gt;</span>
 		تایید سفارش 
 	</div>
-	<h1 id="cart_title" class="page-heading">سبد خرید (نام و نام خانوادگی)
-		<span class="heading-counter">سبد خرید (نام و نام خانوادگی) شامل:
-			<span id="summary_products_quantity">3 محصول</span>
+	<h1 id="cart_title" class="page-heading">سبد خرید ( {$clientname} )
+		<span class="heading-counter"> سبد خرید ( {$clientname} ) شامل 
+			<span id="summary_products_quantity"> {$cartcount}    محصول   </span>
 		</span>
 	</h1>
 	<ul class="step clearfix" id="order_step">
@@ -133,7 +136,7 @@ $html2=<<<cd
 cd;
 include_once('./inc/header.php');
 echo $html1;
-include_once('./inc/main-sidebar.php')
+include_once('./inc/main-sidebar.php');
 echo $html2;
 include_once('./inc/footer.php');
 ?>
