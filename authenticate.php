@@ -1,13 +1,25 @@
 <?php
-	include_once('./inc/header.php')
-?>
+session_start();
+include_once("config.php");
+include_once("classes/functions.php");
+include_once("classes/security.php");
+include_once("classes/database.php");	
+include_once("./lib/persiandate.php");
+include_once("./lib/Zebra_Pagination.php");
+include_once("classes/seo.php");
 
+if (isset($_SESSION["clientlogin"]) and $_SESSION["clientlogin"]==true)
+{
+	header("Location: ./conforder.php");
+}
+else
+{
+$html1=<<<cd
 <body id="product" class="product product-20 product-printed-summer-dress category-11 category-camcorder hide-right-column lang_en">
 	<div id="page">
-<?php
-	include_once('./inc/main-sidebar.php')
-?>		
-		
+cd;
+	
+$html2=<<<cd
 <div id="center_column" class="center_column col-xs-12" style="width:80%;">				
 	<!-- Breadcrumb -->
 	<div class="breadcrumb clearfix rtl">
@@ -58,7 +70,7 @@
 			</form>
 		</div>
 		<div class="col-xs-12 col-sm-6">
-			<form action="http://prestashop-demos.org/PRS06/PRS060144/en/login" method="post" id="login_form" class="box">
+			<form action="" method="post" id="login_form" class="box">
 				<h3 class="page-subheading">حساب دارید؟</h3>
 				<div class="form_content clearfix">
 					<div class="form-group">
@@ -83,7 +95,11 @@
 		</div>
 	</div>
 </div>
-
-<?php
+cd;
+	include_once('./inc/header.php');
+	echo $html1;
+	include_once('./inc/main-sidebar.php');
+	echo $html2;
 	include_once('./inc/footer.php');
+}	
 ?>
