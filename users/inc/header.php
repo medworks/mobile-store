@@ -164,6 +164,12 @@
                     <span>ایجاد برند</span>
                 </a>
             </li> -->
+			<li>
+                <a href="../main.php">
+                    <i class="fa fa-briefcase"></i>
+                    <span>ورود به بخش قطعات</span>
+                </a>
+            </li>
 	        <li>
                 <a href="myorders.php">
                     <i class="fa fa-briefcase"></i>
