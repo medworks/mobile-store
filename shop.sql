@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.1
+-- version 4.1.6
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jan 02, 2015 at 02:09 
--- Server version: 5.6.12
--- PHP Version: 5.5.3
+-- Host: 127.0.0.1
+-- Generation Time: Jan 09, 2015 at 01:08 PM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `shop`
 --
-CREATE DATABASE IF NOT EXISTS `shop` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `shop`;
 
 -- --------------------------------------------------------
 
@@ -65,15 +63,14 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `address` text NOT NULL,
   `regdate` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `clients`
 --
 
 INSERT INTO `clients` (`id`, `sex`, `name`, `company`, `email`, `password`, `tel`, `mobile`, `address`, `regdate`) VALUES
-(1, 1, 'سعید حاتمی', 'تست', 'php', '', '۵۱۳۶۶۲۳۶۸۵', '۰۹۱۵۱۲۰۴۳۹۵', 'مشهد - خ فلاحی', '2014-12-29 13:13:54'),
-(2, 0, 'ir2020.ir', 'تست', 'php', '5f93f983524def3dca464469d2cf9f3e', '2000000000', '091111111111111', 'vcz', '2014-12-29 13:16:30');
+(1, 1, 'سعید حاتمی', 'تست پردازان شرق', 'hatami4510@gmail.com', '2b44928ae11fb9384c4cf38708677c48', '۵۱۳۶۶۲۳۶۸۵', '۰۹۱۵۱۲۰۴۳۹۵', 'مشهد - خ فلاحی', '2014-12-29 13:13:54');
 
 -- --------------------------------------------------------
 
@@ -94,27 +91,29 @@ CREATE TABLE IF NOT EXISTS `goods` (
   `desc` text NOT NULL,
   `selcount` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `goods`
 --
 
 INSERT INTO `goods` (`id`, `bid`, `gid`, `code`, `name`, `qid`, `price`, `mojodi`, `takhfikh`, `desc`, `selcount`) VALUES
-(1, 3, 1, '   1001', '   فلت C7', 1, 150000, 1000, 0, '  5465', 0),
-(2, 4, 2, ' 1002', ' ال سی دی 1250', 3, 150000, 200, 0, ' ', 0),
-(3, 3, 1, '1005', ' ملی', 4, 150000, 200, 0, ' ', 0),
+(1, 3, 1, '      1360', '                فلت C7', 0, 0, 0, 0, '               5465', 0),
+(2, 4, 2, '  1002', '  ال سی دی 1250', 0, 0, 0, 0, '  ', 0),
+(3, 3, 1, ' 1005', '  ملی', 0, 0, 0, 0, '  ', 0),
 (4, 5, 3, '   1003', 'تاچ بالونی', 1, 0, 2000, 0, ' ', 0),
 (5, 3, 1, '   1003', ' ملی', 3, 150000, 0, 0, ' ', 0),
 (6, 3, 1, '   1003', ' ملی', 3, 150000, 0, 0, ' ', 0),
 (7, 3, 1, '   1003', ' ملی', 3, 150000, 0, 0, ' ', 0),
-(8, 4, 2, '   1001', ' فلت C7', 4, 150000, 200, 0, ' ', 0),
+(8, 4, 2, '    1001', 'ال سی دی 8585', 0, 0, 0, 0, '  ', 0),
 (9, 3, 2, ' 1001', ' ملی', 2, 150000, 0, 0, ' ', 0),
 (10, 3, 2, ' 10001', ' gh', 2, 123500, 150, 0, ' ', 0),
 (11, 3, 1, ' 1001', ' ملی', 2, 150000, 0, 0, ' ', 0),
 (12, 3, 1, ' 1001', ' ملی', 2, 150000, 0, 0, ' ', 0),
 (13, 5, 4, ' 10001', ' bhkj', 4, 123500, 150, 0, ' ', 0),
-(15, 3, 3, ' 2005', ' دوربین 8 مگا', 0, 522211, 0, 0, ' ', 0);
+(15, 3, 3, ' 2005', ' دوربین 8 مگا', 0, 522211, 0, 0, ' ', 0),
+(16, 4, 1, ' 10001', ' فلت b505', 0, 0, 0, 0, ' ', 0),
+(17, 4, 1, ' 1001', ' ملی', 0, 0, 0, 0, ' ', 0);
 
 -- --------------------------------------------------------
 
@@ -129,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `gquality` (
   `price` int(11) NOT NULL,
   `mojodi` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=64 ;
 
 --
 -- Dumping data for table `gquality`
@@ -138,7 +137,20 @@ CREATE TABLE IF NOT EXISTS `gquality` (
 INSERT INTO `gquality` (`id`, `gid`, `qid`, `price`, `mojodi`) VALUES
 (1, 15, 1, 50000, 100),
 (2, 15, 3, 30000, 150),
-(3, 15, 4, 20000, 200);
+(3, 15, 4, 20000, 200),
+(51, 2, 1, 50000, 50),
+(52, 2, 2, 500000, 100),
+(53, 1, 1, 50000, 100),
+(54, 1, 3, 30000, 150),
+(55, 1, 4, 20000, 200),
+(56, 8, 1, 50000, 100),
+(57, 8, 2, 500000, 100),
+(58, 8, 3, 30000, 150),
+(59, 8, 4, 20000, 200),
+(60, 16, 1, 100000, 100),
+(61, 16, 2, 500000, 100),
+(62, 16, 3, 30000, 120),
+(63, 16, 4, 20000, 200);
 
 -- --------------------------------------------------------
 
@@ -206,20 +218,29 @@ CREATE TABLE IF NOT EXISTS `pics` (
   `lvl` tinyint(4) NOT NULL,
   `name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
 
 --
 -- Dumping data for table `pics`
 --
 
 INSERT INTO `pics` (`id`, `kind`, `gid`, `lvl`, `name`) VALUES
-(1, 0, 13, 1, '13-1.png'),
-(2, 0, 13, 2, '13-2.png'),
-(3, 0, 13, 3, '13-3.png'),
-(4, 0, 15, 1, '15-1.jpg'),
-(5, 0, 15, 2, '15-2.png'),
-(6, 0, 15, 3, '15-3.jpg'),
-(7, 2, 9, 0, '9-1.png');
+(1, 1, 13, 1, '13-1.png'),
+(2, 1, 13, 2, '13-2.png'),
+(3, 1, 13, 3, '13-3.png'),
+(4, 1, 15, 1, '15-1.jpg'),
+(5, 1, 15, 2, '15-2.png'),
+(6, 1, 15, 3, '15-3.jpg'),
+(7, 2, 9, 0, '9-1.png'),
+(13, 1, 2, 3, '2-3.jpg'),
+(19, 1, 3, 3, '3-3.jpg'),
+(20, 1, 1, 1, '1-1.jpg'),
+(21, 1, 1, 2, '1-2.png'),
+(22, 1, 1, 3, '1-3.jpg'),
+(23, 1, 8, 1, '8-1.jpg'),
+(24, 1, 16, 1, '16-1.jpg'),
+(25, 1, 16, 2, '16-2.jpg'),
+(26, 1, 16, 3, '16-3.png');
 
 -- --------------------------------------------------------
 
