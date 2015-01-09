@@ -54,23 +54,36 @@ $html2.=<<<cd
 				<!-- Megnor End -->
 cd;
 
-$records_per_page = 8;
+	$records_per_page = 8;
 	$pagination = new Zebra_Pagination();
 
 	$pagination->navigation_position("right");
 
-	$reccount = $db->CountAll("goods");
-	$pagination->records($reccount); 
 	
-    $pagination->records_per_page($records_per_page);	
-
-$rows = $db->SelectAll(
+	if (isset($_GET["gid"]) and isset($_GET["bid"]))
+	{
+		$reccount = $db->CountOf("goods","gid={$_GET[gid]} AND bid={$_GET[bid]}");
+		$rows = $db->SelectAll(
+				"goods",
+				"*",
+				"gid={$_GET[gid]} AND bid={$_GET[bid]}",
+				"id desc",
+				($pagination->get_page() - 1) * $records_per_page,
+				$records_per_page);
+	}
+	else
+	{
+		$reccount = $db->CountAll("goods");		
+		$rows = $db->SelectAll(
 				"goods",
 				"*",
 				NULL,
 				"id desc",
 				($pagination->get_page() - 1) * $records_per_page,
 				$records_per_page);
+	}
+	$pagination->records($reccount); 
+	$pagination->records_per_page($records_per_page);					
 $current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);				
 for($i = 0; $i < Count($rows); $i++)
 {

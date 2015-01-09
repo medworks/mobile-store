@@ -67,7 +67,7 @@ for($j=0;$j<count($brands);$j++)
 $html.=<<<cd
 	
 												<li>
-													<a href="#" title="">{$brands[$j]["name"]}</a>
+													<a href="main.php?gid={$groups[$i][id]}&bid={$brands[$j][id]}" title="">{$brands[$j]["name"]}</a>
 												</li>
 cd;
 }
