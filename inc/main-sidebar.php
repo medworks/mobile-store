@@ -7,7 +7,7 @@
 				
 	$db = Database::GetDatabase();
 	
-	$brands = $db->SelectAll("brands","*",NULL,"id ASC");
+	//$brands = $db->SelectAll("brands","*",NULL,"id ASC");
 	$groups = $db->SelectAll("groups","*",NULL,"id ASC");
 	
 $html=<<<cd
@@ -55,19 +55,36 @@ cd;
 
 for($i=0;$i<count($groups);$i++)
 {
+	$grows = $db->SelectAll("goods","*","gid={$groups[$i][id]}");
+	$brands = array_column($grows,"bid");		
+	$brands = array_unique($brands);
+	foreach($brands as $key=>$val)
+	{
+		if ($val !="")
+			$rwbrands[] = $val;
+	}		
+	
+	$brands = $rwbrands;
+	unset($rwbrands);
+	
 $html.=<<<cd
 								<li>
 									<a href="#" title="">{$groups[$i]["name"]}</a>
+cd;
+if (count($brands)> 0)
+{
+$html.=<<<cd
 									<ul>
 									<li>
 											<ul>									
 cd;
 for($j=0;$j<count($brands);$j++)
 {
+$brand = $db->Select("brands","*","id = {$brands[$j]}","id ASC");
 $html.=<<<cd
 	
 												<li>
-													<a href="main.php?gid={$groups[$i][id]}&bid={$brands[$j][id]}" title="">{$brands[$j]["name"]}</a>
+													<a href="main.php?gid={$groups[$i][id]}&bid={$brand[id]}" title="">{$brand["name"]}</a>
 												</li>
 cd;
 }
@@ -76,6 +93,9 @@ $html.=<<<cd
 										</li>
 										<li class="category-thumbnail"></li>
 									</ul>
+cd;
+}
+$html.=<<<cd
 								</li>
 cd;
 }
