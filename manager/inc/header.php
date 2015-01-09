@@ -72,6 +72,7 @@
     <script src="./js/respond.min.js"></script>
     <![endif]-->
 	<script type="text/javascript" src="./js/jquery-1.11.min.js"></script>
+	<script type="text/javascript" src="../lib/js/jquery.bpopup.js"></script>
     
 </head>
 <body>
