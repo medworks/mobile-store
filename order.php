@@ -1,7 +1,5 @@
 <?php
-	session_start();
-	include_once('./inc/header.php');
-
+	session_start();	
 
 $html1=<<<cd
 	<body id="product" class="product product-20 product-printed-summer-dress category-11 category-camcorder hide-right-column lang_en">
@@ -47,7 +45,8 @@ $html2=<<<cd
 					<th class="cart_product first_item">محصولات</th>
 					<th class="cart_description item">توضیحات</th>
 					<th class="cart_unit item">قیمت (ریال)</th>
-					<th class="cart_quantity item">تعداد</th>					
+					<th class="cart_quantity item">تعداد</th>
+					<th class="cart_quantity item">کیفیت</th>
 					<th class="cart_total item">مجموع</th>
 					<th class="cart_delete last_item">&nbsp;</th>
 				</tr>
@@ -104,17 +103,10 @@ $html2.=<<<cd
 						</a>
 						<span class="clearfix"></span>
 					</td>
-					<!--
 					<td id="quality_wanted_p">
-						<select style="border: 1px solid rgb(227, 226, 226);width:150px;font-size:15px;font-family:'bmitra'">
-							<option value="0">انتخاب کیفیت</option>
-							<option value="1">اورجینال</option>
-							<option value="2">متوسط</option>
-							<option value="3">پایین</option>
-						</select>
+						{$cart_itm["quality"]}
 						<span class="clearfix"></span>
 					</td>
-					-->
 					<td class="cart_total" data-title="Total">
 						<span class="price" id="total_price_{$i}">{$subtotal}</span>
 					</td>
@@ -138,6 +130,7 @@ $html2.=<<<cd
 	</p>
 </div>
 cd;
+	include_once('./inc/header.php');
 	echo $html1;
 	include_once('./inc/main-sidebar.php');
 	echo $html2;
