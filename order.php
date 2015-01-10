@@ -90,7 +90,7 @@ $html2.=<<<cd
 				    </td>
 					<td class="cart_unit" data-title="Unit price">
 						<span class="price" id="product_price_{$i}">
-							<span id="product_price_{$i}" class="price" data-field-price="{$cart_itm["price"]}" >{$cart_itm["price"]}</span>
+							<span id="product_price_{$i}" class="price singleprice" data-field-price="{$cart_itm["price"]}" >{$cart_itm["price"]}</span>
 						</span>
 					</td>
 					<td id="quantity_wanted_p">
@@ -108,7 +108,7 @@ $html2.=<<<cd
 						<span class="clearfix"></span>
 					</td>
 					<td class="cart_total" data-title="Total">
-						<span class="price" id="total_price_{$i}">{$subtotal}</span>
+						<span class="price totalprice" id="total_price_{$i}">{$subtotal}</span>
 					</td>
 					<td class="cart_delete text-center" data-title="Delete">
 						<div>
@@ -129,6 +129,15 @@ $html2.=<<<cd
 		</a>
 	</p>
 </div>
+<script type="text/javascript">
+		$(document).ready(function(){
+		 $(".text").keyup(function(){  			
+            price = $(".singleprice").text()*$(this).val();
+			$(".totalprice").text(price.toString());			
+        });
+			
+		});			
+	</script>	
 cd;
 	include_once('./inc/header.php');
 	echo $html1;
