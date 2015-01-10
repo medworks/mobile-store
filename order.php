@@ -131,9 +131,10 @@ $html2.=<<<cd
 </div>
 <script type="text/javascript">
 		$(document).ready(function(){
-		 $(".text").keyup(function(){  			
-            price = $(".singleprice").text()*$(this).val();
-			$(".totalprice").text(price.toString());			
+		 $(".text").keyup(function(){ 
+			row = $(this).data('field-row');			
+            price = $('#product_price_'+row+' span').text()*$(this).val();
+			$('#total_price_'+row).text(price.toString());			
         });
 			
 		});			
