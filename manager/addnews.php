@@ -20,7 +20,7 @@
 	
 	function uploadpics($mode,$fileup,$db,$id,$lvl,$filename=NULL)
 	{
-		$target_dir = "../goodspics/";
+		$target_dir = "../newspics/";
 		$imageFileType = pathinfo($_FILES[$fileup]["name"],PATHINFO_EXTENSION);
 		//$target_file = $target_dir . basename($_FILES[$fileup]["name"]);
 		if (!isset($filename))
@@ -81,7 +81,7 @@
 				{	
 					$fn = $filename.".".$imageFileType;
 					$fields = array("`kind`","`gid`","`lvl`","`name`");				
-					$values = array("'1'","'{$id}'","{$lvl}","'{$fn}'");
+					$values = array("'2'","'{$id}'","{$lvl}","'{$fn}'");
 					$db->InsertQuery('pics',$fields,$values);
 				} 
 				else 
@@ -93,7 +93,7 @@
 			{
 				//if (!empty($_FILES[$fileup]["name"])) 
 				{
-					$lpic = $db->Select("pics","*","gid = '{$id}' AND kind='1' AND lvl='{$lvl}'");
+					$lpic = $db->Select("pics","*","gid = '{$id}' AND kind='2' AND lvl='{$lvl}'");
 					$lfn = $target_dir.$lpic["name"];
 					if (file_exists($lfn)&& $lpic["name"]!="")
 					{
@@ -104,7 +104,7 @@
 					{	
 						$fn = $filename.".".$imageFileType;
 						$fields = array("`kind`","`gid`","`lvl`","`name`");				
-						$values = array("'1'","'{$id}'","{$lvl}","'{$fn}'");
+						$values = array("'2'","'{$id}'","{$lvl}","'{$fn}'");
 						$db->InsertQuery('pics',$fields,$values);
 						//echo $db->cmd;
 					} 
@@ -138,7 +138,7 @@
 	else
 	if ($_POST["mark"]=="editnews")
 	{		
-		
+		$id = $_GET["did"];
 		$values = array("`subject`"=>"'{$_POST[edtsubject]}'","`text`"=>"'{$_POST[edttext]}'");
 		$db->UpdateQuery("news",$values,array("id='{$_GET[did]}'"));
 		uploadpics("edit","userfile",$db,$id,"1",$id."-1");		
