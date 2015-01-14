@@ -18,9 +18,9 @@
 	}
 	$db = Database::GetDatabase();
 	
-	function uploadpics($fileup,$db,$id,$lvl,$filename=NULL)
+	function uploadpics($mode,$fileup,$db,$id,$lvl,$filename=NULL)
 	{
-		$target_dir = "../newspics/";
+		$target_dir = "../goodspics/";
 		$imageFileType = pathinfo($_FILES[$fileup]["name"],PATHINFO_EXTENSION);
 		//$target_file = $target_dir . basename($_FILES[$fileup]["name"]);
 		if (!isset($filename))
@@ -48,11 +48,11 @@
 			}
 		}
 		// Check if file already exists
-		if (file_exists($target_file)) 
+		/* if (file_exists($target_file)) 
 		{
 			echo "Sorry, file already exists.";
 			$uploadOk = 0;
-		}
+		} */
 		// Check file size
 		if ($_FILES[$fileup]["size"] > 500000) 
 		{
@@ -73,17 +73,46 @@
 			// if everything is ok, try to upload file
 		} 
 		else 
-		{       // kind 1 is for goods pics, 2 is for news pics
-			if (move_uploaded_file($_FILES[$fileup]["tmp_name"], $target_file)) 
-			{	
-				$fn = $filename.".".$imageFileType;
-				$fields = array("`kind`","`gid`","`lvl`","`name`");				
-				$values = array("'2'","'{$id}'","'0'","'{$fn}'");
-				$db->InsertQuery('pics',$fields,$values);
-			} 
-			else 
+		{    
+			if ($mode == "insert")
 			{
-				echo "Sorry, there was an error uploading your file.";
+				// kind 1 is for goods pics, 2 is for news pics
+				if (move_uploaded_file($_FILES[$fileup]["tmp_name"], $target_file)) 
+				{	
+					$fn = $filename.".".$imageFileType;
+					$fields = array("`kind`","`gid`","`lvl`","`name`");				
+					$values = array("'1'","'{$id}'","{$lvl}","'{$fn}'");
+					$db->InsertQuery('pics',$fields,$values);
+				} 
+				else 
+				{
+					echo "Sorry, there was an error uploading your file.";
+				}
+			}
+			else
+			{
+				//if (!empty($_FILES[$fileup]["name"])) 
+				{
+					$lpic = $db->Select("pics","*","gid = '{$id}' AND kind='1' AND lvl='{$lvl}'");
+					$lfn = $target_dir.$lpic["name"];
+					if (file_exists($lfn)&& $lpic["name"]!="")
+					{
+						unlink($lfn);
+					}
+					$db->Delete("pics"," id",$lpic["id"]);	
+					if (move_uploaded_file($_FILES[$fileup]["tmp_name"], $target_file)) 
+					{	
+						$fn = $filename.".".$imageFileType;
+						$fields = array("`kind`","`gid`","`lvl`","`name`");				
+						$values = array("'1'","'{$id}'","{$lvl}","'{$fn}'");
+						$db->InsertQuery('pics',$fields,$values);
+						//echo $db->cmd;
+					} 
+					else 
+					{
+						echo "Sorry, there was an error uploading your file.";
+					}
+				}	
 			}
 		}
 	}
@@ -101,7 +130,7 @@
 		else 
 		{  		
 			$id = $db->InsertId();
-			uploadpics("userfile",$db,$id,"1",$id."-1");
+			uploadpics("insert","userfile",$db,$id,"1",$id."-1");
 			//echo $db->cmd;
 			header('location:addnews.php?act=new&msg=1');
 		}  		
@@ -111,8 +140,9 @@
 	{		
 		
 		$values = array("`subject`"=>"'{$_POST[edtsubject]}'","`text`"=>"'{$_POST[edttext]}'");
-		$db->UpdateQuery("news",$values,array("id='{$_GET[did]}'"));	
-		header('location:dataentry.php?act=new&msg=1');
+		$db->UpdateQuery("news",$values,array("id='{$_GET[did]}'"));
+		uploadpics("edit","userfile",$db,$id,"1",$id."-1");		
+		header('location:addnews.php?act=new&msg=1');
 	}
 	
 	if ($_GET['act']=="new")

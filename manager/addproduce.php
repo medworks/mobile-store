@@ -175,7 +175,7 @@
 			uploadpics("edit","userfile2",$db,$id,"2",$id."-2");
 			uploadpics("edit","userfile3",$db,$id,"3",$id."-3");
 			
-		//header('location:addproduce.php?act=new&msg=1');
+		header('location:addproduce.php?act=new&msg=1');
 	}
 	
 	if ($_GET['act']=="new")
