@@ -258,6 +258,7 @@ $html.=<<<cd
 						</section>
 						<!-- /Block CMS module -->
 						<!-- Block manufacturers module -->
+						<!--
 						<div id="manufacturers_block_left" class="block blockmanufacturer">
 							<p class="title_block">
 								<a href="#" title="">
@@ -294,6 +295,7 @@ $html.=<<<cd
 								</ul>
 							</div>
 						</div>
+						-->
 						<!-- /Block manufacturers module -->
 						<!-- Block links module -->
 						<div id="tm_links_block2" class="block tm_links_block2">
