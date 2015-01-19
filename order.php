@@ -55,7 +55,7 @@ $html2=<<<cd
 				<tr class="cart_total_price">
 					<td rowspan="3" colspan="2" id="cart_voucher" class="cart_voucher"></td>
 					<td colspan="3" class="text-right">مجموع خرید</td>
-					<td colspan="2" class="price" id="total_product">75.00</td>
+					<td colspan="2" class="price" id="total_price_last">0.0</td>
 				</tr>
 				<tr class="cart_total_delivery">
 					<td colspan="3" class="text-right">هزینه حمل و نقل</td>
@@ -66,7 +66,7 @@ $html2=<<<cd
 						<span>مجموعا</span>
 					</td>
 					<td colspan="2" class="price" id="total_price_container">
-						<span id="total_price">377.00</span>
+						<span id="total_price">0.0</span>
 					</td>
 				</tr>
 			</tfoot>
@@ -130,13 +130,23 @@ $html2.=<<<cd
 	</p>
 </div>
 <script type="text/javascript">
+var sumPrice =0;
 		$(document).ready(function(){
+		
 		 $(".text").keyup(function(){ 
 			row = $(this).data('field-row');			
             price = $('#product_price_'+row+' span').text()*$(this).val();
-			$('#total_price_'+row).text(price.toString());			
+			$('#total_price_'+row).text(price.toString());	
+			sumPrice =0;
+			$.each($('.totalprice'), function() {    
+
+			sumPrice += parseInt($(this).text());
+		});				 
+			   $('#total_price_last').text(sumPrice.toString());
+			   $('#total_price_container').text(sumPrice.toString());
+		
         });
-			
+				
 		});			
 	</script>	
 cd;
