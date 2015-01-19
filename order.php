@@ -133,6 +133,12 @@ $html2.=<<<cd
 var sumPrice =0;
 		$(document).ready(function(){
 		
+		$.each($('.totalprice'), function() {    
+			sumPrice += parseInt($(this).text());
+		});		
+		$('#total_price_last').text(sumPrice.toString());
+	    $('#total_price_container').text(sumPrice.toString());
+		
 		 $(".text").keyup(function(){ 
 			row = $(this).data('field-row');			
             price = $('#product_price_'+row+' span').text()*$(this).val();
