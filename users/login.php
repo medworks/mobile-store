@@ -175,7 +175,7 @@ $html=<<<cd
         </div>
     </div>
     <p class="copy-right big-screen hidden-xs hidden-sm">
-        <a href="http://www.mediateq.ir" target="_blank"> Mediateq.ir<span>©</span></a>
+        <a href="http://www.abnoosmobileparts.ir"> Abnoos Mobile<span>©</span></a>
     </p>
 </section>
 

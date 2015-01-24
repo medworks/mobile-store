@@ -111,12 +111,8 @@ $html.=<<<cd
 						</h4>
 						<div class="block_content toggle-footer">
 							<ul class="bullet">
-									 
 								<li>
-								<a href="" title="">درباره ما</a>
-								</li>										 
-								<li>
-								<a href="" title="">راهنمای خرید</a>
+								<a href="#" title="">درباره ما</a>
 								</li>										 
 								<li>
 								<a href="craccount.html" title="ثبت نام">ثبت نام</a>
@@ -125,7 +121,7 @@ $html.=<<<cd
 								<a href="users/login.php" title="ورود کاربران">ورود کاربران</a>
 								</li>										 
 								<li>
-								<a href="" title="">تماس با ما</a>
+								<a href="#" title="">تماس با ما</a>
 								</li>
 							</ul>
 						</div>
