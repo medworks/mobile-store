@@ -82,15 +82,13 @@ for($i=0;$i<count($news);$i++)
 {
 $html.=<<<cd
                     <li>
-			<a href='javascript:void(0);' title='خبر اول' style="font-size:22px;font-weight:normal">{$news[$i]["subject"]}
+			<a href='single-news{$news[$i]["id"]}.html' title='خبر اول' style="font-size:22px;font-weight:normal">{$news[$i]["subject"]}
 			</a>
 		    </li>
 cd;
 }
 
 $html.=<<<cd
-                    <li><a href='javascript:void(0);' title='خبر دوم' style="font-size:22px;font-weight:normal">خبر دوم</a></li>
-                    <li><a href='javascript:void(0);' title='خبر سوم' style="font-size:22px;font-weight:normal">خبر سوم</a></li>
                 </ul>
                 <script type="text/javascript">
                     jQuery(document).ready(function(){
