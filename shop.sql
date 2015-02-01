@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2015 at 01:08 PM
+-- Generation Time: Feb 01, 2015 at 10:46 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
@@ -192,18 +192,20 @@ CREATE TABLE IF NOT EXISTS `news` (
   `subject` varchar(100) NOT NULL,
   `text` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `news`
 --
 
 INSERT INTO `news` (`id`, `subject`, `text`) VALUES
-(1, 'موبایل آبنوس مجهز به سایت شد', ' از مورخه ۱۰/۱۰/۹۳'),
+(1, '  موبایل آبنوس مجهز به سایت شد ghgjh', '   از مورخه ۱۰/۱۰/۹۳ ghjhgjh'),
 (2, '  تست مقاله', ' gg'),
 (7, ' تست خبر', ' hkjhkhkj'),
 (8, '   تست خبر', ' hkkhkkj'),
-(9, '   تست خبر', ' hkkhkkj');
+(9, '   تست خبر', ' hkkhkkj'),
+(10, '  تست گروه 2', ' 465465'),
+(11, '       تست خبر465465', '     454655hjkhkj');
 
 -- --------------------------------------------------------
 
@@ -218,7 +220,7 @@ CREATE TABLE IF NOT EXISTS `pics` (
   `lvl` tinyint(4) NOT NULL,
   `name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=39 ;
 
 --
 -- Dumping data for table `pics`
@@ -240,7 +242,15 @@ INSERT INTO `pics` (`id`, `kind`, `gid`, `lvl`, `name`) VALUES
 (23, 1, 8, 1, '8-1.jpg'),
 (24, 1, 16, 1, '16-1.jpg'),
 (25, 1, 16, 2, '16-2.jpg'),
-(26, 1, 16, 3, '16-3.png');
+(26, 1, 16, 3, '16-3.png'),
+(27, 1, 10, 1, '10-1.jpg'),
+(32, 2, 11, 1, '11-1.jpg'),
+(33, 3, 1, 1, '1-1.jpg'),
+(34, 3, 2, 1, '2-1.jpg'),
+(35, 3, 3, 1, '3-1.jpg'),
+(36, 3, 4, 1, '4-1.jpg'),
+(37, 3, 5, 1, '5-1.jpg'),
+(38, 3, 6, 1, '6-1.gif');
 
 -- --------------------------------------------------------
 
@@ -263,6 +273,27 @@ INSERT INTO `quality` (`id`, `name`) VALUES
 (2, 'ارجینال'),
 (3, 'کپی'),
 (4, 'متفرقه');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `section`
+--
+
+CREATE TABLE IF NOT EXISTS `section` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `section`
+--
+
+INSERT INTO `section` (`id`, `name`) VALUES
+(1, '   باطری'),
+(3, ' قطعات'),
+(6, ' ابزار تعمیرات');
 
 -- --------------------------------------------------------
 
