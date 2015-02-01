@@ -82,7 +82,7 @@ for($i=0;$i<count($news);$i++)
 {
 $html.=<<<cd
                     <li>
-			<a href='single-news{$news[$i]["id"]}.html' title='خبر اول' style="font-size:22px;font-weight:normal">{$news[$i]["subject"]}
+			<a href='single-news{$news[$i]["id"]}.html' title='{$news[$i]["subject"]}' style="font-size:22px;font-weight:normal">{$news[$i]["subject"]}
 			</a>
 		    </li>
 cd;
