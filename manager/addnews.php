@@ -76,7 +76,7 @@
 		{    
 			if ($mode == "insert")
 			{
-				// kind 1 is for goods pics, 2 is for news pics
+				// kind 1 is for goods pics, 2 is for news pics, 3 is for section pics
 				if (move_uploaded_file($_FILES[$fileup]["tmp_name"], $target_file)) 
 				{	
 					$fn = $filename.".".$imageFileType;
