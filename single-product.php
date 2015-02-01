@@ -1,13 +1,23 @@
 <?php
-	include_once('./inc/header.php')
-?>
-
+	session_start();
+	include_once("config.php");
+	include_once("classes/functions.php");
+  	include_once("classes/security.php");
+  	include_once("classes/database.php");	
+	include_once("./lib/persiandate.php");
+	include_once("./lib/Zebra_Pagination.php");
+	include_once("classes/seo.php");
+			
+	$db = Database::GetDatabase();
+	$goods = $db->Select("goods","*","id ={$_GET['id']}");
+	$pics = $db->SelectAll("pics","*","`gid`={$goods['id']} AND `kind`='1' ");
+	
+$html1=<<<cd
 <body id="product" class="product product-20 product-printed-summer-dress category-11 category-camcorder hide-right-column lang_en">
 	<div id="page">
-<?php
-	include_once('./inc/main-sidebar.php')
-?>		
-		
+cd;
+
+$html2=<<<cd
 <div id="center_column" class="center_column col-xs-12" style="width:80%;">				
 	<!-- Breadcrumb -->
 	<div class="breadcrumb clearfix rtl">
@@ -28,13 +38,15 @@
 		</div>
 		<!-- left infos-->  
 		<div class="pb-left-column col-xs-12 col-sm-4 col-md-5">
-			<!-- product img-->        
+			<!-- product img-->  			
 			<div id="image-block" class="clearfix">
+			<!---	
 				<span class="new-box">
 					<span class="new-label">جدید</span>
 				</span>
+			-->
 				<span id="view_full_size">
-					<img id="bigpic" itemprop="image" src="http://prestashop-demos.org/PRS06/PRS060144/199-large_default/printed-summer-dress.jpg" title="" alt="" width="458" height="458">
+					<img id="bigpic" itemprop="image" src="./goodspics/{$pics[0]['name']}" alt="{$goods['name']}" title="{$goods['name']}" width="458" height="458">
 					<span class="span_link no-print">نمایش بزرگتر</span>
 				</span>
 			</div> <!-- end image-block -->
@@ -46,76 +58,19 @@
 					</a>
 				</span>
 				<div id="thumbs_list">
-					<ul id="thumbs_list_frame" style="width: 1106px;">						<li id="thumbnail_180">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/180-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_180" src="http://prestashop-demos.org/PRS06/PRS060144/180-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
+					<ul id="thumbs_list_frame" style="width: 1106px;">	
+cd;
+for ($i=0;$i<= count($pics);$i++)
+{
+$html2.=<<<cd
+						<li id="thumbnail_{$i}">
+							<a href="./goodspics/{$pics[$i]['name']}" data-fancybox-group="other-views" class="fancybox" title="">
+								<img class="img-responsive" id="thumb_{$i}" src="./goodspics/{$pics[$i]['name']}" alt="{$goods['name']}" title="{$goods['name']}" height="60" width="60" itemprop="image">
 							</a>
-						</li>															
-						<li id="thumbnail_199">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/199-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_199" src="http://prestashop-demos.org/PRS06/PRS060144/199-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>
-						<li id="thumbnail_200">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/200-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_200" src="http://prestashop-demos.org/PRS06/PRS060144/200-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>															
-						<li id="thumbnail_201">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/201-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_201" src="http://prestashop-demos.org/PRS06/PRS060144/201-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>															
-						<li id="thumbnail_202">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/202-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_202" src="http://prestashop-demos.org/PRS06/PRS060144/202-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>
-						<li id="thumbnail_203">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/203-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_203" src="http://prestashop-demos.org/PRS06/PRS060144/203-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>
-						<li id="thumbnail_268">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/268-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_268" src="http://prestashop-demos.org/PRS06/PRS060144/268-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>
-						<li id="thumbnail_269">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/269-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_269" src="http://prestashop-demos.org/PRS06/PRS060144/269-cart_default/printed-summer-dress.jpg" alt="" title=" " height="60" width="60" itemprop="image">
-							</a>
-						</li>
-						<li id="thumbnail_270">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/270-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_270" src="http://prestashop-demos.org/PRS06/PRS060144/270-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>
-						<li id="thumbnail_271">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/271-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_271" src="http://prestashop-demos.org/PRS06/PRS060144/271-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>
-						<li id="thumbnail_289">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/289-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_289" src="http://prestashop-demos.org/PRS06/PRS060144/289-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>
-						<li id="thumbnail_290">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/290-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_290" src="http://prestashop-demos.org/PRS06/PRS060144/290-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>
-						<li id="thumbnail_291">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/291-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_291" src="http://prestashop-demos.org/PRS06/PRS060144/291-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>
-						<li id="thumbnail_292" class="last">
-							<a href="http://prestashop-demos.org/PRS06/PRS060144/292-thickbox_default/printed-summer-dress.jpg" data-fancybox-group="other-views" class="fancybox" title="">
-								<img class="img-responsive" id="thumb_292" src="http://prestashop-demos.org/PRS06/PRS060144/292-cart_default/printed-summer-dress.jpg" alt="" title="" height="60" width="60" itemprop="image">
-							</a>
-						</li>
+						</li>																					
+cd;
+}
+$html2.=<<<cd
 					</ul>
 					</div> <!-- end thumbs_list -->					
 						<a id="view_scroll_right" title="Other views" href="javascript:{}">
@@ -127,11 +82,11 @@
 		<!-- end left infos--> 
 		<!-- center infos -->
 		<div class="pb-center-column col-xs-12 col-sm-7">
-			<h1 itemprop="name">سونی h600</h1>
+			<h1 itemprop="name">{$goods["name"]}</h1>
 			<div id="short_description_block">
 				<div id="short_description_content" class="rte align_justify" itemprop="description">
 					<p>
-						سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... سونی h600 توضیحات.... 
+						{$goods["desc"]}
 					</p>
 				</div>
 				<!---->
@@ -198,7 +153,10 @@
 		<!-- end center infos-->	
 	</div> <!-- end primary_block -->
 </div>
-
-<?php
+cd;
+	include_once('./inc/header.php');
+	echo $html1;
+	include_once('./inc/main-sidebar.php');
+	echo $html2;
 	include_once('./inc/footer.php');
 ?>
