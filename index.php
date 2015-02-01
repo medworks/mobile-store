@@ -115,8 +115,7 @@ for($i=0;$i<count($sections);$i++)
 	{
 		$html.="<ul class='grid'>";
 	}
-	
-	
+
 	$pic = $db->Select("pics","*","`gid`={$sections[$i]['id']} AND `kind`='3' ");
 $html.=<<<cd
                 	<li>
