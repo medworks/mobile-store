@@ -176,7 +176,16 @@
                     <li><a href="addquality.php">تعریف کیفیت</a></li>
                 </ul>
             </li>
-            
+            <li>
+                <a href="#">
+                    <i class="fa fa-briefcase"></i>
+                    <span>ایجاد دسته</span>
+                </a>
+                <ul>
+                    <li><a href="addsection.php?act=new">ثبت  دسته </a></li>
+                   <li><a href="editsection.php?act=edit">ویرایش دسته </a></li>
+                </ul>
+            </li>
             <li>
                 <a href="#">
                     <i class="fa fa-table"></i>
