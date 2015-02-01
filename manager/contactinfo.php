@@ -106,7 +106,7 @@ $html.=<<<cd
                                             <div class="col-md-10">
                                                 <input type="text" class="form-control" name="Rss_Add" value="{$Rss_Add}"/>
                                                 <span class="help_text">
-                                                    آدرس خبرنامه را در این قسمت قرار دهید. به طور مثال: http://www.rahyabclinic.com/rss.php
+                                                    آدرس خبرنامه را در این قسمت قرار دهید. به طور مثال: http://www.abnoosmobileparts.ir/rss.php
                                                 </span>
                                             </div>
                                         </div>
@@ -133,7 +133,7 @@ $html.=<<<cd
                                             <div class="col-md-10">
                                                 <input type="text" class="form-control" name="FaceBook_Add"  value="{$FaceBook_Add}"/>
                                                 <span class="help_text">
-                                                    آدرس فیسبوک را در این قسمت قرار دهید. به طور مثال: https://www.facebook.com/rahyabclinic
+                                                    آدرس فیسبوک را در این قسمت قرار دهید. به طور مثال: https://www.facebook.com/abnoosmobileparts
                                                 </span>
                                             </div>
                                         </div>
@@ -144,7 +144,7 @@ $html.=<<<cd
                                             <div class="col-md-10">
                                                 <input type="text" class="form-control" name="Twitter_Add" value="{$Twitter_Add}" />
                                                 <span class="help_text">
-                                                    آدرس تویتر را در این قسمت قرار دهید. به طور مثال: https://www.twitter.com/rahyabclinic
+                                                    آدرس تویتر را در این قسمت قرار دهید. به طور مثال: https://www.twitter.com/abnoosmobileparts
                                                 </span>
                                             </div>
                                         </div>
@@ -155,7 +155,7 @@ $html.=<<<cd
                                             <div class="col-md-10">
                                                 <input type="text" class="form-control" name="Gplus_Add"  value={$Gplus_Add} />
                                                 <span class="help_text">
-                                                    آدرس گوگل پلاس را در این قسمت قرار دهید. به طور مثال: https://plus.google.com/rahyabclinic
+                                                    آدرس گوگل پلاس را در این قسمت قرار دهید. به طور مثال: https://plus.google.com/abnoosmobileparts
                                                 </span>
                                             </div>
                                         </div>
