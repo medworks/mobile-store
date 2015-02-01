@@ -7,7 +7,6 @@
   	include_once("../classes/database.php");	
 	include_once("../classes/login.php");
     include_once("../lib/persiandate.php"); 
-
 	$login = Login::GetLogin();
     if (!$login->IsLogged())
 	{
@@ -114,7 +113,7 @@ $html.=<<<cd
                                     </div>
                                     <div class="row ls_divider">
                                         <div class="form-group">
-                                            <label class="col-md-2 control-label">تلفن کلینیک</label>
+                                            <label class="col-md-2 control-label">تلفن فروشگاه</label>
                                             <div class="col-md-10">
                                                 <input type="text" class="form-control" name="Tell_Number" value="{$Tell_Number}" />
                                             </div>
@@ -122,7 +121,7 @@ $html.=<<<cd
                                     </div>
                                     <div class="row ls_divider">
                                         <div class="form-group">
-                                            <label class="col-md-2 control-label">آدرس کلینیک</label>
+                                            <label class="col-md-2 control-label">آدرس فروشگاه</label>
                                             <div class="col-md-10">
                                                 <input type="text" class="form-control" name="Address" value="{$Address}"/>
                                             </div>
