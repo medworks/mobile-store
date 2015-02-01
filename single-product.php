@@ -1,5 +1,5 @@
 <?php
-	session_start();
+session_start();
 	include_once("config.php");
 	include_once("classes/functions.php");
   	include_once("classes/security.php");
@@ -42,7 +42,7 @@ $html2=<<<cd
 		سونی h300 
 	</div>
 	<!-- /Breadcrumb -->
-	<form method="post" action="cart_update.php">
+	
 	<div class="primary_block row" itemscope="" itemtype="http://schema.org/Product">
 		<div class="container">
 			<div class="top-hr"></div>
@@ -105,21 +105,24 @@ $html2.=<<<cd
 			<!-- pb-right-column-->
 			<div class="pb-right-column">
 				<!-- add to cart form-->
-				<form id="buy_block" action="" method="post">
+				<form method="post" action="cart_update.php">
 					<div class="box-info-product">
+					<!--
 						<div class="content_prices clearfix">
-							<!-- prices -->
+							
 							<div class="price">
 								<p class="our_price_display" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-									<link itemprop="availability" href="http://schema.org/InStock">												<span id="our_price_display" itemprop="price">قیمت: 152,000 ریال</span>
-										<!---->
+									<link itemprop="availability" href="http://schema.org/InStock">												
+									<span id="our_price_display" itemprop="price">قیمت: 152,000 ریال</span>
+										
 								</p>
-							</div> <!-- end prices -->
+							</div> 
 							<p id="reduction_amount" style="display: none;">
 								<span id="reduction_amount_display"></span>
 							</p>				 
 							<div class="clear"></div>
-						</div> <!-- end content_prices -->
+						</div> 
+						-->
 						<div class="product_attributes clearfix">
 							<!-- quantity wanted -->
 							<p id="quantity_wanted_p">
@@ -152,7 +155,6 @@ $html2.=<<<cd
 							</div>
 						</div> <!-- end box-cart-bottom -->
 					</div> <!-- end box-info-product -->
-				</form>
 			</div> <!-- end pb-right-column-->
 		</div>
 		<!-- end center infos-->	
