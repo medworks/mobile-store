@@ -12,6 +12,16 @@
 	$goods = $db->Select("goods","*","id ={$_GET['id']}");
 	$pics = $db->SelectAll("pics","*","`gid`={$goods['id']} AND `kind`='1' ");
 	
+	$db->cmd = "SELECT gq.*,q.name,CONCAT(gq.price,'(',q.name,')') as pn FROM `gquality` as gq ,`quality` as q where gq.qid = q.id AND gq.gid = '{$goods['id']}'";
+	$res =$db->RunSQL();
+	$gqualitys = array();
+	if ($res)
+	{
+		while($rawrow = mysqli_fetch_array($res)) $gqualitys[] = $rawrow;
+	}		
+	$cbgquality = DbSelectOptionTag("cbgquality",$gqualitys,"pn",NULL,NULL,NULL,NULL,"کیفیت");
+	
+	$current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);	
 $html1=<<<cd
 <body id="product" class="product product-20 product-printed-summer-dress category-11 category-camcorder hide-right-column lang_en">
 	<div id="page">
@@ -32,6 +42,7 @@ $html2=<<<cd
 		سونی h300 
 	</div>
 	<!-- /Breadcrumb -->
+	<form method="post" action="cart_update.php">
 	<div class="primary_block row" itemscope="" itemtype="http://schema.org/Product">
 		<div class="container">
 			<div class="top-hr"></div>
@@ -115,7 +126,7 @@ $html2.=<<<cd
 								<label>تعداد:</label>
 								<input type="text" name="qty" id="quantity_wanted" class="text" value="1" style="border: 1px solid rgb(227, 226, 226);">
 								<a href="#" data-field-qty="qty" class="btn btn-default button-minus product_quantity_down">
-									<span><i class="icon-minus"></i></span>
+									<span><i class="icon-minus"></i></span>								
 								</a>
 								<a href="#" data-field-qty="qty" class="btn btn-default button-plus product_quantity_up">
 									<span><i class="icon-plus"></i></span>
@@ -123,13 +134,7 @@ $html2.=<<<cd
 								<span class="clearfix"></span>
 							</p>
 							<p id="quality_wanted_p">
-								<label style="width:40px">کیفیت:</label>
-								<select style="border: 1px solid rgb(227, 226, 226);width:150px;">
-									<option value="0">انتخاب کیفیت</option>
-									<option value="1">اورجینال</option>
-									<option value="2">متوسط</option>
-									<option value="3">پایین</option>
-								</select>
+								قیمت {$cbgquality}
 								<span class="clearfix"></span>
 							</p>
 							<!-- attributes -->
@@ -140,9 +145,9 @@ $html2.=<<<cd
 						<div class="box-cart-bottom">
 							<div>
 								<p id="add_to_cart" class="buttons_bottom_block no-print">
-									<button type="submit" name="Submit" class="exclusive">
-										<span>اضافه به سبد</span>
-									</button>
+								<div class="product-info">																		
+									<button class="add_to_cart">اضافه به سبد خرید</button>
+								</div>
 								</p>
 							</div>
 						</div> <!-- end box-cart-bottom -->
@@ -152,6 +157,11 @@ $html2.=<<<cd
 		</div>
 		<!-- end center infos-->	
 	</div> <!-- end primary_block -->
+	
+	  <input type="hidden" name="goodsid" value="{$goods[id]}" />
+	  <input type="hidden" name="type" value="add" />
+	  <input type="hidden" name="return_url" value="'{$current_url}'" />
+	</form>
 </div>
 cd;
 	include_once('./inc/header.php');

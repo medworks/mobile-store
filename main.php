@@ -84,7 +84,7 @@ cd;
 	}
 	$pagination->records($reccount); 
 	$pagination->records_per_page($records_per_page);					
-$current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);				
+$current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 for($i = 0; $i < Count($rows); $i++)
 {
 $db->cmd = "SELECT gq.*,q.name,CONCAT(gq.price,'(',q.name,')') as pn FROM `gquality` as gq ,`quality` as q where gq.qid = q.id AND gq.gid = '{$rows[$i][id]}'";
