@@ -1,5 +1,4 @@
-<?php
-    
+<?php    
 	include_once("config.php");
 	include_once("classes/functions.php");
   	include_once("classes/session.php");	
@@ -12,6 +11,7 @@
 	$db = Database::GetDatabase();
 	$slides = $db->SelectAll("slides","*",NULL," id ASC");
 	$news = $db->SelectAll("news","*",NULL," id ASC");
+	$sections = $db->SelectAll("section","*",NULL," id ASC");
 
 $html=<<<cd
 <body>
@@ -106,34 +106,30 @@ $html.=<<<cd
             
             <div class="clear"></div>
             <div class="wht_sec">
-            	<ul class="grid">
+            	
+cd;
+
+for($i=0;$i<count($sections);$i++)
+{
+	if ($i+1==1 )
+	{
+		$html.="<ul class='grid'>";
+	}
+	
+	
+	$pic = $db->Select("pics","*","`gid`={$sections[$i]['id']} AND `kind`='3' ");
+$html.=<<<cd
                 	<li>
-                    	<a href="main.php"><img src="img/product/battery.jpg" alt=""></a>
+                    	<a href="main.php"><img src="sectionspics/{$pic['name']}" alt="{$sections[$i]['name']}"></a>
                     </li>
-                    <li>
-                    	<a href="main.php"><img src="img/product/hard.jpg" alt=""></a>
-                    </li>
-                    <li>
-                        <a href="main.php"><img src="img/product/housing.jpg" alt=""></a>
-                    </li>
-                    <li>
-                        <a href="main.php"><img src="img/product/battery.jpg" alt=""></a>
-                    </li>
-                </ul>
-                <ul class="grid">
-                    <li>
-                        <a href="main.php"><img src="img/product/battery.jpg" alt=""></a>
-                    </li>
-                    <li>
-                        <a href="main.php"><img src="img/product/hard.jpg" alt=""></a>
-                    </li>
-                    <li>
-                        <a href="main.php"><img src="img/product/housing.jpg" alt=""></a>
-                    </li>
-                    <li>
-                        <a href="main.php"><img src="img/product/battery.jpg" alt=""></a>
-                    </li>
-                </ul>
+cd;
+	if (($i+1)%4 == 0 )
+	{
+		$html.="</ul> <ul class='grid'>";
+	}	
+}
+$html.=<<<cd
+	</ul>
             </div>
         </div>
         <div class="clear"></div>
