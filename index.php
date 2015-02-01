@@ -127,9 +127,12 @@ cd;
 	{
 		$html.="</ul> <ul class='grid'>";
 	}	
-}
+}	
+	if (($i)%2 != 0 )
+	{
+		$html.=" </ul> ";
+	}	
 $html.=<<<cd
-	</ul>
             </div>
         </div>
         <div class="clear"></div>
