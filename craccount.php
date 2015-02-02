@@ -82,7 +82,7 @@ $html2=<<<cd
 			</div>
 			<div class="required form-group rtl">
 				<label for="email">ایمیل <sup>*</sup></label>
-				<input type="text" class="is_required validate form-control" id="email" name="email" value="">
+				<input type="text" class="is_required validate form-control" id="email" name="email" value="{$_GET['email']}">
 			</div>
 			<div class="required password form-group rtl">
 				<label for="passwd">رمز عبور <sup>*</sup></label>

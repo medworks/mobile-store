@@ -30,7 +30,12 @@ else
 		{ 
 			$msgs = $msg->ShowError("نام کاربری یا کلمه عبور اشتباه می باشد !");			
 		}	
-	}   
+	}  
+    else
+	if (isset ($_POST["mark"]) AND $_POST["mark"] == "newacc")
+    {
+		header("Location: ./craccount.php?email={$_POST['edtemail']}");	
+	}	
 
 $html1=<<<cd
 <body id="product" class="product product-20 product-printed-summer-dress category-11 category-camcorder hide-right-column lang_en">
@@ -73,17 +78,18 @@ $html2=<<<cd
 					<p style="font-size:20px">لطفا آدرس ایمیل خود را وارد نمایید.</p>
 					<div class="alert alert-danger" id="create_account_error" style="display:none"></div>
 					<div class="form-group">
-						<label for="email_create">Email address</label>
-						<input type="text" class="is_required validate account_input form-control" data-validate="isEmail" id="email_create" name="email_create" value="">
+						<label for="email_create">ایمیل</label>
+						<input type="text" class="is_required validate account_input form-control" data-validate="isEmail" id="edtemail" name="edtemail" value="">
 					</div>
 					<div class="submit">
-						<input type="hidden" class="hidden" name="back" value="">			<button class="btn btn-default button button-medium exclusive" type="submit" id="SubmitCreate" name="SubmitCreate">
+						<input type="hidden" class="hidden" name="back" value="">			
+						<button class="btn btn-default button button-medium exclusive" type="submit" id="SubmitCreate" name="SubmitCreate">
 								<span>
 									<i class="icon-user left"></i>
 									ایجاد حساب
 								</span>
-							</button>
-						<input type="hidden" class="hidden" name="SubmitCreate" value="Create an account">
+					    </button>
+						<input type="hidden" class="hidden" name="mark" value="newacc">
 					</div>
 				</div>
 			</form>
