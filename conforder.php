@@ -29,28 +29,37 @@ if (isset($_POST["mark"]) and $_POST["mark"]=="confirm")
 	{		
 		//echo " info is :",$val["priceid"],"->",$gqid[$i],"->",$val["id"],"->",$gid[$i],"->",$key,"->",$_SESSION["products"][$key]["qty"],"->",$_POST["qty"][$i],"<br/>";
 		//echo "<br/>",count($gid),"<br/>";
-		for ($j=0;$j<count($qid);$j++)
+		$_SESSION["products"][$key]["qty"] = $_POST["qty"][$i];	
+		/*
+		for ($j=0;$j<count($_POST["gid"]);$j++)
 		{		
-			echo "<br/> $j";
-			if (($gid[$j]==$val["id"]) and ($gqid[$j]==$val["priceid"]))
+			echo "<br/> $j->{$_POST[gid][$j]} = {$val[id]} AND {$_POST[gqid][$j]} = {$val[priceid]} <br/>";
+			if (($_POST["gid"][$j]==$val['id'])&&($_POST["gqid"][$j]==$val['priceid']))
 			{
 				echo ("ok<br/>");
-				$_SESSION["products"][$key]["qty"] = $qty[$j];			
+				$_SESSION["products"][$key]["qty"] = $_POST["qty"][$j];				
 			}
 			else
 			{
-			echo ("Nok<br/>");
+				echo ("Nok<br/>");
+				//break;
 			}
 		}	
+		*/
 		$i++;
 	}
-	/*
+	
 	$db = Database::GetDatabase();
 	$date = date('Y-m-d H:i:s');
-	$fields = array("`regdate`","`clid`","`gpid`","`count`","`status`");				
-	$values = array("'{$date}'","'{$clientid}'","{$lvl}","'{$fn}'");
-	$db->InsertQuery('orders',$fields,$values);
-	*/
+	foreach( $_SESSION["products"] as $key => $val )
+	{
+		// status value : 0 is moalagh, 1 is taeid
+		$fields = array("`regdate`","`clid`","`gqid`","`count`","`status`");				
+		$values = array("'{$date}'","'{$clientid}'","'{$val['priceid']}'","'{$val['qty']}'","'0'");
+		$db->InsertQuery('orders',$fields,$values);
+		//echo $db->cmd;
+	}	
+	
 }
 $html1=<<<cd
 <body id="product" class="product product-20 product-printed-summer-dress category-11 category-camcorder hide-right-column lang_en">
