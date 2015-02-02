@@ -11,8 +11,47 @@ include_once("./lib/Zebra_Pagination.php");
 include_once("classes/seo.php");
 
 $sess = Session::GetSesstion();
-$clientname = $sess->Get("clientname",$row["name"]);
+$clientname = $sess->Get("clientname");
+$clientid = $sess->Get("clientid");
 $cartcount = count($_SESSION["products"]);
+
+$current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+if (isset($_POST["mark"]) and $_POST["mark"]=="confirm")
+{
+	$i = 0;
+	$gid = array();
+	$gqid = array();
+	$qty = array();
+	$gid  = $_POST["gid"];
+	$gqid = $_POST["gqid"];
+	$qty  = $_POST["qty"];
+	foreach( $_SESSION["products"] as $key => $val )
+	{		
+		//echo " info is :",$val["priceid"],"->",$gqid[$i],"->",$val["id"],"->",$gid[$i],"->",$key,"->",$_SESSION["products"][$key]["qty"],"->",$_POST["qty"][$i],"<br/>";
+		//echo "<br/>",count($gid),"<br/>";
+		for ($j=0;$j<count($qid);$j++)
+		{		
+			echo "<br/> $j";
+			if (($gid[$j]==$val["id"]) and ($gqid[$j]==$val["priceid"]))
+			{
+				echo ("ok<br/>");
+				$_SESSION["products"][$key]["qty"] = $qty[$j];			
+			}
+			else
+			{
+			echo ("Nok<br/>");
+			}
+		}	
+		$i++;
+	}
+	/*
+	$db = Database::GetDatabase();
+	$date = date('Y-m-d H:i:s');
+	$fields = array("`regdate`","`clid`","`gpid`","`count`","`status`");				
+	$values = array("'{$date}'","'{$clientid}'","{$lvl}","'{$fn}'");
+	$db->InsertQuery('orders',$fields,$values);
+	*/
+}
 $html1=<<<cd
 <body id="product" class="product product-20 product-printed-summer-dress category-11 category-camcorder hide-right-column lang_en">
 	<div id="page">
@@ -49,6 +88,7 @@ $html2=<<<cd
 		</li>
 	</ul>
 <!-- /Breadcrumb -->
+<form  name="frmconf" id="frmconf" action="" method = "post">
 	<div id="order-detail-content" class="table_block table-responsive">
 		<table id="cart_summary" class="table table-bordered rtl">
 			<thead>
@@ -105,7 +145,7 @@ $html2.=<<<cd
 						</span>
 					</td>
 					<td id="quantity_wanted_p">
-						<input type="text" data-field-row="{$i}" name="qty{$i}" id="qty{$i}" class="text" value="{$cart_itm['qty']}" style="border: 1px solid rgb(227, 226, 226);width:58px;font-size:15px;font-family:'bmitra'">
+						<input type="text" data-field-row="{$i}" name="qty[]" id="qty{$i}" class="text" value="{$cart_itm['qty']}" style="border: 1px solid rgb(227, 226, 226);width:58px;font-size:15px;font-family:'bmitra'">
 						<a href="#" data-field-qty="qty{$i}" data-field-row="{$i}" class="btn btn-default button-minus product_quantity_down" style="margin-top:5px">
 							<span><i class="icon-minus"></i></span>
 						</a>
@@ -117,6 +157,9 @@ $html2.=<<<cd
 					<td id="quality_wanted_p">
 						{$cart_itm["quality"]}
 						<span class="clearfix"></span>
+						<input type="hidden" name="gid[]" value="{$cart_itm["id"]} " />
+						<input type="hidden" name="qid[]" value="{$cart_itm["quality"]} " />
+						<input type="hidden" name="gqid[]" value="{$cart_itm["priceid"]} " />
 					</td>
 					<td class="cart_total" data-title="Total">
 						<span class="price totalprice" id="total_price_{$i}">{$subtotal}</span>
@@ -133,8 +176,10 @@ $html2.=<<<cd
 			</tbody>
 		</table>
 	</div>
+		<input type="hidden" name="mark" value="confirm" />
+	</form>
 	<p class="cart_navigation clearfix">
-		<a href="authenticate.php" class="button btn btn-default standard-checkout button-medium" title="تایید خرید" style="font-size:18px;padding:18px 10px">
+		<a id="submit" href="#" class="button btn btn-default standard-checkout button-medium" title="تایید خرید" style="font-size:18px;padding:18px 10px">
 			<span style="padding:0">تایید خرید</span>
 		</a>
 	</p>
@@ -142,6 +187,10 @@ $html2.=<<<cd
 <script type="text/javascript">
 var sumPrice =0;
 		$(document).ready(function(){
+		
+		$('a#submit').click( function() {		 
+		 $('#frmconf').submit();
+		});
 		
 		$.each($('.totalprice'), function() {    
 			sumPrice += parseInt($(this).text());
