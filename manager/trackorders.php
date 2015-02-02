@@ -20,7 +20,7 @@
 	if ($_GET['act']=="del")
 	{
 		$db->Delete("news"," id",$_GET["did"]);		
-		header('location:editnews.php?act=new');	
+		header('location:trackorders.php?act=new');	
 	}		
     
 $html.=<<<cd
@@ -75,13 +75,13 @@ cd;
 
 	$pagination->navigation_position("right");
 
-	$reccount = $db->CountAll("news");
+	$reccount = $db->CountAll("orders");
 	$pagination->records($reccount); 
 	
     $pagination->records_per_page($records_per_page);	
 
 $rows = $db->SelectAll(
-				"news",
+				"orders",
 				"*",
 				NULL,
 				"id ASC",
@@ -93,42 +93,29 @@ $vals = array();
 for($i = 0; $i < Count($rows); $i++)
 {
 $rownumber = $i+1;
-$rows[$i]["subject"] =(mb_strlen($rows[$i]["subject"])>20)?mb_substr($rows[$i]["subject"],0,20,"UTF-8")."...":$rows[$i]["subject"];
-$rows[$i]["text"] =(mb_strlen($rows[$i]["text"])>20)?mb_substr($rows[$i]["text"],0,20,"UTF-8")."...":$rows[$i]["text"];
-$vals = "";
-if ($rows[$i]['smid']!=0)
-{
-	$row = $db->Select("submenues","*","id={$rows[$i]['smid']}","id ASC");	
-	$vals[] = $row["name"];
-		
-	while($row["pid"]!=0)
-	{
-		$row = $db->Select("submenues","*","id={$row['pid']}","id ASC");
-		$vals[] = $row["name"];
-	}
-    
-	$row = $db->Select("menues","*","id={$row['mid']}","id ASC");	
-	$vals[] = $row["name"];
-}
-else
-{
-		$row = $db->Select("categories","*","id={$rows[$i]['gid']}","id ASC");	
-		$vals[] = "";
-		$vals[] = "";
-		$vals[] = $row["name"];
+$rows[$i]["regdate"] = ToJalali($rows[$i]["regdate"],"Y/m/d H:i");
+$rows[$i]["clid"] = $db->Select("clients","name"," id = {$rows[$i]["clid"]}")[0];
+$gqid = $db->Select("gquality","*"," id = {$rows[$i]["gqid"]}");
+$gname = $db->Select("goods","*"," id = {$gqid[gid]}");
+$brand  = $db->Select("brands","*"," id = {$gname['bid']}");
+$group  = $db->Select("groups","*"," id = {$gname['gid']}");
+
+$rows[$i]["gpid"] = $gname["name"];
+if ($rows[$i]["status"] == 0)
+{	
+	$rows[$i]["status"] = "معلق";
 }	
 $html.=<<<cd
 
                                                 
                                             <tr>
                                                 <td>{$rownumber}</td>
-                                                <td>{$rows[$i]["subject"]}</td>
-                                                <td>{$rows[$i]["text"]}</td>
-                                                <td>
-                                                    <span class="label label-success">{$vals[2]}</span>
-                                                    <span class="label label-info">{$vals[1]}</span>
-                                                    <span class="label label-warning">{$vals[0]}</span>                        
-                                                </td>
+                                                <td>{$rows[$i]["regdate"]}</td>
+                                                <td>{$rows[$i]["clid"]}</td>
+                                                <td>{$gname["name"]} </td>
+												<td>{$group["name"]} </td>
+												<td>{$brand["name"]} </td>
+												<td>{$rows[$i]["count"]} </td>
                                                 <td class="text-center">
 												<a href="ordersdetail.php?act=edit&did={$rows[$i]["id"]}"  >					
                                                     <button class="btn btn-xs btn-warning" title="مشاهده جزئیات"><i class="fa fa-eye"></i></button>
