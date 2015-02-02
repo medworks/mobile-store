@@ -247,10 +247,10 @@ $(document).ready(function(){
         e.preventDefault();
         fieldName = $(this).data('field-qty');
 		row = $(this).data('field-row');		
-        var currentVal = parseInt($('input[name='+fieldName+']').val());
-		$('input[name='+fieldName+']').val(currentVal + 1).trigger('keyup');
+        var currentVal = parseInt($('input[id='+fieldName+']').val());
+		$('input[id='+fieldName+']').val(currentVal + 1).trigger('keyup');
 		price = $('#product_price_'+row+' span').text();
-		tprice = $('input[name='+fieldName+']').val()*price;
+		tprice = $('input[id='+fieldName+']').val()*price;
 		//alert('#total_price_'+row+' span');
 		$('#total_price_'+row).text(tprice.toString());
     });
@@ -259,14 +259,14 @@ $(document).ready(function(){
         e.preventDefault();
         fieldName = $(this).data('field-qty');
 		row = $(this).data('field-row');
-        var currentVal = parseInt($('input[name='+fieldName+']').val());
+        var currentVal = parseInt($('input[id='+fieldName+']').val());
         if (!isNaN(currentVal) && currentVal > 1) {
-            $('input[name='+fieldName+']').val(currentVal - 1).trigger('keyup');
+            $('input[id='+fieldName+']').val(currentVal - 1).trigger('keyup');
         } else {
-            $('input[name='+fieldName+']').val(1);
+            $('input[id='+fieldName+']').val(1);
         }
 		price = $('#product_price_'+row+' span').text();
-		tprice = $('input[name='+fieldName+']').val()*price;
+		tprice = $('input[id='+fieldName+']').val()*price;
 		//alert('#total_price_'+row+' span');
 		$('#total_price_'+row).text(tprice.toString()); 				
     });
