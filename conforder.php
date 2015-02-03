@@ -133,6 +133,8 @@ $html2=<<<cd
 			<tbody>
 cd;
 
+if (count($_SESSION["products"])>0)
+{
 $i=0;
 foreach ($_SESSION["products"] as $cart_itm) 
 {
@@ -180,6 +182,7 @@ $html2.=<<<cd
 					</td>
 				</tr>
 cd;
+}
 }
 $html2.=<<<cd
 			</tbody>
