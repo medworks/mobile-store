@@ -59,7 +59,7 @@ if (isset($_POST["mark"]) and $_POST["mark"]=="confirm")
 		$db->InsertQuery('orders',$fields,$values);
 		//echo $db->cmd;
 	}	
-	
+	header("Location: ./conforder.php"); 
 }
 $html1=<<<cd
 <body id="product" class="product product-20 product-printed-summer-dress category-11 category-camcorder hide-right-column lang_en">
