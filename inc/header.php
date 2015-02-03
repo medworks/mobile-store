@@ -1,6 +1,14 @@
 <?php
-header('Content-Type: text/html; charset=UTF-8');
-
+	header('Content-Type: text/html; charset=UTF-8');
+	include_once("./config.php");
+	include_once("./classes/database.php");
+	include_once("./classes/functions.php");
+	
+	$Site_Title = GetSettingValue('Site_Title',0);
+	$Site_KeyWords = GetSettingValue('Site_KeyWords',0);
+	$Site_Describtion = GetSettingValue('Site_Describtion',0);
+	$Contact_Email = GetSettingValue('Contact_Email',0);				
+	$Tell_Number = GetSettingValue('Tell_Number',0);	
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 " lang="fa"><![endif]-->
@@ -9,14 +17,12 @@ header('Content-Type: text/html; charset=UTF-8');
 <!--[if gt IE 8]> <html class="no-js ie9" lang="fa"><![endif]-->
 <html lang="fa">
 <head>
-<title>فروشگاه تجهیزات موبایل</title>
-
 <meta charset="utf-8">
-<title>فروشگاه لوازم موبایل</title>
+<title><?php echo $Site_Title?></title>
 <meta name="google-site-verification" content="" />
 <meta name="msvalidate.01" content="" />
-<meta name="description" content="" />
-<meta name="keywords" content="" />
+<meta name="description" content="<?php echo $Site_Describtion;?>" />
+<meta name="keywords" content="<?php echo $Site_KeyWords;?>" />
 <meta name="author" content="Mediateq.ir" />
 <meta name="generator" content="Powered by Mediateq CMS panel" />
 <meta name="googlebot" content="INDEX,FOLLOW" />
