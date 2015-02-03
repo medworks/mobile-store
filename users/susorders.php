@@ -118,7 +118,7 @@ $html.=<<<cd
 												<td>{$brand["name"]} </td>
 												<td>{$rows[$i]["count"]} </td>
                                                 <td class="text-center">
-												<a href="ordersdetail.php?act=edit&did={$rows[$i]["id"]}"  >					
+												<a href="#"  >					
                                                     <button class="btn btn-xs btn-warning" title="مشاهده جزئیات"><i class="fa fa-eye"></i></button>
 												</a>	
                                                 </td>
