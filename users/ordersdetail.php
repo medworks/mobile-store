@@ -9,11 +9,11 @@
     include_once("../lib/persiandate.php"); 
 
     $login = Login::GetLogin();
-    if (!$login->IsLogged())
-    {
-        header("Location: ../index.php");
-        die(); // solve a security bug
-    }
+    if (!$login->IsUserLogged())
+	{
+		header("Location: ../index.php");
+		die(); //solve security bug
+	}		
     $db = Database::GetDatabase();
     
        
