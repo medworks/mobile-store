@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	include_once("../config.php");
 	include_once("../classes/functions.php");
   	include_once("../classes/messages.php");
@@ -21,7 +22,9 @@
 		$db->Delete("orders"," id",$_GET["did"]);		
 		header('location:myorders.php?act=new');	
 	}		
-    
+    $sess = Session::GetSesstion();
+	$clientname = $sess->Get("clientname");
+	$clientid = $sess->Get("clientid");
 $html.=<<<cd
     <!--Page main section start-->
     <section id="min-wrapper">
@@ -75,7 +78,7 @@ cd;
 
 	$pagination->navigation_position("right");
 
-	$reccount = $db->CountOf("orders"," status = '1'");
+	$reccount = $db->CountOf("orders"," clid='{$clientid}' AND status = '1'");
 	$pagination->records($reccount); 
 	
     $pagination->records_per_page($records_per_page);	
@@ -83,7 +86,7 @@ cd;
 $rows = $db->SelectAll(
 				"orders",
 				"*",
-				" status = '1'",
+				"  clid='{$clientid}' AND status = '1'",
 				"id ASC",
 				($pagination->get_page() - 1) * $records_per_page,
 				$records_per_page);
