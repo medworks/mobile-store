@@ -18,6 +18,7 @@ $cartcount = count($_SESSION["products"]);
 $current_url = base64_encode($url="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 if (isset($_POST["mark"]) and $_POST["mark"]=="confirm")
 {
+	//echo "confirm";
 	$i = 0;
 	$gid = array();
 	$gqid = array();
@@ -29,23 +30,23 @@ if (isset($_POST["mark"]) and $_POST["mark"]=="confirm")
 	{		
 		//echo " info is :",$val["priceid"],"->",$gqid[$i],"->",$val["id"],"->",$gid[$i],"->",$key,"->",$_SESSION["products"][$key]["qty"],"->",$_POST["qty"][$i],"<br/>";
 		//echo "<br/>",count($gid),"<br/>";
-		$_SESSION["products"][$key]["qty"] = $_POST["qty"][$i];	
-		/*
-		for ($j=0;$j<count($_POST["gid"]);$j++)
+		//$_SESSION["products"][$key]["qty"] = $_POST["qty"][$i];	
+		
+		for ($j=0;$j<count($gid);$j++)
 		{		
-			echo "<br/> $j->{$_POST[gid][$j]} = {$val[id]} AND {$_POST[gqid][$j]} = {$val[priceid]} <br/>";
-			if (($_POST["gid"][$j]==$val['id'])&&($_POST["gqid"][$j]==$val['priceid']))
+			//echo "<br/> $j->{$_POST[gid][$j]} = {$val[id]} AND {$_POST[gqid][$j]} = {$val[priceid]} <br/>";
+			if ((intval($gid[$j])==intval($val['id']))&&(intval($gqid[$j])==intval($val['priceid'])))
 			{
-				echo ("ok<br/>");
-				$_SESSION["products"][$key]["qty"] = $_POST["qty"][$j];				
+				//echo ("ok<br/>");
+				$_SESSION["products"][$key]["qty"] = $qty[$j];				
 			}
 			else
 			{
-				echo ("Nok<br/>");
+				//echo ("Nok<br/>");
 				//break;
 			}
 		}	
-		*/
+		
 		$i++;
 	}
 	
