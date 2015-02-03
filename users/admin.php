@@ -28,6 +28,13 @@
 	   else
 		    echo $mes->ShowError("عملیات خروج با خطا مواجه شد، لطفا مجددا سعی نمایید.");
    }
+   
+    $sess = Session::GetSesstion();
+	$clientname = $sess->Get("clientname");
+    $clientid = $sess->Get("clientid");
+	
+	$client = $db->Select("clients","*"," id = {$clientid}");
+	$client["regdate"] = ToJalali($client["regdate"],"Y/m/d H:i");
   
 $html=<<<cd
     <!--Page main section start-->
@@ -98,7 +105,13 @@ $html=<<<cd
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        عنوان نام و نام خانوادگی-اسم فروشگاه-تاریخ ثبت نام-ایمیل-تلفن ثابت-موبایل-آدرس
+									 <p> نام و نام خانوادگی : {$client["name"]}</p>
+									 <p> نام شرکت / فروشگاه : {$client["company"]}</p>
+									 <p> تاریخ ثبت نام : {$client["regdate"]}</p>
+									 <p> تلفن : {$client["tel"]}</p>
+									 <p> موبایل : {$client["mobile"]}</p>
+									 <p> ایمیل : {$client["email"]}</p>
+									 <p> آدرس : {$client["address"]}</p>
                                     </div>
                                 </div>
                             </div>
