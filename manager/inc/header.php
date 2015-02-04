@@ -173,7 +173,7 @@
                 <ul>
                     <li><a href="brands.php?act=new">تعریف برند</a></li>
                     <li><a href="groups.php?act=new">تعریف گروه</a></li>
-                    <li><a href="addquality.php">تعریف کیفیت</a></li>
+                    <li><a href="addquality.php?act=new">تعریف کیفیت</a></li>
                 </ul>
             </li>
             <li>
