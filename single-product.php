@@ -71,7 +71,7 @@ $html2=<<<cd
 				<div id="thumbs_list">
 					<ul id="thumbs_list_frame" style="width: 1106px;">	
 cd;
-for ($i=0;$i<= count($pics);$i++)
+for ($i=0;$i< count($pics);$i++)
 {
 $html2.=<<<cd
 						<li id="thumbnail_{$i}">
