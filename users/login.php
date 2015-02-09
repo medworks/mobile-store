@@ -55,7 +55,7 @@ $html=<<<cd
     <!-- TODO: Add a favicon -->
     <link rel="shortcut icon" href="./images/fab.ico" />
 
-    <title>Rahyab cms||Mediateq.ir</title>
+    <title> Abnoos Mobile || Mediateq.ir</title>
 
     <!--Page loading plugin Start -->
     <link rel="stylesheet" href="./css/pace-rtl.css" />
