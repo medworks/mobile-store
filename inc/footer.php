@@ -64,8 +64,8 @@ $html=<<<cd
                 <div class="two">
                     <h4>پرفروش ترین ها</h4>
                     <ul>
-                        <li><a href="gavascript:void(0);" title="">اکور اپل</a></li>
-                        <li><a href="gavascript:void(0);" title="">بورد موبایل</a></li>
+                        <li><a href="gavascript:void(0);" title="">ال سی دی</a></li>
+                        <li><a href="gavascript:void(0);" title="">تاچ</a></li>
                         <li><a href="gavascript:void(0);" title="">باطری</a></li>
                         <li><a href="gavascript:void(0);" title="">باطری</a></li>
                     </ul>
@@ -114,23 +114,23 @@ $html=<<<cd
         var added_to_wishlist = 'Added to your wishlist.';
         var ajax_allowed = true;
         var ajaxsearch = true;
-        var baseDir = 'http://prestashop-demos.org/PRS06/PRS060144/';
-        var baseUri = 'http://prestashop-demos.org/PRS06/PRS060144/';
+        var baseDir = '';
+        var baseUri = '';
         var blocksearch_type = 'top';
         var contentOnly = false;
         var customizationIdMessage = 'Customization #';
         var delete_txt = 'Delete';
-        var favorite_products_url_add = 'http://prestashop-demos.org/PRS06/PRS060144/en/module/favoriteproducts/actions?process=add';
-        var favorite_products_url_remove = 'http://prestashop-demos.org/PRS06/PRS060144/en/module/favoriteproducts/actions?process=remove';
+        var favorite_products_url_add = '';
+        var favorite_products_url_remove = '';
         var freeProductTranslation = 'Free!';
         var freeShippingTranslation = 'Free shipping!';
         var id_lang = 1;
-        var img_dir = 'http://prestashop-demos.org/PRS06/PRS060144/themes/PRS060144/img/';
+        var img_dir = '';
         var instantsearch = false;
         var isGuest = 0;
         var isLogged = 0;
         var loggin_required = 'You must be logged in to manage your wishlist.';
-        var mywishlist_url = 'http://prestashop-demos.org/PRS06/PRS060144/en/module/blockwishlist/mywishlist';
+        var mywishlist_url = '';
         var page_name = 'index';
         var placeholder_blocknewsletter = 'Enter your e-mail';
         var priceDisplayMethod = 1;
@@ -138,7 +138,7 @@ $html=<<<cd
         var quickView = true;
         var removingLinkText = 'remove this product from my cart';
         var roundMode = 2;
-        var search_url = 'http://prestashop-demos.org/PRS06/PRS060144/en/search';
+        var search_url = '';
         var static_token = '95b0ad58420de6f608d1631007e0bde2';
         var token = 'fe6aaea9a580e36f76197eea52daf9cf';
         var usingSecureMode = false;
